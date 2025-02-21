@@ -32,6 +32,9 @@ partial class Form1
         textBoxInput = new TextBox();
         label1 = new Label();
         textBoxResultado = new TextBox();
+        button1 = new Button();
+        button2 = new Button();
+        textBoxNth = new TextBox();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -63,7 +66,7 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(12, 107);
+        textBoxResultado.Location = new Point(12, 141);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
@@ -71,11 +74,42 @@ partial class Form1
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
+        // button1
+        // 
+        button1.Location = new Point(128, 66);
+        button1.Name = "button1";
+        button1.Size = new Size(127, 23);
+        button1.TabIndex = 3;
+        button1.Text = "Remove Duplicates";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(261, 66);
+        button2.Name = "button2";
+        button2.Size = new Size(122, 23);
+        button2.TabIndex = 4;
+        button2.Text = "Remove N-th node from List";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
+        // 
+        // textBoxNth
+        // 
+        textBoxNth.Location = new Point(264, 91);
+        textBoxNth.Name = "textBoxNth";
+        textBoxNth.PlaceholderText = "n-th";
+        textBoxNth.Size = new Size(119, 23);
+        textBoxNth.TabIndex = 5;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(textBoxNth);
+        Controls.Add(button2);
+        Controls.Add(button1);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
         Controls.Add(textBoxInput);
@@ -92,4 +126,7 @@ partial class Form1
     private TextBox textBoxInput;
     private Label label1;
     private TextBox textBoxResultado;
+    private Button button1;
+    private Button button2;
+    private TextBox textBoxNth;
 }
