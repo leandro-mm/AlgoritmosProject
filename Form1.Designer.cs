@@ -36,6 +36,7 @@ partial class Form1
         btnRemoveNthNode = new Button();
         textBoxNth = new TextBox();
         btnBynarySerach = new Button();
+        textBoxBinarySerach = new TextBox();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -114,11 +115,19 @@ partial class Form1
         btnBynarySerach.UseVisualStyleBackColor = true;
         btnBynarySerach.Click += btnBynarySerach_Click;
         // 
+        // textBoxBinarySerach
+        // 
+        textBoxBinarySerach.Location = new Point(434, 101);
+        textBoxBinarySerach.Name = "textBoxBinarySerach";
+        textBoxBinarySerach.Size = new Size(100, 23);
+        textBoxBinarySerach.TabIndex = 7;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(textBoxBinarySerach);
         Controls.Add(btnBynarySerach);
         Controls.Add(textBoxNth);
         Controls.Add(btnRemoveNthNode);
@@ -143,4 +152,5 @@ partial class Form1
     private Button btnRemoveNthNode;
     private TextBox textBoxNth;
     private Button btnBynarySerach;
+    private TextBox textBoxBinarySerach;
 }

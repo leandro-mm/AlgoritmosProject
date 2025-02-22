@@ -123,7 +123,44 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
+
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            int elementoToFind = int.Parse(textBoxBinarySerach.Text);
+
+            string resultado = $"Elemento {elementoToFind} não está na lista";
+
+            int left = 0, right = input.Length - 1;
+
+            while(left <= right)
+            {
+                int mid  = (left + right) / 2;
+
+                if (elementoToFind == input[mid])
+                {
+                    resultado = $"Elemento {elementoToFind} está na lista";
+                    break;
+                }
+                
+                if(elementoToFind > mid)
+                {
+                    left = mid+1;                    
+                }
+                else
+                {
+                    right = mid-1;
+                }
+               
+            }
+
+            textBoxResultado.Text = $"Array deve estar ordenado {Environment.NewLine}";
+            textBoxResultado.Text = $"Inicia left = 0, right = list.size-1 {Environment.NewLine }";
+            textBoxResultado.Text += $"while left<= right {Environment.NewLine}";
+            textBoxResultado.Text += $"Calcula a posição do meio do array (left+right)/2 {Environment.NewLine}";
+            textBoxResultado.Text += $"Verifica se o elemento está na posição do meio {Environment.NewLine}";
+            textBoxResultado.Text += $"Se o elemento é maior que a posição do meio left = md+1{Environment.NewLine}";
+            textBoxResultado.Text += $"Se o elemento é menor que a posição do meio right = md-1{Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text = resultado;
         }
         catch (Exception ex)
         {
