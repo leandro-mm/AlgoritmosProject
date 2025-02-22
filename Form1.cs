@@ -132,29 +132,29 @@ public partial class Form1 : Form
 
             int left = 0, right = input.Length - 1;
 
-            while(left <= right)
+            while (left <= right)
             {
-                int mid  = (left + right) / 2;
+                int mid = (left + right) / 2;
 
                 if (elementoToFind == input[mid])
                 {
                     resultado = $"Elemento {elementoToFind} está na lista";
                     break;
                 }
-                
-                if(elementoToFind > mid)
+
+                if (elementoToFind > mid)
                 {
-                    left = mid+1;                    
+                    left = mid + 1;
                 }
                 else
                 {
-                    right = mid-1;
+                    right = mid - 1;
                 }
-               
+
             }
 
             textBoxResultado.Text = $"Array deve estar ordenado {Environment.NewLine}";
-            textBoxResultado.Text = $"Inicia left = 0, right = list.size-1 {Environment.NewLine }";
+            textBoxResultado.Text = $"Inicia left = 0, right = list.size-1 {Environment.NewLine}";
             textBoxResultado.Text += $"while left<= right {Environment.NewLine}";
             textBoxResultado.Text += $"Calcula a posição do meio do array (left+right)/2 {Environment.NewLine}";
             textBoxResultado.Text += $"Verifica se o elemento está na posição do meio {Environment.NewLine}";
@@ -168,7 +168,35 @@ public partial class Form1 : Form
         }
     }
 
-   
+    private void buttonLeftAndRightBoundary_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-    
+            int left = 0, right = input.Length - 1;
+
+            while (left <= right)
+            {
+                textBoxResultado.Text += $"Left está no índice {left}, Right está no índice {right} {Environment.NewLine}";
+                textBoxResultado.Text += $"\t if LeftContidion(left) left-- {Environment.NewLine}";
+                textBoxResultado.Text += $"\t if RightContidion(right) right-- {Environment.NewLine}";
+                textBoxResultado.Text += $"\t if BothRightLeftContidion(right,left) {Environment.NewLine}";
+                if (input[left] % 2 == 0)
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
 }

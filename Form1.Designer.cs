@@ -37,6 +37,7 @@ partial class Form1
         textBoxNth = new TextBox();
         btnBynarySerach = new Button();
         textBoxBinarySerach = new TextBox();
+        buttonLeftAndRightBoundary = new Button();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -68,7 +69,7 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(12, 141);
+        textBoxResultado.Location = new Point(12, 271);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
@@ -107,7 +108,7 @@ partial class Form1
         // 
         // btnBynarySerach
         // 
-        btnBynarySerach.Location = new Point(433, 68);
+        btnBynarySerach.Location = new Point(12, 129);
         btnBynarySerach.Name = "btnBynarySerach";
         btnBynarySerach.Size = new Size(101, 23);
         btnBynarySerach.TabIndex = 6;
@@ -117,16 +118,28 @@ partial class Form1
         // 
         // textBoxBinarySerach
         // 
-        textBoxBinarySerach.Location = new Point(434, 101);
+        textBoxBinarySerach.Location = new Point(13, 162);
         textBoxBinarySerach.Name = "textBoxBinarySerach";
+        textBoxBinarySerach.PlaceholderText = "Elemento to Find";
         textBoxBinarySerach.Size = new Size(100, 23);
         textBoxBinarySerach.TabIndex = 7;
+        // 
+        // buttonLeftAndRightBoundary
+        // 
+        buttonLeftAndRightBoundary.Location = new Point(119, 129);
+        buttonLeftAndRightBoundary.Name = "buttonLeftAndRightBoundary";
+        buttonLeftAndRightBoundary.Size = new Size(145, 23);
+        buttonLeftAndRightBoundary.TabIndex = 8;
+        buttonLeftAndRightBoundary.Text = "Left and Right Boundary";
+        buttonLeftAndRightBoundary.UseVisualStyleBackColor = true;
+        buttonLeftAndRightBoundary.Click += buttonLeftAndRightBoundary_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(buttonLeftAndRightBoundary);
         Controls.Add(textBoxBinarySerach);
         Controls.Add(btnBynarySerach);
         Controls.Add(textBoxNth);
@@ -153,4 +166,5 @@ partial class Form1
     private TextBox textBoxNth;
     private Button btnBynarySerach;
     private TextBox textBoxBinarySerach;
+    private Button buttonLeftAndRightBoundary;
 }
