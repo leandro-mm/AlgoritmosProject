@@ -16,26 +16,8 @@ namespace AlgoritmosProject.Services
                 throw new Exception("Array vazio");
             };
 
-            int slow = 0 ;
-            List<int>  list = new([]);
-
-            for (int fast = 1; fast < inputArray.Length; fast++)
-            {
-
-                if (inputArray[fast] != inputArray[slow])
-                {
-                    list.Add(inputArray[slow]);                    
-                }
-
-                Debug.WriteLine($"slow {slow} fast {fast}");
-
-                slow++;
-                
-            }
-
-            return list.ToArray();
-
-
+            var hashSet = inputArray.ToHashSet();            
+            return hashSet.ToArray();
         }
 
         public static int RemoveDuplicatesNewLength(int[] nums)

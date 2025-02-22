@@ -32,8 +32,8 @@ partial class Form1
         textBoxInput = new TextBox();
         label1 = new Label();
         textBoxResultado = new TextBox();
-        button1 = new Button();
-        button2 = new Button();
+        btnRemoveDuplicatesInPlace = new Button();
+        btnRemoveNthNode = new Button();
         textBoxNth = new TextBox();
         SuspendLayout();
         // 
@@ -74,29 +74,30 @@ partial class Form1
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
-        // button1
+        // btnRemoveDuplicatesInPlace
         // 
-        button1.Location = new Point(128, 66);
-        button1.Name = "button1";
-        button1.Size = new Size(127, 23);
-        button1.TabIndex = 3;
-        button1.Text = "Remove Duplicates";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
+        btnRemoveDuplicatesInPlace.Location = new Point(128, 66);
+        btnRemoveDuplicatesInPlace.Name = "btnRemoveDuplicatesInPlace";
+        btnRemoveDuplicatesInPlace.Size = new Size(167, 23);
+        btnRemoveDuplicatesInPlace.TabIndex = 3;
+        btnRemoveDuplicatesInPlace.Text = "Remove Duplicates In Place";
+        btnRemoveDuplicatesInPlace.TextAlign = ContentAlignment.BottomRight;
+        btnRemoveDuplicatesInPlace.UseVisualStyleBackColor = true;
+        btnRemoveDuplicatesInPlace.Click += btnRemoveDuplicates_Click;
         // 
-        // button2
+        // btnRemoveNthNode
         // 
-        button2.Location = new Point(261, 66);
-        button2.Name = "button2";
-        button2.Size = new Size(122, 23);
-        button2.TabIndex = 4;
-        button2.Text = "Remove N-th node from List";
-        button2.UseVisualStyleBackColor = true;
-        button2.Click += button2_Click;
+        btnRemoveNthNode.Location = new Point(301, 66);
+        btnRemoveNthNode.Name = "btnRemoveNthNode";
+        btnRemoveNthNode.Size = new Size(122, 23);
+        btnRemoveNthNode.TabIndex = 4;
+        btnRemoveNthNode.Text = "Remove N-th node from List";
+        btnRemoveNthNode.UseVisualStyleBackColor = true;
+        btnRemoveNthNode.Click += btnRemoveNthNodeFromList_Click;
         // 
         // textBoxNth
         // 
-        textBoxNth.Location = new Point(264, 91);
+        textBoxNth.Location = new Point(301, 95);
         textBoxNth.Name = "textBoxNth";
         textBoxNth.PlaceholderText = "n-th";
         textBoxNth.Size = new Size(119, 23);
@@ -108,8 +109,8 @@ partial class Form1
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
         Controls.Add(textBoxNth);
-        Controls.Add(button2);
-        Controls.Add(button1);
+        Controls.Add(btnRemoveNthNode);
+        Controls.Add(btnRemoveDuplicatesInPlace);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
         Controls.Add(textBoxInput);
@@ -126,7 +127,7 @@ partial class Form1
     private TextBox textBoxInput;
     private Label label1;
     private TextBox textBoxResultado;
-    private Button button1;
-    private Button button2;
+    private Button btnRemoveDuplicatesInPlace;
+    private Button btnRemoveNthNode;
     private TextBox textBoxNth;
 }
