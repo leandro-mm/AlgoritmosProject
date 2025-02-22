@@ -38,13 +38,19 @@ partial class Form1
         btnBynarySerach = new Button();
         textBoxBinarySerach = new TextBox();
         buttonLeftAndRightBoundary = new Button();
+        buttonTwoSum = new Button();
+        textBoxTwoSum = new TextBox();
+        label3 = new Label();
+        label4 = new Label();
+        groupBox1 = new GroupBox();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
         // 
-        btnFirstDuplicate.Location = new Point(12, 66);
+        btnFirstDuplicate.Location = new Point(12, 85);
         btnFirstDuplicate.Name = "btnFirstDuplicate";
-        btnFirstDuplicate.Size = new Size(110, 23);
+        btnFirstDuplicate.Size = new Size(170, 23);
         btnFirstDuplicate.TabIndex = 0;
         btnFirstDuplicate.Text = "First Duplicate";
         btnFirstDuplicate.UseVisualStyleBackColor = true;
@@ -79,7 +85,7 @@ partial class Form1
         // 
         // btnRemoveDuplicatesInPlace
         // 
-        btnRemoveDuplicatesInPlace.Location = new Point(128, 66);
+        btnRemoveDuplicatesInPlace.Location = new Point(15, 114);
         btnRemoveDuplicatesInPlace.Name = "btnRemoveDuplicatesInPlace";
         btnRemoveDuplicatesInPlace.Size = new Size(167, 23);
         btnRemoveDuplicatesInPlace.TabIndex = 3;
@@ -90,7 +96,7 @@ partial class Form1
         // 
         // btnRemoveNthNode
         // 
-        btnRemoveNthNode.Location = new Point(301, 66);
+        btnRemoveNthNode.Location = new Point(209, 85);
         btnRemoveNthNode.Name = "btnRemoveNthNode";
         btnRemoveNthNode.Size = new Size(122, 23);
         btnRemoveNthNode.TabIndex = 4;
@@ -100,15 +106,15 @@ partial class Form1
         // 
         // textBoxNth
         // 
-        textBoxNth.Location = new Point(301, 95);
+        textBoxNth.Location = new Point(337, 86);
         textBoxNth.Name = "textBoxNth";
         textBoxNth.PlaceholderText = "n-th";
-        textBoxNth.Size = new Size(119, 23);
+        textBoxNth.Size = new Size(40, 23);
         textBoxNth.TabIndex = 5;
         // 
         // btnBynarySerach
         // 
-        btnBynarySerach.Location = new Point(12, 129);
+        btnBynarySerach.Location = new Point(121, 22);
         btnBynarySerach.Name = "btnBynarySerach";
         btnBynarySerach.Size = new Size(101, 23);
         btnBynarySerach.TabIndex = 6;
@@ -118,7 +124,7 @@ partial class Form1
         // 
         // textBoxBinarySerach
         // 
-        textBoxBinarySerach.Location = new Point(13, 162);
+        textBoxBinarySerach.Location = new Point(121, 51);
         textBoxBinarySerach.Name = "textBoxBinarySerach";
         textBoxBinarySerach.PlaceholderText = "Elemento to Find";
         textBoxBinarySerach.Size = new Size(100, 23);
@@ -126,22 +132,75 @@ partial class Form1
         // 
         // buttonLeftAndRightBoundary
         // 
-        buttonLeftAndRightBoundary.Location = new Point(119, 129);
+        buttonLeftAndRightBoundary.Location = new Point(6, 22);
         buttonLeftAndRightBoundary.Name = "buttonLeftAndRightBoundary";
-        buttonLeftAndRightBoundary.Size = new Size(145, 23);
+        buttonLeftAndRightBoundary.Size = new Size(109, 52);
         buttonLeftAndRightBoundary.TabIndex = 8;
         buttonLeftAndRightBoundary.Text = "Left and Right Boundary";
         buttonLeftAndRightBoundary.UseVisualStyleBackColor = true;
         buttonLeftAndRightBoundary.Click += buttonLeftAndRightBoundary_Click;
+        // 
+        // buttonTwoSum
+        // 
+        buttonTwoSum.Location = new Point(228, 22);
+        buttonTwoSum.Name = "buttonTwoSum";
+        buttonTwoSum.Size = new Size(100, 23);
+        buttonTwoSum.TabIndex = 9;
+        buttonTwoSum.Text = "Two Sum";
+        buttonTwoSum.UseVisualStyleBackColor = true;
+        buttonTwoSum.Click += buttonTwoSum_Click;
+        // 
+        // textBoxTwoSum
+        // 
+        textBoxTwoSum.Location = new Point(228, 51);
+        textBoxTwoSum.Name = "textBoxTwoSum";
+        textBoxTwoSum.PlaceholderText = "Two Sum";
+        textBoxTwoSum.Size = new Size(100, 23);
+        textBoxTwoSum.TabIndex = 7;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.BackColor = SystemColors.GradientActiveCaption;
+        label3.Location = new Point(15, 67);
+        label3.Name = "label3";
+        label3.Size = new Size(62, 15);
+        label3.TabIndex = 11;
+        label3.Text = "Duplicates";
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.BackColor = SystemColors.GradientActiveCaption;
+        label4.Location = new Point(209, 67);
+        label4.Name = "label4";
+        label4.Size = new Size(63, 15);
+        label4.TabIndex = 11;
+        label4.Text = "LInked List";
+        // 
+        // groupBox1
+        // 
+        groupBox1.BackColor = SystemColors.GradientActiveCaption;
+        groupBox1.Controls.Add(buttonLeftAndRightBoundary);
+        groupBox1.Controls.Add(btnBynarySerach);
+        groupBox1.Controls.Add(textBoxBinarySerach);
+        groupBox1.Controls.Add(textBoxTwoSum);
+        groupBox1.Controls.Add(buttonTwoSum);
+        groupBox1.Location = new Point(15, 153);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(335, 99);
+        groupBox1.TabIndex = 12;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Left and Rigth Boudary";
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
-        Controls.Add(buttonLeftAndRightBoundary);
-        Controls.Add(textBoxBinarySerach);
-        Controls.Add(btnBynarySerach);
+        Controls.Add(groupBox1);
+        Controls.Add(label4);
+        Controls.Add(label3);
         Controls.Add(textBoxNth);
         Controls.Add(btnRemoveNthNode);
         Controls.Add(btnRemoveDuplicatesInPlace);
@@ -151,6 +210,8 @@ partial class Form1
         Controls.Add(btnFirstDuplicate);
         Name = "Form1";
         Text = "Form1";
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -167,4 +228,9 @@ partial class Form1
     private Button btnBynarySerach;
     private TextBox textBoxBinarySerach;
     private Button buttonLeftAndRightBoundary;
+    private Button buttonTwoSum;
+    private TextBox textBoxTwoSum;
+    private Label label3;
+    private Label label4;
+    private GroupBox groupBox1;
 }

@@ -199,4 +199,46 @@ public partial class Form1 : Form
         }
 
     }
+
+    private void buttonTwoSum_Click(object sender, EventArgs e)
+    {   
+        try
+        {
+            int target = int.Parse(textBoxTwoSum.Text);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            Dictionary<int, int> resultado =  LeftRightBoundary.TwoSum(input, target);
+
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            textBoxResultado.Text = $"utilizar 2 ponteiros inícioe  fim da lista{Environment.NewLine}";
+            textBoxResultado.Text += $"se o pointeiro inicial + ponteiro final é igual ao target, sair{Environment.NewLine}";
+            textBoxResultado.Text += $"se o pointeiro inicial + ponteiro < target move o ponteiro esquerdo +1{Environment.NewLine}";
+            textBoxResultado.Text += $"se o pointeiro inicial + ponteiro > target move o ponteiro direitop para dentro do array{Environment.NewLine}{Environment.NewLine}";
+
+            if (resultado.Count() == 0)
+            {
+                textBoxResultado.Text += $"Nehum par de valor que some {target}";                
+            }
+            else
+            {
+                string texto = "";
+                foreach (var item in resultado)
+                {
+                    texto += $"indíce {item.Key}=> {item.Value}, ";
+                }
+
+                texto += $" é a soma de {target}";
+
+                textBoxResultado.Text += texto;
+            }
+        }
+
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
 }
+
