@@ -35,6 +35,7 @@ partial class Form1
         btnRemoveDuplicatesInPlace = new Button();
         btnRemoveNthNode = new Button();
         textBoxNth = new TextBox();
+        btnBynarySerach = new Button();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -103,11 +104,22 @@ partial class Form1
         textBoxNth.Size = new Size(119, 23);
         textBoxNth.TabIndex = 5;
         // 
+        // btnBynarySerach
+        // 
+        btnBynarySerach.Location = new Point(433, 68);
+        btnBynarySerach.Name = "btnBynarySerach";
+        btnBynarySerach.Size = new Size(101, 23);
+        btnBynarySerach.TabIndex = 6;
+        btnBynarySerach.Text = "Bynary Search";
+        btnBynarySerach.UseVisualStyleBackColor = true;
+        btnBynarySerach.Click += btnBynarySerach_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(btnBynarySerach);
         Controls.Add(textBoxNth);
         Controls.Add(btnRemoveNthNode);
         Controls.Add(btnRemoveDuplicatesInPlace);
@@ -130,4 +142,5 @@ partial class Form1
     private Button btnRemoveDuplicatesInPlace;
     private Button btnRemoveNthNode;
     private TextBox textBoxNth;
+    private Button btnBynarySerach;
 }
