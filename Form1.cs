@@ -1,4 +1,5 @@
 using AlgoritmosProject.Services;
+using System;
 using System.Runtime.Intrinsics.X86;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -201,14 +202,14 @@ public partial class Form1 : Form
     }
 
     private void buttonTwoSum_Click(object sender, EventArgs e)
-    {   
+    {
         try
         {
-            int target = int.Parse(textBoxTwoSum.Text);
+            int target = int.Parse(textBoxTwoFourSum.Text);
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            Dictionary<int, int> resultado =  LeftRightBoundary.TwoSum(input, target);
+            Dictionary<int, int> resultado = LeftRightBoundary.TwoSum(input, target);
 
             GeneralService.ClearTexttBox(textBoxResultado);
 
@@ -219,7 +220,7 @@ public partial class Form1 : Form
 
             if (resultado.Count() == 0)
             {
-                textBoxResultado.Text += $"Nehum par de valor que some {target}";                
+                textBoxResultado.Text += $"Nehum par de valor que some {target}";
             }
             else
             {
@@ -239,6 +240,112 @@ public partial class Form1 : Form
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+    }
+
+    private void buttonFourSum_Click(object sender, EventArgs e)
+    {
+
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            var eresult = LeftRightBoundary.FourSum(input, int.Parse(textBoxTwoFourSum.Text));
+
+            textBoxResultado.Text = $"{string.Join(",", eresult)}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonSort3Colors_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            textBoxResultado.Text += $"Lista Original {string.Join(",", input)}{Environment.NewLine}{Environment.NewLine}";
+
+            SlideWindowsService.Sort3ColorsInPlace(input);
+
+            textBoxResultado.Text += $"Utiliza 3 ponteiros, um para o índice do vermelho, um para o índice do branco e um para o índice do azul{Environment.NewLine}";
+            textBoxResultado.Text += $"Se o índice branco está na posição 1, então troca com indice da cor vermelha{Environment.NewLine}";
+            textBoxResultado.Text += $"Se o índice branco está na posição 2, então troca com indice da azul{Environment.NewLine}{Environment.NewLine}";
+
+            textBoxResultado.Text += $"Lista Final {string.Join(",", input)}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonLongestSubstBySUm_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            int targetSum = int.Parse(textBoxTargetSumLongestSubArray.Text);
+
+            int[] result = SlideWindowsService.FindLongestSubstringBySum(input, targetSum);
+
+            string resultadoConfigurado = result.Count() > 1 ? (result[0] + 1).ToString() + " a " + (result[1] + 1).ToString() : "nenhum";
+
+            textBoxResultado.Text += $"Utiliza 2 ponteiros, para o slide window, um ponteiro para o início e outro para o fim{Environment.NewLine}";
+            textBoxResultado.Text += $"Incrementa o ponteiro da direita ao mesmo que acumula a soma do índice desse ponteiro{Environment.NewLine}";
+            textBoxResultado.Text += $"Quando a soma é igual ao target e a janela é maior que a janela atual, atualiza o array de retorno{Environment.NewLine}";
+            textBoxResultado.Text += $"Continua no loop até a soma ser maior que o target{Environment.NewLine}";
+            textBoxResultado.Text += $"\t subtrai da soma todas os índices do ponteiro da esquerda incrementando esse pointeiro {Environment.NewLine}";
+            textBoxResultado.Text += $"\t enquanto a soma é maior que o target e o ponteiro da esquerda é menor que o da direita{Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"A maior substring de {string.Join(",", input)} que resulta em {targetSum} é {resultadoConfigurado}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonSmalestWindowBySum_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            int targetSum = int.Parse(textBoxTargetSumLongestSubArray.Text);
+
+            int[] result = SlideWindowsService.FindSmalestSubstringBySum(input, targetSum);
+
+            string resultadoConfigurado = result.Count() > 1 ? (result[0] + 1).ToString() + " a " + (result[1] + 1).ToString() : "nenhum";
+
+            textBoxResultado.Text += $"Utiliza o mesmo algoritmo de FindLongestSubstringBySum {Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"\t Só vai funcionar se o input não estiver ordenado {Environment.NewLine}{Environment.NewLine}";
+
+            textBoxResultado.Text += $"Utiliza 2 ponteiros, para o slide window, um ponteiro para o início e outro para o fim{Environment.NewLine}";
+            textBoxResultado.Text += $"Incrementa o ponteiro da direita ao mesmo que acumula a soma do índice desse ponteiro{Environment.NewLine}";
+            textBoxResultado.Text += $"Quando a soma é igual ao target e a janela é menor que a janela atual, atualiza o array de retorno{Environment.NewLine}";
+            textBoxResultado.Text += $"Continua no loop até a soma ser maior que o target{Environment.NewLine}";
+            textBoxResultado.Text += $"\t subtrai da soma todas os índices do ponteiro da esquerda incrementando esse pointeiro {Environment.NewLine}";
+            textBoxResultado.Text += $"\t enquanto a soma é maior que o target e o ponteiro da esquerda é menor que o da direita{Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"A menor substring de {string.Join(",", input)} que resulta em {targetSum} é {resultadoConfigurado}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
     }
 }
 

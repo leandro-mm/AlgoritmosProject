@@ -39,20 +39,34 @@ partial class Form1
         textBoxBinarySerach = new TextBox();
         buttonLeftAndRightBoundary = new Button();
         buttonTwoSum = new Button();
-        textBoxTwoSum = new TextBox();
-        label3 = new Label();
-        label4 = new Label();
+        textBoxTwoFourSum = new TextBox();
         groupBox1 = new GroupBox();
+        buttonFourSum = new Button();
+        tabControl1 = new TabControl();
+        tabPage1 = new TabPage();
+        groupBox2 = new GroupBox();
+        buttonLongestSubstBySUm = new Button();
+        buttonSort3Colors = new Button();
+        textBoxTargetSumLongestSubArray = new TextBox();
+        label2 = new Label();
+        tabPage2 = new TabPage();
+        buttonSmalestWindowBySum = new Button();
         groupBox1.SuspendLayout();
+        tabControl1.SuspendLayout();
+        tabPage1.SuspendLayout();
+        groupBox2.SuspendLayout();
+        tabPage2.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
         // 
-        btnFirstDuplicate.Location = new Point(12, 85);
+        btnFirstDuplicate.ImageAlign = ContentAlignment.TopCenter;
+        btnFirstDuplicate.Location = new Point(20, 19);
         btnFirstDuplicate.Name = "btnFirstDuplicate";
-        btnFirstDuplicate.Size = new Size(170, 23);
+        btnFirstDuplicate.Size = new Size(115, 23);
         btnFirstDuplicate.TabIndex = 0;
         btnFirstDuplicate.Text = "First Duplicate";
+        btnFirstDuplicate.TextAlign = ContentAlignment.TopCenter;
         btnFirstDuplicate.UseVisualStyleBackColor = true;
         btnFirstDuplicate.Click += btnFirstDuplicate_Click;
         // 
@@ -75,19 +89,19 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(12, 271);
+        textBoxResultado.Location = new Point(13, 338);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(758, 167);
+        textBoxResultado.Size = new Size(744, 180);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
         // btnRemoveDuplicatesInPlace
         // 
-        btnRemoveDuplicatesInPlace.Location = new Point(15, 114);
+        btnRemoveDuplicatesInPlace.Location = new Point(20, 48);
         btnRemoveDuplicatesInPlace.Name = "btnRemoveDuplicatesInPlace";
-        btnRemoveDuplicatesInPlace.Size = new Size(167, 23);
+        btnRemoveDuplicatesInPlace.Size = new Size(115, 39);
         btnRemoveDuplicatesInPlace.TabIndex = 3;
         btnRemoveDuplicatesInPlace.Text = "Remove Duplicates In Place";
         btnRemoveDuplicatesInPlace.TextAlign = ContentAlignment.BottomRight;
@@ -96,7 +110,7 @@ partial class Form1
         // 
         // btnRemoveNthNode
         // 
-        btnRemoveNthNode.Location = new Point(209, 85);
+        btnRemoveNthNode.Location = new Point(9, 40);
         btnRemoveNthNode.Name = "btnRemoveNthNode";
         btnRemoveNthNode.Size = new Size(122, 23);
         btnRemoveNthNode.TabIndex = 4;
@@ -106,7 +120,7 @@ partial class Form1
         // 
         // textBoxNth
         // 
-        textBoxNth.Location = new Point(337, 86);
+        textBoxNth.Location = new Point(137, 41);
         textBoxNth.Name = "textBoxNth";
         textBoxNth.PlaceholderText = "n-th";
         textBoxNth.Size = new Size(40, 23);
@@ -150,68 +164,157 @@ partial class Form1
         buttonTwoSum.UseVisualStyleBackColor = true;
         buttonTwoSum.Click += buttonTwoSum_Click;
         // 
-        // textBoxTwoSum
+        // textBoxTwoFourSum
         // 
-        textBoxTwoSum.Location = new Point(228, 51);
-        textBoxTwoSum.Name = "textBoxTwoSum";
-        textBoxTwoSum.PlaceholderText = "Two Sum";
-        textBoxTwoSum.Size = new Size(100, 23);
-        textBoxTwoSum.TabIndex = 7;
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.BackColor = SystemColors.GradientActiveCaption;
-        label3.Location = new Point(15, 67);
-        label3.Name = "label3";
-        label3.Size = new Size(62, 15);
-        label3.TabIndex = 11;
-        label3.Text = "Duplicates";
-        // 
-        // label4
-        // 
-        label4.AutoSize = true;
-        label4.BackColor = SystemColors.GradientActiveCaption;
-        label4.Location = new Point(209, 67);
-        label4.Name = "label4";
-        label4.Size = new Size(63, 15);
-        label4.TabIndex = 11;
-        label4.Text = "LInked List";
+        textBoxTwoFourSum.Location = new Point(228, 51);
+        textBoxTwoFourSum.Name = "textBoxTwoFourSum";
+        textBoxTwoFourSum.PlaceholderText = "Two/Four Sum";
+        textBoxTwoFourSum.Size = new Size(181, 23);
+        textBoxTwoFourSum.TabIndex = 7;
         // 
         // groupBox1
         // 
-        groupBox1.BackColor = SystemColors.GradientActiveCaption;
+        groupBox1.BackColor = Color.Transparent;
+        groupBox1.Controls.Add(buttonFourSum);
         groupBox1.Controls.Add(buttonLeftAndRightBoundary);
         groupBox1.Controls.Add(btnBynarySerach);
         groupBox1.Controls.Add(textBoxBinarySerach);
-        groupBox1.Controls.Add(textBoxTwoSum);
+        groupBox1.Controls.Add(textBoxTwoFourSum);
         groupBox1.Controls.Add(buttonTwoSum);
-        groupBox1.Location = new Point(15, 153);
+        groupBox1.Location = new Point(272, 18);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(335, 99);
+        groupBox1.Size = new Size(417, 99);
         groupBox1.TabIndex = 12;
         groupBox1.TabStop = false;
         groupBox1.Text = "Left and Rigth Boudary";
+        // 
+        // buttonFourSum
+        // 
+        buttonFourSum.Location = new Point(334, 22);
+        buttonFourSum.Name = "buttonFourSum";
+        buttonFourSum.Size = new Size(75, 23);
+        buttonFourSum.TabIndex = 13;
+        buttonFourSum.Text = "Four Sum";
+        buttonFourSum.UseVisualStyleBackColor = true;
+        buttonFourSum.Click += buttonFourSum_Click;
+        // 
+        // tabControl1
+        // 
+        tabControl1.Controls.Add(tabPage1);
+        tabControl1.Controls.Add(tabPage2);
+        tabControl1.Location = new Point(13, 56);
+        tabControl1.Name = "tabControl1";
+        tabControl1.SelectedIndex = 0;
+        tabControl1.Size = new Size(748, 276);
+        tabControl1.TabIndex = 15;
+        // 
+        // tabPage1
+        // 
+        tabPage1.Controls.Add(groupBox2);
+        tabPage1.Controls.Add(label2);
+        tabPage1.Controls.Add(groupBox1);
+        tabPage1.Controls.Add(btnRemoveNthNode);
+        tabPage1.Controls.Add(textBoxNth);
+        tabPage1.Location = new Point(4, 24);
+        tabPage1.Name = "tabPage1";
+        tabPage1.Padding = new Padding(3);
+        tabPage1.Size = new Size(740, 248);
+        tabPage1.TabIndex = 0;
+        tabPage1.Text = "Two Pointers";
+        tabPage1.UseVisualStyleBackColor = true;
+        // 
+        // groupBox2
+        // 
+        groupBox2.Controls.Add(buttonSmalestWindowBySum);
+        groupBox2.Controls.Add(buttonLongestSubstBySUm);
+        groupBox2.Controls.Add(buttonSort3Colors);
+        groupBox2.Controls.Add(textBoxTargetSumLongestSubArray);
+        groupBox2.Location = new Point(272, 126);
+        groupBox2.Name = "groupBox2";
+        groupBox2.Size = new Size(417, 116);
+        groupBox2.TabIndex = 14;
+        groupBox2.TabStop = false;
+        groupBox2.Text = "Slide Window";
+        // 
+        // buttonLongestSubstBySUm
+        // 
+        buttonLongestSubstBySUm.Location = new Point(120, 22);
+        buttonLongestSubstBySUm.Name = "buttonLongestSubstBySUm";
+        buttonLongestSubstBySUm.Size = new Size(91, 54);
+        buttonLongestSubstBySUm.TabIndex = 1;
+        buttonLongestSubstBySUm.Text = "Find Longest Subarray By Sum";
+        buttonLongestSubstBySUm.UseVisualStyleBackColor = true;
+        buttonLongestSubstBySUm.Click += buttonLongestSubstBySUm_Click;
+        // 
+        // buttonSort3Colors
+        // 
+        buttonSort3Colors.Location = new Point(6, 22);
+        buttonSort3Colors.Name = "buttonSort3Colors";
+        buttonSort3Colors.Size = new Size(108, 54);
+        buttonSort3Colors.TabIndex = 0;
+        buttonSort3Colors.Text = "Sort 3 Colors";
+        buttonSort3Colors.UseVisualStyleBackColor = true;
+        buttonSort3Colors.Click += buttonSort3Colors_Click;
+        // 
+        // textBoxTargetSumLongestSubArray
+        // 
+        textBoxTargetSumLongestSubArray.Location = new Point(121, 77);
+        textBoxTargetSumLongestSubArray.Name = "textBoxTargetSumLongestSubArray";
+        textBoxTargetSumLongestSubArray.PlaceholderText = "Target Sum";
+        textBoxTargetSumLongestSubArray.Size = new Size(171, 23);
+        textBoxTargetSumLongestSubArray.TabIndex = 5;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+        label2.Location = new Point(9, 18);
+        label2.Name = "label2";
+        label2.Size = new Size(122, 15);
+        label2.TabIndex = 13;
+        label2.Text = "Slow and fast runner";
+        // 
+        // tabPage2
+        // 
+        tabPage2.Controls.Add(btnFirstDuplicate);
+        tabPage2.Controls.Add(btnRemoveDuplicatesInPlace);
+        tabPage2.Location = new Point(4, 24);
+        tabPage2.Name = "tabPage2";
+        tabPage2.Padding = new Padding(3);
+        tabPage2.Size = new Size(740, 248);
+        tabPage2.TabIndex = 1;
+        tabPage2.Text = "In Place";
+        tabPage2.UseVisualStyleBackColor = true;
+        // 
+        // buttonSmalestWindowBySum
+        // 
+        buttonSmalestWindowBySum.Location = new Point(217, 22);
+        buttonSmalestWindowBySum.Name = "buttonSmalestWindowBySum";
+        buttonSmalestWindowBySum.Size = new Size(75, 54);
+        buttonSmalestWindowBySum.TabIndex = 6;
+        buttonSmalestWindowBySum.Text = "Find Smalest Subarray By Sum";
+        buttonSmalestWindowBySum.UseVisualStyleBackColor = true;
+        buttonSmalestWindowBySum.Click += buttonSmalestWindowBySum_Click;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
-        Controls.Add(groupBox1);
-        Controls.Add(label4);
-        Controls.Add(label3);
-        Controls.Add(textBoxNth);
-        Controls.Add(btnRemoveNthNode);
-        Controls.Add(btnRemoveDuplicatesInPlace);
+        ClientSize = new Size(777, 530);
+        Controls.Add(tabControl1);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
         Controls.Add(textBoxInput);
-        Controls.Add(btnFirstDuplicate);
         Name = "Form1";
         Text = "Form1";
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
+        tabControl1.ResumeLayout(false);
+        tabPage1.ResumeLayout(false);
+        tabPage1.PerformLayout();
+        groupBox2.ResumeLayout(false);
+        groupBox2.PerformLayout();
+        tabPage2.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -229,8 +332,16 @@ partial class Form1
     private TextBox textBoxBinarySerach;
     private Button buttonLeftAndRightBoundary;
     private Button buttonTwoSum;
-    private TextBox textBoxTwoSum;
-    private Label label3;
-    private Label label4;
+    private TextBox textBoxTwoFourSum;
     private GroupBox groupBox1;
+    private Button buttonFourSum;
+    private TabControl tabControl1;
+    private TabPage tabPage1;
+    private TabPage tabPage2;
+    private Label label2;
+    private GroupBox groupBox2;
+    private Button buttonSort3Colors;
+    private Button buttonLongestSubstBySUm;
+    private TextBox textBoxTargetSumLongestSubArray;
+    private Button buttonSmalestWindowBySum;
 }
