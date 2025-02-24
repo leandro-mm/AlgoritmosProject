@@ -374,13 +374,7 @@ public partial class Form1 : Form
             {
 
 
-                MyTreeNode myTreeNode = new(input[0]);
-
-                for (int i = 1; i < input.Length; i++)
-                {
-                    int valor = input[i];
-                    TreeService.Insert(myTreeNode, valor);
-                }
+                MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
 
                 string arvoreSerializada = new TreeService().SerializarTree(myTreeNode);
 
@@ -404,7 +398,34 @@ public partial class Form1 : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
 
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            var result = TreeService.PreOrderTraversalIteratively(myTreeNode);
+
+            textBoxResultado.Text += $"Pre Order Traversal Iteratively {Environment.NewLine}";
+            textBoxResultado.Text += $"Adiciona o root em uma stack {Environment.NewLine}";
+            textBoxResultado.Text += $"faz push na stack e adiciona em uma lista o valor {Environment.NewLine}";
+            textBoxResultado.Text += $"se houver lado direito adiciona{Environment.NewLine}";
+            textBoxResultado.Text += $"se houver lado esquerdo adiciona{Environment.NewLine}";
+            textBoxResultado.Text += $"\t adiciona o lado esquerdo por último para fazer push antes do lado direito (pre order){Environment.NewLine}{Environment.NewLine}";
+
+            string valores = "";
+            foreach (var item in result)
+            {
+                valores += item.ToString()+",";
+            }
+            textBoxResultado.Text += $"{valores}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
     }
 }
 

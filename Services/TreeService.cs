@@ -46,6 +46,18 @@ namespace AlgoritmosProject.Services
             return root;
         }
     
+        public static MyTreeNode InsertFromArray(int[] array)
+        {
+            MyTreeNode myTreeNode = new(array[0]);
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                int valor = array[i];
+                Insert(myTreeNode, valor);
+            }
+
+            return myTreeNode;
+        }
         public void PreOrderTraversal(MyTreeNode root)
         {
             if (root is null)
@@ -56,6 +68,34 @@ namespace AlgoritmosProject.Services
             SbSerializacao.Append(root.val.ToString()).Append(",");
             PreOrderTraversal(root.left);
             PreOrderTraversal(root.right);
+        }
+
+        public static IList<int> PreOrderTraversalIteratively(MyTreeNode root)
+        {
+            if (root == null)
+            {
+                return new List<int>();
+            }
+            else
+            {
+                List<int> preorderList = new List<int>();
+                Stack<MyTreeNode> stack = new Stack<MyTreeNode>();
+                stack.Push(root);
+                while (stack.Count != 0)
+                {
+                    MyTreeNode node = stack.Pop();
+                    preorderList.Add(node.val);
+                    if (node.right != null)
+                    {
+                        stack.Push(node.right);
+                    }
+                    if (node.left != null)
+                    {
+                        stack.Push(node.left);
+                    }
+                }
+                return preorderList;
+            }
         }
     }
 
