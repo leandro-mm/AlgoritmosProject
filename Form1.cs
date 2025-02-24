@@ -23,7 +23,7 @@ public partial class Form1 : Form
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
             int result = InPlaceService.FindFirstDuplicate(input);
-            
+
             textBoxResultado.Text = $"Explicação do algoritmo{Environment.NewLine}";
             textBoxResultado.Text += $"O Array deve sempre começar com 1 {Environment.NewLine}";
             textBoxResultado.Text += $"O array deve estar em sequencia {Environment.NewLine}";
@@ -355,6 +355,55 @@ public partial class Form1 : Form
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+
+    }
+
+    private void buttonSerializarTree_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            if (input.Length == 0)
+            {
+                textBoxResultado.Text = $" Nenhuma informação para processar{Environment.NewLine}";
+            }
+            else
+            {
+
+
+                MyTreeNode myTreeNode = new(input[0]);
+
+                for (int i = 1; i < input.Length; i++)
+                {
+                    int valor = input[i];
+                    TreeService.Insert(myTreeNode, valor);
+                }
+
+                string arvoreSerializada = new TreeService().SerializarTree(myTreeNode);
+
+                textBoxResultado.Text += $" TreeService Insert ... {Environment.NewLine}";
+
+                TreeService service = new TreeService();
+                service.PreOrderTraversal(myTreeNode);
+
+                textBoxResultado.Text += $"PreOrderTraversal {service.SbSerializacao.ToString()}{Environment.NewLine}";
+
+                textBoxResultado.Text += $" Árvore Serializada {arvoreSerializada} ... {Environment.NewLine}";
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
 
     }
 }

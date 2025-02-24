@@ -52,11 +52,17 @@ partial class Form1
         label2 = new Label();
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
+        Tree = new TabPage();
+        label3 = new Label();
+        buttonDeserializarTree = new Button();
+        buttonSerializarTree = new Button();
+        button1 = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         groupBox2.SuspendLayout();
         tabPage2.SuspendLayout();
+        Tree.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -203,6 +209,7 @@ partial class Form1
         // 
         tabControl1.Controls.Add(tabPage1);
         tabControl1.Controls.Add(tabPage2);
+        tabControl1.Controls.Add(Tree);
         tabControl1.Location = new Point(13, 56);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -308,6 +315,57 @@ partial class Form1
         buttonBoyerMooring.UseVisualStyleBackColor = true;
         buttonBoyerMooring.Click += buttonBoyerMooring_Click;
         // 
+        // Tree
+        // 
+        Tree.Controls.Add(button1);
+        Tree.Controls.Add(label3);
+        Tree.Controls.Add(buttonDeserializarTree);
+        Tree.Controls.Add(buttonSerializarTree);
+        Tree.Location = new Point(4, 24);
+        Tree.Name = "Tree";
+        Tree.Size = new Size(740, 248);
+        Tree.TabIndex = 2;
+        Tree.Text = "Tree";
+        Tree.UseVisualStyleBackColor = true;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(150, 33);
+        label3.Name = "label3";
+        label3.Size = new Size(73, 15);
+        label3.TabIndex = 2;
+        label3.Text = "10,9,13,11,12";
+        // 
+        // buttonDeserializarTree
+        // 
+        buttonDeserializarTree.Location = new Point(32, 56);
+        buttonDeserializarTree.Name = "buttonDeserializarTree";
+        buttonDeserializarTree.Size = new Size(113, 23);
+        buttonDeserializarTree.TabIndex = 1;
+        buttonDeserializarTree.Text = "Deserializar Ttree";
+        buttonDeserializarTree.UseVisualStyleBackColor = true;
+        // 
+        // buttonSerializarTree
+        // 
+        buttonSerializarTree.Location = new Point(32, 27);
+        buttonSerializarTree.Name = "buttonSerializarTree";
+        buttonSerializarTree.Size = new Size(113, 23);
+        buttonSerializarTree.TabIndex = 0;
+        buttonSerializarTree.Text = "Serializar Tree";
+        buttonSerializarTree.UseVisualStyleBackColor = true;
+        buttonSerializarTree.Click += buttonSerializarTree_Click;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(32, 85);
+        button1.Name = "button1";
+        button1.Size = new Size(113, 43);
+        button1.TabIndex = 3;
+        button1.Text = "Pre Order Traversal Iteratively";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -327,6 +385,8 @@ partial class Form1
         groupBox2.ResumeLayout(false);
         groupBox2.PerformLayout();
         tabPage2.ResumeLayout(false);
+        Tree.ResumeLayout(false);
+        Tree.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -357,4 +417,9 @@ partial class Form1
     private TextBox textBoxTargetSumLongestSubArray;
     private Button buttonSmalestWindowBySum;
     private Button buttonBoyerMooring;
+    private TabPage Tree;
+    private Button buttonDeserializarTree;
+    private Button buttonSerializarTree;
+    private Label label3;
+    private Button button1;
 }
