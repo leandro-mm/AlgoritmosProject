@@ -45,12 +45,13 @@ partial class Form1
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
         groupBox2 = new GroupBox();
+        buttonSmalestWindowBySum = new Button();
         buttonLongestSubstBySUm = new Button();
         buttonSort3Colors = new Button();
         textBoxTargetSumLongestSubArray = new TextBox();
         label2 = new Label();
         tabPage2 = new TabPage();
-        buttonSmalestWindowBySum = new Button();
+        buttonBoyerMooring = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -236,6 +237,16 @@ partial class Form1
         groupBox2.TabStop = false;
         groupBox2.Text = "Slide Window";
         // 
+        // buttonSmalestWindowBySum
+        // 
+        buttonSmalestWindowBySum.Location = new Point(217, 22);
+        buttonSmalestWindowBySum.Name = "buttonSmalestWindowBySum";
+        buttonSmalestWindowBySum.Size = new Size(75, 54);
+        buttonSmalestWindowBySum.TabIndex = 6;
+        buttonSmalestWindowBySum.Text = "Find Smalest Subarray By Sum";
+        buttonSmalestWindowBySum.UseVisualStyleBackColor = true;
+        buttonSmalestWindowBySum.Click += buttonSmalestWindowBySum_Click;
+        // 
         // buttonLongestSubstBySUm
         // 
         buttonLongestSubstBySUm.Location = new Point(120, 22);
@@ -276,6 +287,7 @@ partial class Form1
         // 
         // tabPage2
         // 
+        tabPage2.Controls.Add(buttonBoyerMooring);
         tabPage2.Controls.Add(btnFirstDuplicate);
         tabPage2.Controls.Add(btnRemoveDuplicatesInPlace);
         tabPage2.Location = new Point(4, 24);
@@ -286,15 +298,15 @@ partial class Form1
         tabPage2.Text = "In Place";
         tabPage2.UseVisualStyleBackColor = true;
         // 
-        // buttonSmalestWindowBySum
+        // buttonBoyerMooring
         // 
-        buttonSmalestWindowBySum.Location = new Point(217, 22);
-        buttonSmalestWindowBySum.Name = "buttonSmalestWindowBySum";
-        buttonSmalestWindowBySum.Size = new Size(75, 54);
-        buttonSmalestWindowBySum.TabIndex = 6;
-        buttonSmalestWindowBySum.Text = "Find Smalest Subarray By Sum";
-        buttonSmalestWindowBySum.UseVisualStyleBackColor = true;
-        buttonSmalestWindowBySum.Click += buttonSmalestWindowBySum_Click;
+        buttonBoyerMooring.Location = new Point(141, 48);
+        buttonBoyerMooring.Name = "buttonBoyerMooring";
+        buttonBoyerMooring.Size = new Size(108, 39);
+        buttonBoyerMooring.TabIndex = 4;
+        buttonBoyerMooring.Text = "Boyer-Moore Majority Voting";
+        buttonBoyerMooring.UseVisualStyleBackColor = true;
+        buttonBoyerMooring.Click += buttonBoyerMooring_Click;
         // 
         // Form1
         // 
@@ -344,4 +356,5 @@ partial class Form1
     private Button buttonLongestSubstBySUm;
     private TextBox textBoxTargetSumLongestSubArray;
     private Button buttonSmalestWindowBySum;
+    private Button buttonBoyerMooring;
 }

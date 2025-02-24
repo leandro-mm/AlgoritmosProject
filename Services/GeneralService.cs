@@ -1,13 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace AlgoritmosProject.Services
 {
     public static class GeneralService
     {
+        public static ListNode? CriarListNodeFromArray(int[] array)
+        {
+            if (array.Length == 0)
+                return null;
+
+            ListNode node = new ListNode(array[0]);
+
+            ListNode head = node;
+
+            for (int i = 1; i < array.Length; i++)
+            {
+                ListNode newNode = new ListNode(array[i]);
+                node.Next = newNode;
+                node = newNode;
+            }
+
+            return head;
+        }
+
         public static string ObterValoresListNode(ListNode? head)
         {
             if (head is null) return string.Empty;

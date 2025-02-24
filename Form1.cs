@@ -22,7 +22,8 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            int result = FirstDuplicateService.FindFirstDuplicate(input);
+            int result = InPlaceService.FindFirstDuplicate(input);
+            
             textBoxResultado.Text = $"Explicação do algoritmo{Environment.NewLine}";
             textBoxResultado.Text += $"O Array deve sempre começar com 1 {Environment.NewLine}";
             textBoxResultado.Text += $"O array deve estar em sequencia {Environment.NewLine}";
@@ -47,12 +48,12 @@ public partial class Form1 : Form
             GeneralService.ClearTexttBox(textBoxResultado);
             var input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            int[] result = RemoveDuplicateService.RemoveDuplicates(input);
+            int[] result = InPlaceService.RemoveDuplicates(input);
 
             textBoxResultado.Text += $"A única forma de eliminar o elemento da sequência é utilizand List<T>, hashSet, Linq(distinct) {Environment.NewLine}";
             textBoxResultado.Text += $"Utilizando uma estrutura de dados teremos: {string.Join(",", result)}{Environment.NewLine}{Environment.NewLine}";
 
-            int newLength = RemoveDuplicateService.RemoveDuplicatesNewLength(input);
+            int newLength = InPlaceService.RemoveDuplicatesNewLength(input);
             textBoxResultado.Text += $"Outra maneira é retornar o novo tamanho da sequencia {Environment.NewLine}";
             textBoxResultado.Text += $"Percorre a sequencia e contabiliza todos os que forems diferentes entre o atual e anterior{Environment.NewLine}{Environment.NewLine}";
             textBoxResultado.Text += $"Sequencia anterior {input.Length} elementos, nova sequência {newLength} elementos"; ;
@@ -70,48 +71,32 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
+
             int elementoAserRemovido = int.Parse(textBoxNth.Text);
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            ListNode? head = null;// new ListNode(input[0]);
-
-            for (int i = 1; i < input.Length; i++)
+            if (input.Length > 0)
             {
-                if (head == null)
-                {
-                    head = new ListNode(input[0]);
-                    ListNode next = new ListNode(input[i]);
-                    head.Next = next;
-                }
-                else
-                {
-                    ListNode? currentNode = head;
-                    while ((currentNode.Next is not null))
-                    {
-                        currentNode = currentNode.Next;
-                    }
+                ListNode? head = GeneralService.CriarListNodeFromArray(input);
 
-                    if (currentNode is not null)
-                    {
-                        ListNode node3 = new ListNode(input[i]);
-                        currentNode.Next = node3;
-                    }
+                string valoresListNode = GeneralService.ObterValoresListNode(head);
 
-                }
+                ListNode resultNode = RemoveNodeService.RemoveNthNodeFromList(head, elementoAserRemovido);
+
+                textBoxResultado.Text += $"O algoritmo utiliza fast and slow pointers{Environment.NewLine}";
+                textBoxResultado.Text += $"Dummy.next = head{Environment.NewLine}";
+                textBoxResultado.Text += $"Fast = slow = Dummy{Environment.NewLine}";
+                textBoxResultado.Text += $"Percorre fast.next n vezes {Environment.NewLine}";
+                textBoxResultado.Text += $"Percorre slow.next até fast.next for null {Environment.NewLine}";
+                textBoxResultado.Text += $"Pula o elemento a ser removido slow.next = slow.next.next {Environment.NewLine}";
+                textBoxResultado.Text += $"Retorna dymmy.nex pois slow é uma referência para dymmy Pula o elemento a ser removido slow.next = slow.next.next {Environment.NewLine}{Environment.NewLine}";
+                textBoxResultado.Text += $"O resultado para remover o {elementoAserRemovido}º elemento da lista {string.Join(",", valoresListNode)} é {string.Join(",", GeneralService.ObterValoresListNode(resultNode))}";
             }
-            string valoresListNode = GeneralService.ObterValoresListNode(head);
-            ListNode resultNode = RemoveNodeService.RemoveNthNodeFromList(head, elementoAserRemovido);
-
-            textBoxResultado.Text += $"O algoritmo utiliza fast and slow pointers{Environment.NewLine}";
-            textBoxResultado.Text += $"Dummy.next = head{Environment.NewLine}";
-            textBoxResultado.Text += $"Fast = slow = Dummy{Environment.NewLine}";
-            textBoxResultado.Text += $"Percorre fast.next n vezes {Environment.NewLine}";
-            textBoxResultado.Text += $"Percorre slow.next até fast.next for null {Environment.NewLine}";
-            textBoxResultado.Text += $"Pula o elemento a ser removido slow.next = slow.next.next {Environment.NewLine}";
-            textBoxResultado.Text += $"Retorna dymmy.nex pois slow é uma referência para dymmy Pula o elemento a ser removido slow.next = slow.next.next {Environment.NewLine}{Environment.NewLine}";
-            textBoxResultado.Text += $"O resultado para remover o {elementoAserRemovido}º elemento da lista {string.Join(",", valoresListNode)} é {string.Join(",", GeneralService.ObterValoresListNode(resultNode))}";
-
+            else
+            {
+                textBoxResultado.Text += $"Nenhum valor encontrado para processar";
+            }
         }
         catch (Exception ex)
         {
@@ -340,6 +325,31 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"\t subtrai da soma todas os índices do ponteiro da esquerda incrementando esse pointeiro {Environment.NewLine}";
             textBoxResultado.Text += $"\t enquanto a soma é maior que o target e o ponteiro da esquerda é menor que o da direita{Environment.NewLine}{Environment.NewLine}";
             textBoxResultado.Text += $"A menor substring de {string.Join(",", input)} que resulta em {targetSum} é {resultadoConfigurado}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonBoyerMooring_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            int majority = InPlaceService.FindMajorityByBoyerMoore(input);
+
+            textBoxResultado.Text += $"A sequencia do imput deve estar ordenada? {Environment.NewLine}";
+            textBoxResultado.Text += $"Seleciona 1 candidato, no algoritmo o 1º elemento{Environment.NewLine}";
+            textBoxResultado.Text += $"Para cada interação, verifica a qtd de ocorrências desse candidato{Environment.NewLine}";
+            textBoxResultado.Text += $"\t se o candidato é o mesmo incrementa um contador, senão decrementa o contador{Environment.NewLine}";
+            textBoxResultado.Text += $"No final verifica se o contador é >- n/2{Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"the majority element among the given elements is {majority}";
+
         }
         catch (Exception ex)
         {
