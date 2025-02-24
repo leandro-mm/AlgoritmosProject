@@ -415,17 +415,42 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"se houver lado esquerdo adiciona{Environment.NewLine}";
             textBoxResultado.Text += $"\t adiciona o lado esquerdo por último para fazer push antes do lado direito (pre order){Environment.NewLine}{Environment.NewLine}";
 
-            string valores = "";
-            foreach (var item in result)
-            {
-                valores += item.ToString()+",";
-            }
-            textBoxResultado.Text += $"{valores}{Environment.NewLine}";
+            string treeSerialized = new TreeService().SerializarTree(myTreeNode); 
+
+            textBoxResultado.Text += $"{treeSerialized}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+    }
+
+    private void buttonDeleteNode_Click(object sender, EventArgs e)
+    {
+        
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            string treeSerialized = new TreeService().SerializarTree(myTreeNode);
+
+            textBoxResultado.Text += $"Tree Before {treeSerialized} {Environment.NewLine}";
+
+            MyTreeNode? treeNodeWithNodeDeleted = TreeService.Delete(myTreeNode, int.Parse(textBoxNodeToDelete.Text));
+
+            treeSerialized = new TreeService().SerializarTree(treeNodeWithNodeDeleted);
+
+            textBoxResultado.Text += $"Tree After {treeSerialized} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
     }
 }
 

@@ -16,11 +16,11 @@ namespace AlgoritmosProject.Services
                 return SbSerializacao.ToString();
             }
 
-            SbSerializacao.Append(root.val.ToString()).Append(",");
+            SbSerializacao.Append(root.Value.ToString()).Append(",");
 
-            SerializarTree(root.left);
+            SerializarTree(root.Left);
 
-            SerializarTree(root.right);
+            SerializarTree(root.Right);
 
             return SbSerializacao.ToString();
         }
@@ -34,13 +34,13 @@ namespace AlgoritmosProject.Services
             }
             else
             {
-                if(val < root.val)
+                if(val < root.Value)
                 {
-                    root.left = Insert(root.left, val);
+                    root.Left = Insert(root.Left, val);
                 }
-                else if(val > root.val)
+                else if(val > root.Value)
                 {
-                    root.right = Insert(root.right, val);
+                    root.Right = Insert(root.Right, val);
                 }
             }
             return root;
@@ -65,11 +65,46 @@ namespace AlgoritmosProject.Services
                 SbSerializacao.Append("null,");
                 return;
             }
-            SbSerializacao.Append(root.val.ToString()).Append(",");
-            PreOrderTraversal(root.left);
-            PreOrderTraversal(root.right);
+            SbSerializacao.Append(root.Value.ToString()).Append(",");
+            PreOrderTraversal(root.Left);
+            PreOrderTraversal(root.Right);
         }
 
+        public static MyTreeNode? Delete(MyTreeNode root, int key)
+        {
+            if (root == null) 
+                return null;
+
+            if (key < root.Value)
+            {
+                root.Left = Delete(root.Left, key);
+            }   
+            else if (key > root.Value)
+            {
+                root.Right = Delete(root.Right, key);
+            }                
+            else
+            { 
+                // Found node to delete
+                if (root.Left == null) 
+                    return root.Right;
+                if (root.Right == null) 
+                    return root.Left;
+
+                // Find in-order successor (smallest in right subtree)
+                MyTreeNode temp = FindMin(root.Right);
+                root.Value = temp.Value;
+                root.Right = Delete(root.Right, temp.Value);
+            }
+            return root;
+        }
+
+        private static MyTreeNode FindMin(MyTreeNode node)
+        {
+            while (node.Left is not null) 
+                node = node.Left;
+            return node;
+        }
         public static IList<int> PreOrderTraversalIteratively(MyTreeNode root)
         {
             if (root == null)
@@ -84,14 +119,14 @@ namespace AlgoritmosProject.Services
                 while (stack.Count != 0)
                 {
                     MyTreeNode node = stack.Pop();
-                    preorderList.Add(node.val);
-                    if (node.right != null)
+                    preorderList.Add(node.Value);
+                    if (node.Right != null)
                     {
-                        stack.Push(node.right);
+                        stack.Push(node.Right);
                     }
-                    if (node.left != null)
+                    if (node.Left != null)
                     {
-                        stack.Push(node.left);
+                        stack.Push(node.Left);
                     }
                 }
                 return preorderList;
@@ -103,9 +138,9 @@ namespace AlgoritmosProject.Services
 
     public class MyTreeNode
     {
-        public int val;
-        public MyTreeNode left;
-        public MyTreeNode right;
-        public MyTreeNode(int x) { val = x; }
+        public int Value;
+        public MyTreeNode Left;
+        public MyTreeNode Right;
+        public MyTreeNode(int x) { Value = x; }
     }
 }

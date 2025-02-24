@@ -53,10 +53,12 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        textBoxNodeToDelete = new TextBox();
+        buttonDeleteNode = new Button();
+        button1 = new Button();
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        button1 = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -317,6 +319,8 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(textBoxNodeToDelete);
+        Tree.Controls.Add(buttonDeleteNode);
         Tree.Controls.Add(button1);
         Tree.Controls.Add(label3);
         Tree.Controls.Add(buttonDeserializarTree);
@@ -327,6 +331,34 @@ partial class Form1
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
+        // 
+        // textBoxNodeToDelete
+        // 
+        textBoxNodeToDelete.Location = new Point(306, 57);
+        textBoxNodeToDelete.Name = "textBoxNodeToDelete";
+        textBoxNodeToDelete.PlaceholderText = "Node to Delete";
+        textBoxNodeToDelete.Size = new Size(100, 23);
+        textBoxNodeToDelete.TabIndex = 5;
+        // 
+        // buttonDeleteNode
+        // 
+        buttonDeleteNode.Location = new Point(306, 29);
+        buttonDeleteNode.Name = "buttonDeleteNode";
+        buttonDeleteNode.Size = new Size(100, 23);
+        buttonDeleteNode.TabIndex = 4;
+        buttonDeleteNode.Text = "Delete Node";
+        buttonDeleteNode.UseVisualStyleBackColor = true;
+        buttonDeleteNode.Click += buttonDeleteNode_Click;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(32, 85);
+        button1.Name = "button1";
+        button1.Size = new Size(113, 43);
+        button1.TabIndex = 3;
+        button1.Text = "Pre Order Traversal Iteratively";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
         // 
         // label3
         // 
@@ -355,16 +387,6 @@ partial class Form1
         buttonSerializarTree.Text = "Serializar Tree";
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
-        // 
-        // button1
-        // 
-        button1.Location = new Point(32, 85);
-        button1.Name = "button1";
-        button1.Size = new Size(113, 43);
-        button1.TabIndex = 3;
-        button1.Text = "Pre Order Traversal Iteratively";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
         // 
         // Form1
         // 
@@ -422,4 +444,6 @@ partial class Form1
     private Button buttonSerializarTree;
     private Label label3;
     private Button button1;
+    private TextBox textBoxNodeToDelete;
+    private Button buttonDeleteNode;
 }
