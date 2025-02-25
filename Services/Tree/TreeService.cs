@@ -59,7 +59,7 @@ namespace AlgoritmosProject.Services.Tree
 
             return myTreeNode;
         }
-        public void PreOrderTraversal(MyTreeNode root)
+        public void PreOrderTraversalByFunction(MyTreeNode root)
         {
             if (root is null)
             {
@@ -67,8 +67,8 @@ namespace AlgoritmosProject.Services.Tree
                 return;
             }
             SbSerializacao.Append(root.Value.ToString()).Append(",");
-            PreOrderTraversal(root.Left);
-            PreOrderTraversal(root.Right);
+            PreOrderTraversalByFunction(root.Left);
+            PreOrderTraversalByFunction(root.Right);
         }
 
         public static MyTreeNode? Delete(MyTreeNode root, int key)
@@ -128,6 +128,38 @@ namespace AlgoritmosProject.Services.Tree
                     if (node.Left != null)
                     {
                         stack.Push(node.Left);
+                    }
+                }
+                return preorderList;
+            }
+        }
+
+        public static IList<int> InOrderTraversalIteratively(MyTreeNode root)
+        {
+            if (root == null)
+            {
+                return new List<int>();
+            }
+            else
+            {
+                List<int> preorderList = new List<int>();
+                
+                Stack<MyTreeNode> stack = new Stack<MyTreeNode>();
+                
+                MyTreeNode node = root;
+
+                while (stack.Count != 0 || node is MyTreeNode)
+                {
+                    if(node is MyTreeNode)
+                    {
+                        stack.Push(node);
+                        node = node.Left;
+                    }
+                    else
+                    {
+                        node = stack.Pop();
+                        preorderList.Add(node.Value);
+                        node = node.Right;
                     }
                 }
                 return preorderList;

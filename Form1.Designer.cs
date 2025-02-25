@@ -61,6 +61,8 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
+        label4 = new Label();
+        buttonTreeInOrderTraversal = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -321,6 +323,8 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(buttonTreeInOrderTraversal);
+        Tree.Controls.Add(label4);
         Tree.Controls.Add(buttonIteratorNext);
         Tree.Controls.Add(buttonIteratorTree);
         Tree.Controls.Add(textBoxNodeToDelete);
@@ -376,7 +380,7 @@ partial class Form1
         // 
         // button1
         // 
-        button1.Location = new Point(32, 85);
+        button1.Location = new Point(36, 166);
         button1.Name = "button1";
         button1.Size = new Size(113, 43);
         button1.TabIndex = 3;
@@ -411,6 +415,26 @@ partial class Form1
         buttonSerializarTree.Text = "Serializar Tree";
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(36, 148);
+        label4.Name = "label4";
+        label4.Size = new Size(52, 15);
+        label4.TabIndex = 8;
+        label4.Text = "Traversal";
+        label4.TextAlign = ContentAlignment.TopCenter;
+        // 
+        // buttonTreeInOrderTraversal
+        // 
+        buttonTreeInOrderTraversal.Location = new Point(155, 166);
+        buttonTreeInOrderTraversal.Name = "buttonTreeInOrderTraversal";
+        buttonTreeInOrderTraversal.Size = new Size(116, 43);
+        buttonTreeInOrderTraversal.TabIndex = 9;
+        buttonTreeInOrderTraversal.Text = "In Order Traversal Iteratively";
+        buttonTreeInOrderTraversal.UseVisualStyleBackColor = true;
+        buttonTreeInOrderTraversal.Click += buttonTreeInOrderTraversal_Click;
         // 
         // Form1
         // 
@@ -472,4 +496,6 @@ partial class Form1
     private Button buttonDeleteNode;
     private Button buttonIteratorNext;
     private Button buttonIteratorTree;
+    private Button buttonTreeInOrderTraversal;
+    private Label label4;
 }

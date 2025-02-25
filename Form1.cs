@@ -382,7 +382,7 @@ public partial class Form1 : Form
                 textBoxResultado.Text += $" TreeService Insert ... {Environment.NewLine}";
 
                 TreeService service = new TreeService();
-                service.PreOrderTraversal(myTreeNode);
+                service.PreOrderTraversalByFunction(myTreeNode);
 
                 textBoxResultado.Text += $"PreOrderTraversal {service.SbSerializacao.ToString()}{Environment.NewLine}";
 
@@ -479,7 +479,7 @@ public partial class Form1 : Form
     {
         try
         {
-            
+
 
             if (bSTIterator == null)
             {
@@ -492,14 +492,35 @@ public partial class Form1 : Form
                 textBoxResultado.Text += $"Tree Element: {bSTIterator.Next()} {Environment.NewLine}";
             }
 
-           
+
         }
         catch (Exception ex)
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
 
-        
+
+    }
+
+    private void buttonTreeInOrderTraversal_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
+
+            textBoxResultado.Text += $"In Order Traversal Iteratively: {string.Join(",", listResult)}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
     }
 }
 
