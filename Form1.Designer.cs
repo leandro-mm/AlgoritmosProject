@@ -53,6 +53,8 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        buttonIteratorNext = new Button();
+        buttonIteratorTree = new Button();
         textBoxNodeToDelete = new TextBox();
         buttonDeleteNode = new Button();
         button1 = new Button();
@@ -319,6 +321,8 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(buttonIteratorNext);
+        Tree.Controls.Add(buttonIteratorTree);
         Tree.Controls.Add(textBoxNodeToDelete);
         Tree.Controls.Add(buttonDeleteNode);
         Tree.Controls.Add(button1);
@@ -331,6 +335,26 @@ partial class Form1
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
+        // 
+        // buttonIteratorNext
+        // 
+        buttonIteratorNext.Location = new Point(412, 95);
+        buttonIteratorNext.Name = "buttonIteratorNext";
+        buttonIteratorNext.Size = new Size(75, 23);
+        buttonIteratorNext.TabIndex = 7;
+        buttonIteratorNext.Text = "Next";
+        buttonIteratorNext.UseVisualStyleBackColor = true;
+        buttonIteratorNext.Click += buttonIteratorNext_Click;
+        // 
+        // buttonIteratorTree
+        // 
+        buttonIteratorTree.Location = new Point(306, 95);
+        buttonIteratorTree.Name = "buttonIteratorTree";
+        buttonIteratorTree.Size = new Size(100, 23);
+        buttonIteratorTree.TabIndex = 6;
+        buttonIteratorTree.Text = "Iterator Tree";
+        buttonIteratorTree.UseVisualStyleBackColor = true;
+        buttonIteratorTree.Click += buttonIteratorTree_Click;
         // 
         // textBoxNodeToDelete
         // 
@@ -446,4 +470,6 @@ partial class Form1
     private Button button1;
     private TextBox textBoxNodeToDelete;
     private Button buttonDeleteNode;
+    private Button buttonIteratorNext;
+    private Button buttonIteratorTree;
 }

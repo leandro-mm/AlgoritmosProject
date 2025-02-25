@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoritmosProject.Services
+namespace AlgoritmosProject.Services.Tree
 {
     public class TreeService
     {
         public StringBuilder SbSerializacao { get; set; } = new();
         public string SerializarTree(MyTreeNode root)
         {
-            if (root is null) {
+            if (root is null)
+            {
                 SbSerializacao.Append("null,");
                 return SbSerializacao.ToString();
             }
@@ -28,24 +29,24 @@ namespace AlgoritmosProject.Services
 
         public static MyTreeNode Insert(MyTreeNode root, int val)
         {
-            if(root is null)
+            if (root is null)
             {
                 root = new MyTreeNode(val);
             }
             else
             {
-                if(val < root.Value)
+                if (val < root.Value)
                 {
                     root.Left = Insert(root.Left, val);
                 }
-                else if(val > root.Value)
+                else if (val > root.Value)
                 {
                     root.Right = Insert(root.Right, val);
                 }
             }
             return root;
         }
-    
+
         public static MyTreeNode InsertFromArray(int[] array)
         {
             MyTreeNode myTreeNode = new(array[0]);
@@ -72,23 +73,23 @@ namespace AlgoritmosProject.Services
 
         public static MyTreeNode? Delete(MyTreeNode root, int key)
         {
-            if (root == null) 
+            if (root == null)
                 return null;
 
             if (key < root.Value)
             {
                 root.Left = Delete(root.Left, key);
-            }   
+            }
             else if (key > root.Value)
             {
                 root.Right = Delete(root.Right, key);
-            }                
+            }
             else
-            { 
+            {
                 // Found node to delete
-                if (root.Left == null) 
+                if (root.Left == null)
                     return root.Right;
-                if (root.Right == null) 
+                if (root.Right == null)
                     return root.Left;
 
                 // Find in-order successor (smallest in right subtree)
@@ -101,7 +102,7 @@ namespace AlgoritmosProject.Services
 
         private static MyTreeNode FindMin(MyTreeNode node)
         {
-            while (node.Left is not null) 
+            while (node.Left is not null)
                 node = node.Left;
             return node;
         }

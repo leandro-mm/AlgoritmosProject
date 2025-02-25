@@ -1,4 +1,5 @@
 using AlgoritmosProject.Services;
+using AlgoritmosProject.Services.Tree;
 using System;
 using System.Runtime.Intrinsics.X86;
 using static System.Net.Mime.MediaTypeNames;
@@ -415,7 +416,7 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"se houver lado esquerdo adiciona{Environment.NewLine}";
             textBoxResultado.Text += $"\t adiciona o lado esquerdo por último para fazer push antes do lado direito (pre order){Environment.NewLine}{Environment.NewLine}";
 
-            string treeSerialized = new TreeService().SerializarTree(myTreeNode); 
+            string treeSerialized = new TreeService().SerializarTree(myTreeNode);
 
             textBoxResultado.Text += $"{treeSerialized}{Environment.NewLine}";
         }
@@ -427,7 +428,7 @@ public partial class Form1 : Form
 
     private void buttonDeleteNode_Click(object sender, EventArgs e)
     {
-        
+
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
@@ -451,6 +452,54 @@ public partial class Form1 : Form
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
 
+    }
+    BSTIterator bSTIterator = null;
+    private void buttonIteratorTree_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            bSTIterator = new BSTIterator(myTreeNode);
+
+            textBoxResultado.Text += $"BSTIterator foi instanciado {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonIteratorNext_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            
+
+            if (bSTIterator == null)
+            {
+                GeneralService.ClearTexttBox(textBoxResultado);
+                textBoxResultado.Text += $"BSTIterator is null {Environment.NewLine}";
+
+            }
+            else
+            {
+                textBoxResultado.Text += $"Tree Element: {bSTIterator.Next()} {Environment.NewLine}";
+            }
+
+           
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+        
     }
 }
 
