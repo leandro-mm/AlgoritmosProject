@@ -522,5 +522,24 @@ public partial class Form1 : Form
         }
 
     }
+
+    private void buttonNroCombinacoes_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int qtd = int.Parse(textBoxQtdCombinacoes.Text);
+
+            int resultado = GeneralService.NumTrees(qtd);
+
+            textBoxResultado.Text += $"Combinacoes {resultado} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
 }
 

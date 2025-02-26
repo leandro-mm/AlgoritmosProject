@@ -53,6 +53,8 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        buttonTreeInOrderTraversal = new Button();
+        label4 = new Label();
         buttonIteratorNext = new Button();
         buttonIteratorTree = new Button();
         textBoxNodeToDelete = new TextBox();
@@ -61,8 +63,8 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        label4 = new Label();
-        buttonTreeInOrderTraversal = new Button();
+        buttonNroCombinacoes = new Button();
+        textBoxQtdCombinacoes = new TextBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -102,11 +104,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 338);
+        textBoxResultado.Location = new Point(13, 364);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(744, 180);
+        textBoxResultado.Size = new Size(744, 154);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -188,15 +190,17 @@ partial class Form1
         // groupBox1
         // 
         groupBox1.BackColor = Color.Transparent;
+        groupBox1.Controls.Add(buttonNroCombinacoes);
         groupBox1.Controls.Add(buttonFourSum);
         groupBox1.Controls.Add(buttonLeftAndRightBoundary);
         groupBox1.Controls.Add(btnBynarySerach);
+        groupBox1.Controls.Add(textBoxQtdCombinacoes);
         groupBox1.Controls.Add(textBoxBinarySerach);
         groupBox1.Controls.Add(textBoxTwoFourSum);
         groupBox1.Controls.Add(buttonTwoSum);
         groupBox1.Location = new Point(272, 18);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(417, 99);
+        groupBox1.Size = new Size(417, 128);
         groupBox1.TabIndex = 12;
         groupBox1.TabStop = false;
         groupBox1.Text = "Left and Rigth Boudary";
@@ -219,7 +223,7 @@ partial class Form1
         tabControl1.Location = new Point(13, 56);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(748, 276);
+        tabControl1.Size = new Size(748, 302);
         tabControl1.TabIndex = 15;
         // 
         // tabPage1
@@ -232,7 +236,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 24);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(740, 248);
+        tabPage1.Size = new Size(740, 274);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Two Pointers";
         tabPage1.UseVisualStyleBackColor = true;
@@ -243,7 +247,7 @@ partial class Form1
         groupBox2.Controls.Add(buttonLongestSubstBySUm);
         groupBox2.Controls.Add(buttonSort3Colors);
         groupBox2.Controls.Add(textBoxTargetSumLongestSubArray);
-        groupBox2.Location = new Point(272, 126);
+        groupBox2.Location = new Point(272, 152);
         groupBox2.Name = "groupBox2";
         groupBox2.Size = new Size(417, 116);
         groupBox2.TabIndex = 14;
@@ -340,6 +344,26 @@ partial class Form1
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
         // 
+        // buttonTreeInOrderTraversal
+        // 
+        buttonTreeInOrderTraversal.Location = new Point(155, 166);
+        buttonTreeInOrderTraversal.Name = "buttonTreeInOrderTraversal";
+        buttonTreeInOrderTraversal.Size = new Size(116, 43);
+        buttonTreeInOrderTraversal.TabIndex = 9;
+        buttonTreeInOrderTraversal.Text = "In Order Traversal Iteratively";
+        buttonTreeInOrderTraversal.UseVisualStyleBackColor = true;
+        buttonTreeInOrderTraversal.Click += buttonTreeInOrderTraversal_Click;
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(36, 148);
+        label4.Name = "label4";
+        label4.Size = new Size(52, 15);
+        label4.TabIndex = 8;
+        label4.Text = "Traversal";
+        label4.TextAlign = ContentAlignment.TopCenter;
+        // 
         // buttonIteratorNext
         // 
         buttonIteratorNext.Location = new Point(412, 95);
@@ -416,25 +440,23 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // label4
+        // buttonNroCombinacoes
         // 
-        label4.AutoSize = true;
-        label4.Location = new Point(36, 148);
-        label4.Name = "label4";
-        label4.Size = new Size(52, 15);
-        label4.TabIndex = 8;
-        label4.Text = "Traversal";
-        label4.TextAlign = ContentAlignment.TopCenter;
+        buttonNroCombinacoes.Location = new Point(6, 90);
+        buttonNroCombinacoes.Name = "buttonNroCombinacoes";
+        buttonNroCombinacoes.Size = new Size(115, 23);
+        buttonNroCombinacoes.TabIndex = 14;
+        buttonNroCombinacoes.Text = "Nro Combinações";
+        buttonNroCombinacoes.UseVisualStyleBackColor = true;
+        buttonNroCombinacoes.Click += buttonNroCombinacoes_Click;
         // 
-        // buttonTreeInOrderTraversal
+        // textBoxQtdCombinacoes
         // 
-        buttonTreeInOrderTraversal.Location = new Point(155, 166);
-        buttonTreeInOrderTraversal.Name = "buttonTreeInOrderTraversal";
-        buttonTreeInOrderTraversal.Size = new Size(116, 43);
-        buttonTreeInOrderTraversal.TabIndex = 9;
-        buttonTreeInOrderTraversal.Text = "In Order Traversal Iteratively";
-        buttonTreeInOrderTraversal.UseVisualStyleBackColor = true;
-        buttonTreeInOrderTraversal.Click += buttonTreeInOrderTraversal_Click;
+        textBoxQtdCombinacoes.Location = new Point(127, 90);
+        textBoxQtdCombinacoes.Name = "textBoxQtdCombinacoes";
+        textBoxQtdCombinacoes.PlaceholderText = "Qtd";
+        textBoxQtdCombinacoes.Size = new Size(40, 23);
+        textBoxQtdCombinacoes.TabIndex = 5;
         // 
         // Form1
         // 
@@ -498,4 +520,6 @@ partial class Form1
     private Button buttonIteratorTree;
     private Button buttonTreeInOrderTraversal;
     private Label label4;
+    private Button buttonNroCombinacoes;
+    private TextBox textBoxQtdCombinacoes;
 }
