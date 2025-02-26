@@ -41,7 +41,9 @@ partial class Form1
         buttonTwoSum = new Button();
         textBoxTwoFourSum = new TextBox();
         groupBox1 = new GroupBox();
+        buttonNroCombinacoes = new Button();
         buttonFourSum = new Button();
+        textBoxQtdCombinacoes = new TextBox();
         tabControl1 = new TabControl();
         tabPage1 = new TabPage();
         groupBox2 = new GroupBox();
@@ -63,8 +65,7 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        buttonNroCombinacoes = new Button();
-        textBoxQtdCombinacoes = new TextBox();
+        buttonNroCombII = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -104,11 +105,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 364);
+        textBoxResultado.Location = new Point(13, 387);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(744, 154);
+        textBoxResultado.Size = new Size(744, 131);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -190,6 +191,7 @@ partial class Form1
         // groupBox1
         // 
         groupBox1.BackColor = Color.Transparent;
+        groupBox1.Controls.Add(buttonNroCombII);
         groupBox1.Controls.Add(buttonNroCombinacoes);
         groupBox1.Controls.Add(buttonFourSum);
         groupBox1.Controls.Add(buttonLeftAndRightBoundary);
@@ -200,10 +202,20 @@ partial class Form1
         groupBox1.Controls.Add(buttonTwoSum);
         groupBox1.Location = new Point(272, 18);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(417, 128);
+        groupBox1.Size = new Size(417, 151);
         groupBox1.TabIndex = 12;
         groupBox1.TabStop = false;
         groupBox1.Text = "Left and Rigth Boudary";
+        // 
+        // buttonNroCombinacoes
+        // 
+        buttonNroCombinacoes.Location = new Point(6, 90);
+        buttonNroCombinacoes.Name = "buttonNroCombinacoes";
+        buttonNroCombinacoes.Size = new Size(126, 23);
+        buttonNroCombinacoes.TabIndex = 14;
+        buttonNroCombinacoes.Text = "Nro Combinações";
+        buttonNroCombinacoes.UseVisualStyleBackColor = true;
+        buttonNroCombinacoes.Click += buttonNroCombinacoes_Click;
         // 
         // buttonFourSum
         // 
@@ -215,6 +227,14 @@ partial class Form1
         buttonFourSum.UseVisualStyleBackColor = true;
         buttonFourSum.Click += buttonFourSum_Click;
         // 
+        // textBoxQtdCombinacoes
+        // 
+        textBoxQtdCombinacoes.Location = new Point(145, 90);
+        textBoxQtdCombinacoes.Name = "textBoxQtdCombinacoes";
+        textBoxQtdCombinacoes.PlaceholderText = "Qtd";
+        textBoxQtdCombinacoes.Size = new Size(40, 23);
+        textBoxQtdCombinacoes.TabIndex = 5;
+        // 
         // tabControl1
         // 
         tabControl1.Controls.Add(tabPage1);
@@ -223,7 +243,7 @@ partial class Form1
         tabControl1.Location = new Point(13, 56);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(748, 302);
+        tabControl1.Size = new Size(748, 325);
         tabControl1.TabIndex = 15;
         // 
         // tabPage1
@@ -236,7 +256,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 24);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(740, 274);
+        tabPage1.Size = new Size(740, 297);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Two Pointers";
         tabPage1.UseVisualStyleBackColor = true;
@@ -247,7 +267,7 @@ partial class Form1
         groupBox2.Controls.Add(buttonLongestSubstBySUm);
         groupBox2.Controls.Add(buttonSort3Colors);
         groupBox2.Controls.Add(textBoxTargetSumLongestSubArray);
-        groupBox2.Location = new Point(272, 152);
+        groupBox2.Location = new Point(272, 175);
         groupBox2.Name = "groupBox2";
         groupBox2.Size = new Size(417, 116);
         groupBox2.TabIndex = 14;
@@ -310,7 +330,7 @@ partial class Form1
         tabPage2.Location = new Point(4, 24);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(740, 248);
+        tabPage2.Size = new Size(740, 274);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "In Place";
         tabPage2.UseVisualStyleBackColor = true;
@@ -339,7 +359,7 @@ partial class Form1
         Tree.Controls.Add(buttonSerializarTree);
         Tree.Location = new Point(4, 24);
         Tree.Name = "Tree";
-        Tree.Size = new Size(740, 248);
+        Tree.Size = new Size(740, 274);
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
@@ -440,23 +460,15 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // buttonNroCombinacoes
+        // buttonNroCombII
         // 
-        buttonNroCombinacoes.Location = new Point(6, 90);
-        buttonNroCombinacoes.Name = "buttonNroCombinacoes";
-        buttonNroCombinacoes.Size = new Size(115, 23);
-        buttonNroCombinacoes.TabIndex = 14;
-        buttonNroCombinacoes.Text = "Nro Combinações";
-        buttonNroCombinacoes.UseVisualStyleBackColor = true;
-        buttonNroCombinacoes.Click += buttonNroCombinacoes_Click;
-        // 
-        // textBoxQtdCombinacoes
-        // 
-        textBoxQtdCombinacoes.Location = new Point(127, 90);
-        textBoxQtdCombinacoes.Name = "textBoxQtdCombinacoes";
-        textBoxQtdCombinacoes.PlaceholderText = "Qtd";
-        textBoxQtdCombinacoes.Size = new Size(40, 23);
-        textBoxQtdCombinacoes.TabIndex = 5;
+        buttonNroCombII.Location = new Point(6, 119);
+        buttonNroCombII.Name = "buttonNroCombII";
+        buttonNroCombII.Size = new Size(126, 23);
+        buttonNroCombII.TabIndex = 15;
+        buttonNroCombII.Text = "Nro Combinações II";
+        buttonNroCombII.UseVisualStyleBackColor = true;
+        buttonNroCombII.Click += buttonNroCombII_Click;
         // 
         // Form1
         // 
@@ -522,4 +534,5 @@ partial class Form1
     private Label label4;
     private Button buttonNroCombinacoes;
     private TextBox textBoxQtdCombinacoes;
+    private Button buttonNroCombII;
 }

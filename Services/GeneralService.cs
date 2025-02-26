@@ -1,4 +1,6 @@
 ﻿
+using AlgoritmosProject.Services.Tree;
+
 namespace AlgoritmosProject.Services
 {
     public static class GeneralService
@@ -108,6 +110,49 @@ namespace AlgoritmosProject.Services
             return possibilities;
         }
 
+        public static IList<MyTreeNode> NumUniqueBST2(int n)
+        {
+            if (n == 0)
+            {
+                return new List<MyTreeNode>();
+            }
+            else
+            {
+                return TreeConstructor(1, n);
+            }
+        }
 
+        private static IList<MyTreeNode?> TreeConstructor(int start, int end)
+        {
+            List<MyTreeNode?> results = new();
+
+            if (start > end)
+            {
+                results.Add(null);
+
+                return results;
+            }
+            for (int i = start; i <= end; i++)
+            {
+                var leftTrees = TreeConstructor(start, i - 1);
+
+                var rightTrees = TreeConstructor(i + 1, end);
+
+                foreach (var leftTree in leftTrees)
+                {
+                    foreach (var rightTree in rightTrees)
+                    {
+                        var currNode = new MyTreeNode(i);
+
+                        currNode.Left = leftTree;
+
+                        currNode.Right = rightTree;
+
+                        results.Add(currNode);
+                    }
+                }
+            }
+            return results;
+        }
     }
 }

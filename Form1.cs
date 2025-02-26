@@ -541,5 +541,29 @@ public partial class Form1 : Form
         }
 
     }
+
+    private void buttonNroCombII_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int qtd = int.Parse(textBoxQtdCombinacoes.Text);
+
+            IList<MyTreeNode> resultado = GeneralService.NumUniqueBST2(qtd);
+
+            string values = "";
+            foreach (var item in resultado)
+            {
+                values += item.Value.ToString()+",";
+            }
+
+            textBoxResultado.Text += $"{resultado.Count} combinacoes: {values} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
 }
 
