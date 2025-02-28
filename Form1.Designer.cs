@@ -41,6 +41,7 @@ partial class Form1
         buttonTwoSum = new Button();
         textBoxTwoFourSum = new TextBox();
         groupBox1 = new GroupBox();
+        buttonNroCombII = new Button();
         buttonNroCombinacoes = new Button();
         buttonFourSum = new Button();
         textBoxQtdCombinacoes = new TextBox();
@@ -55,29 +56,38 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        groupBox5 = new GroupBox();
+        textBoxTargetSum = new TextBox();
+        buttonAllPathSums = new Button();
+        groupBox4 = new GroupBox();
+        buttonLevelOrderTraversal2 = new Button();
+        buttonLevelOrderTraversal = new Button();
         buttonTreeInOrderTraversal = new Button();
-        label4 = new Label();
-        buttonIteratorNext = new Button();
+        button1 = new Button();
+        groupBox3 = new GroupBox();
         buttonIteratorTree = new Button();
+        buttonIteratorNext = new Button();
         textBoxNodeToDelete = new TextBox();
         buttonDeleteNode = new Button();
-        button1 = new Button();
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        buttonNroCombII = new Button();
+        groupBox6 = new GroupBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         groupBox2.SuspendLayout();
         tabPage2.SuspendLayout();
         Tree.SuspendLayout();
+        groupBox5.SuspendLayout();
+        groupBox4.SuspendLayout();
+        groupBox3.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
         // 
         btnFirstDuplicate.ImageAlign = ContentAlignment.TopCenter;
-        btnFirstDuplicate.Location = new Point(20, 19);
+        btnFirstDuplicate.Location = new Point(20, 30);
         btnFirstDuplicate.Name = "btnFirstDuplicate";
         btnFirstDuplicate.Size = new Size(115, 23);
         btnFirstDuplicate.TabIndex = 0;
@@ -105,19 +115,19 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 387);
+        textBoxResultado.Location = new Point(13, 390);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(744, 131);
+        textBoxResultado.Size = new Size(855, 239);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
         // btnRemoveDuplicatesInPlace
         // 
-        btnRemoveDuplicatesInPlace.Location = new Point(20, 48);
+        btnRemoveDuplicatesInPlace.Location = new Point(141, 30);
         btnRemoveDuplicatesInPlace.Name = "btnRemoveDuplicatesInPlace";
-        btnRemoveDuplicatesInPlace.Size = new Size(115, 39);
+        btnRemoveDuplicatesInPlace.Size = new Size(170, 23);
         btnRemoveDuplicatesInPlace.TabIndex = 3;
         btnRemoveDuplicatesInPlace.Text = "Remove Duplicates In Place";
         btnRemoveDuplicatesInPlace.TextAlign = ContentAlignment.BottomRight;
@@ -126,9 +136,9 @@ partial class Form1
         // 
         // btnRemoveNthNode
         // 
-        btnRemoveNthNode.Location = new Point(9, 40);
+        btnRemoveNthNode.Location = new Point(117, 40);
         btnRemoveNthNode.Name = "btnRemoveNthNode";
-        btnRemoveNthNode.Size = new Size(122, 23);
+        btnRemoveNthNode.Size = new Size(175, 23);
         btnRemoveNthNode.TabIndex = 4;
         btnRemoveNthNode.Text = "Remove N-th node from List";
         btnRemoveNthNode.UseVisualStyleBackColor = true;
@@ -136,17 +146,17 @@ partial class Form1
         // 
         // textBoxNth
         // 
-        textBoxNth.Location = new Point(137, 41);
+        textBoxNth.Location = new Point(21, 40);
         textBoxNth.Name = "textBoxNth";
         textBoxNth.PlaceholderText = "n-th";
-        textBoxNth.Size = new Size(40, 23);
+        textBoxNth.Size = new Size(90, 23);
         textBoxNth.TabIndex = 5;
         // 
         // btnBynarySerach
         // 
-        btnBynarySerach.Location = new Point(121, 22);
+        btnBynarySerach.Location = new Point(173, 131);
         btnBynarySerach.Name = "btnBynarySerach";
-        btnBynarySerach.Size = new Size(101, 23);
+        btnBynarySerach.Size = new Size(150, 23);
         btnBynarySerach.TabIndex = 6;
         btnBynarySerach.Text = "Bynary Search";
         btnBynarySerach.UseVisualStyleBackColor = true;
@@ -154,17 +164,17 @@ partial class Form1
         // 
         // textBoxBinarySerach
         // 
-        textBoxBinarySerach.Location = new Point(121, 51);
+        textBoxBinarySerach.Location = new Point(17, 131);
         textBoxBinarySerach.Name = "textBoxBinarySerach";
         textBoxBinarySerach.PlaceholderText = "Elemento to Find";
-        textBoxBinarySerach.Size = new Size(100, 23);
+        textBoxBinarySerach.Size = new Size(150, 23);
         textBoxBinarySerach.TabIndex = 7;
         // 
         // buttonLeftAndRightBoundary
         // 
-        buttonLeftAndRightBoundary.Location = new Point(6, 22);
+        buttonLeftAndRightBoundary.Location = new Point(17, 22);
         buttonLeftAndRightBoundary.Name = "buttonLeftAndRightBoundary";
-        buttonLeftAndRightBoundary.Size = new Size(109, 52);
+        buttonLeftAndRightBoundary.Size = new Size(150, 23);
         buttonLeftAndRightBoundary.TabIndex = 8;
         buttonLeftAndRightBoundary.Text = "Left and Right Boundary";
         buttonLeftAndRightBoundary.UseVisualStyleBackColor = true;
@@ -172,9 +182,9 @@ partial class Form1
         // 
         // buttonTwoSum
         // 
-        buttonTwoSum.Location = new Point(228, 22);
+        buttonTwoSum.Location = new Point(173, 62);
         buttonTwoSum.Name = "buttonTwoSum";
-        buttonTwoSum.Size = new Size(100, 23);
+        buttonTwoSum.Size = new Size(150, 23);
         buttonTwoSum.TabIndex = 9;
         buttonTwoSum.Text = "Two Sum";
         buttonTwoSum.UseVisualStyleBackColor = true;
@@ -182,10 +192,11 @@ partial class Form1
         // 
         // textBoxTwoFourSum
         // 
-        textBoxTwoFourSum.Location = new Point(228, 51);
+        textBoxTwoFourSum.Location = new Point(17, 62);
+        textBoxTwoFourSum.Multiline = true;
         textBoxTwoFourSum.Name = "textBoxTwoFourSum";
         textBoxTwoFourSum.PlaceholderText = "Two/Four Sum";
-        textBoxTwoFourSum.Size = new Size(181, 23);
+        textBoxTwoFourSum.Size = new Size(150, 50);
         textBoxTwoFourSum.TabIndex = 7;
         // 
         // groupBox1
@@ -200,18 +211,28 @@ partial class Form1
         groupBox1.Controls.Add(textBoxBinarySerach);
         groupBox1.Controls.Add(textBoxTwoFourSum);
         groupBox1.Controls.Add(buttonTwoSum);
-        groupBox1.Location = new Point(272, 18);
+        groupBox1.Location = new Point(357, 6);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(417, 151);
+        groupBox1.Size = new Size(417, 266);
         groupBox1.TabIndex = 12;
         groupBox1.TabStop = false;
         groupBox1.Text = "Left and Rigth Boudary";
         // 
+        // buttonNroCombII
+        // 
+        buttonNroCombII.Location = new Point(173, 200);
+        buttonNroCombII.Name = "buttonNroCombII";
+        buttonNroCombII.Size = new Size(150, 22);
+        buttonNroCombII.TabIndex = 15;
+        buttonNroCombII.Text = "Nro Combinações II";
+        buttonNroCombII.UseVisualStyleBackColor = true;
+        buttonNroCombII.Click += buttonNroCombII_Click;
+        // 
         // buttonNroCombinacoes
         // 
-        buttonNroCombinacoes.Location = new Point(6, 90);
+        buttonNroCombinacoes.Location = new Point(173, 171);
         buttonNroCombinacoes.Name = "buttonNroCombinacoes";
-        buttonNroCombinacoes.Size = new Size(126, 23);
+        buttonNroCombinacoes.Size = new Size(150, 23);
         buttonNroCombinacoes.TabIndex = 14;
         buttonNroCombinacoes.Text = "Nro Combinações";
         buttonNroCombinacoes.UseVisualStyleBackColor = true;
@@ -219,9 +240,9 @@ partial class Form1
         // 
         // buttonFourSum
         // 
-        buttonFourSum.Location = new Point(334, 22);
+        buttonFourSum.Location = new Point(173, 89);
         buttonFourSum.Name = "buttonFourSum";
-        buttonFourSum.Size = new Size(75, 23);
+        buttonFourSum.Size = new Size(150, 23);
         buttonFourSum.TabIndex = 13;
         buttonFourSum.Text = "Four Sum";
         buttonFourSum.UseVisualStyleBackColor = true;
@@ -229,10 +250,10 @@ partial class Form1
         // 
         // textBoxQtdCombinacoes
         // 
-        textBoxQtdCombinacoes.Location = new Point(145, 90);
+        textBoxQtdCombinacoes.Location = new Point(17, 172);
         textBoxQtdCombinacoes.Name = "textBoxQtdCombinacoes";
         textBoxQtdCombinacoes.PlaceholderText = "Qtd";
-        textBoxQtdCombinacoes.Size = new Size(40, 23);
+        textBoxQtdCombinacoes.Size = new Size(150, 23);
         textBoxQtdCombinacoes.TabIndex = 5;
         // 
         // tabControl1
@@ -240,10 +261,10 @@ partial class Form1
         tabControl1.Controls.Add(tabPage1);
         tabControl1.Controls.Add(tabPage2);
         tabControl1.Controls.Add(Tree);
-        tabControl1.Location = new Point(13, 56);
+        tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(748, 325);
+        tabControl1.Size = new Size(859, 306);
         tabControl1.TabIndex = 15;
         // 
         // tabPage1
@@ -256,7 +277,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 24);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(740, 297);
+        tabPage1.Size = new Size(851, 278);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Two Pointers";
         tabPage1.UseVisualStyleBackColor = true;
@@ -267,18 +288,18 @@ partial class Form1
         groupBox2.Controls.Add(buttonLongestSubstBySUm);
         groupBox2.Controls.Add(buttonSort3Colors);
         groupBox2.Controls.Add(textBoxTargetSumLongestSubArray);
-        groupBox2.Location = new Point(272, 175);
+        groupBox2.Location = new Point(15, 84);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new Size(417, 116);
+        groupBox2.Size = new Size(311, 116);
         groupBox2.TabIndex = 14;
         groupBox2.TabStop = false;
         groupBox2.Text = "Slide Window";
         // 
         // buttonSmalestWindowBySum
         // 
-        buttonSmalestWindowBySum.Location = new Point(217, 22);
+        buttonSmalestWindowBySum.Location = new Point(102, 51);
         buttonSmalestWindowBySum.Name = "buttonSmalestWindowBySum";
-        buttonSmalestWindowBySum.Size = new Size(75, 54);
+        buttonSmalestWindowBySum.Size = new Size(175, 23);
         buttonSmalestWindowBySum.TabIndex = 6;
         buttonSmalestWindowBySum.Text = "Find Smalest Subarray By Sum";
         buttonSmalestWindowBySum.UseVisualStyleBackColor = true;
@@ -286,9 +307,9 @@ partial class Form1
         // 
         // buttonLongestSubstBySUm
         // 
-        buttonLongestSubstBySUm.Location = new Point(120, 22);
+        buttonLongestSubstBySUm.Location = new Point(102, 22);
         buttonLongestSubstBySUm.Name = "buttonLongestSubstBySUm";
-        buttonLongestSubstBySUm.Size = new Size(91, 54);
+        buttonLongestSubstBySUm.Size = new Size(175, 23);
         buttonLongestSubstBySUm.TabIndex = 1;
         buttonLongestSubstBySUm.Text = "Find Longest Subarray By Sum";
         buttonLongestSubstBySUm.UseVisualStyleBackColor = true;
@@ -296,9 +317,9 @@ partial class Form1
         // 
         // buttonSort3Colors
         // 
-        buttonSort3Colors.Location = new Point(6, 22);
+        buttonSort3Colors.Location = new Point(102, 89);
         buttonSort3Colors.Name = "buttonSort3Colors";
-        buttonSort3Colors.Size = new Size(108, 54);
+        buttonSort3Colors.Size = new Size(175, 21);
         buttonSort3Colors.TabIndex = 0;
         buttonSort3Colors.Text = "Sort 3 Colors";
         buttonSort3Colors.UseVisualStyleBackColor = true;
@@ -306,17 +327,18 @@ partial class Form1
         // 
         // textBoxTargetSumLongestSubArray
         // 
-        textBoxTargetSumLongestSubArray.Location = new Point(121, 77);
+        textBoxTargetSumLongestSubArray.Location = new Point(6, 22);
+        textBoxTargetSumLongestSubArray.Multiline = true;
         textBoxTargetSumLongestSubArray.Name = "textBoxTargetSumLongestSubArray";
         textBoxTargetSumLongestSubArray.PlaceholderText = "Target Sum";
-        textBoxTargetSumLongestSubArray.Size = new Size(171, 23);
+        textBoxTargetSumLongestSubArray.Size = new Size(90, 52);
         textBoxTargetSumLongestSubArray.TabIndex = 5;
         // 
         // label2
         // 
         label2.AutoSize = true;
         label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-        label2.Location = new Point(9, 18);
+        label2.Location = new Point(15, 18);
         label2.Name = "label2";
         label2.Size = new Size(122, 15);
         label2.TabIndex = 13;
@@ -330,16 +352,16 @@ partial class Form1
         tabPage2.Location = new Point(4, 24);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(740, 274);
+        tabPage2.Size = new Size(851, 278);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "In Place";
         tabPage2.UseVisualStyleBackColor = true;
         // 
         // buttonBoyerMooring
         // 
-        buttonBoyerMooring.Location = new Point(141, 48);
+        buttonBoyerMooring.Location = new Point(317, 30);
         buttonBoyerMooring.Name = "buttonBoyerMooring";
-        buttonBoyerMooring.Size = new Size(108, 39);
+        buttonBoyerMooring.Size = new Size(170, 23);
         buttonBoyerMooring.TabIndex = 4;
         buttonBoyerMooring.Text = "Boyer-Moore Majority Voting";
         buttonBoyerMooring.UseVisualStyleBackColor = true;
@@ -347,56 +369,119 @@ partial class Form1
         // 
         // Tree
         // 
-        Tree.Controls.Add(buttonTreeInOrderTraversal);
-        Tree.Controls.Add(label4);
-        Tree.Controls.Add(buttonIteratorNext);
-        Tree.Controls.Add(buttonIteratorTree);
+        Tree.Controls.Add(groupBox6);
+        Tree.Controls.Add(groupBox5);
+        Tree.Controls.Add(groupBox4);
+        Tree.Controls.Add(groupBox3);
         Tree.Controls.Add(textBoxNodeToDelete);
         Tree.Controls.Add(buttonDeleteNode);
-        Tree.Controls.Add(button1);
         Tree.Controls.Add(label3);
         Tree.Controls.Add(buttonDeserializarTree);
         Tree.Controls.Add(buttonSerializarTree);
         Tree.Location = new Point(4, 24);
         Tree.Name = "Tree";
-        Tree.Size = new Size(740, 274);
+        Tree.Size = new Size(851, 278);
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
         // 
+        // groupBox5
+        // 
+        groupBox5.Controls.Add(textBoxTargetSum);
+        groupBox5.Controls.Add(buttonAllPathSums);
+        groupBox5.Location = new Point(451, 110);
+        groupBox5.Name = "groupBox5";
+        groupBox5.Size = new Size(173, 67);
+        groupBox5.TabIndex = 12;
+        groupBox5.TabStop = false;
+        groupBox5.Text = "Path Sum";
+        // 
+        // textBoxTargetSum
+        // 
+        textBoxTargetSum.Location = new Point(114, 24);
+        textBoxTargetSum.Name = "textBoxTargetSum";
+        textBoxTargetSum.ReadOnly = true;
+        textBoxTargetSum.Size = new Size(45, 23);
+        textBoxTargetSum.TabIndex = 1;
+        textBoxTargetSum.Text = "22";
+        // 
+        // buttonAllPathSums
+        // 
+        buttonAllPathSums.Location = new Point(6, 24);
+        buttonAllPathSums.Name = "buttonAllPathSums";
+        buttonAllPathSums.Size = new Size(102, 23);
+        buttonAllPathSums.TabIndex = 0;
+        buttonAllPathSums.Text = "All Path Sums";
+        buttonAllPathSums.UseVisualStyleBackColor = true;
+        buttonAllPathSums.Click += buttonAllPathSums_Click;
+        // 
+        // groupBox4
+        // 
+        groupBox4.Controls.Add(buttonLevelOrderTraversal2);
+        groupBox4.Controls.Add(buttonLevelOrderTraversal);
+        groupBox4.Controls.Add(buttonTreeInOrderTraversal);
+        groupBox4.Controls.Add(button1);
+        groupBox4.Location = new Point(32, 110);
+        groupBox4.Name = "groupBox4";
+        groupBox4.Size = new Size(191, 148);
+        groupBox4.TabIndex = 11;
+        groupBox4.TabStop = false;
+        groupBox4.Text = "Traversal";
+        // 
+        // buttonLevelOrderTraversal2
+        // 
+        buttonLevelOrderTraversal2.Location = new Point(6, 111);
+        buttonLevelOrderTraversal2.Name = "buttonLevelOrderTraversal2";
+        buttonLevelOrderTraversal2.Size = new Size(179, 23);
+        buttonLevelOrderTraversal2.TabIndex = 11;
+        buttonLevelOrderTraversal2.Text = "Level Order Traversal II";
+        buttonLevelOrderTraversal2.UseVisualStyleBackColor = true;
+        buttonLevelOrderTraversal2.Click += buttonLevelOrderTraversal2_Click;
+        // 
+        // buttonLevelOrderTraversal
+        // 
+        buttonLevelOrderTraversal.Location = new Point(6, 82);
+        buttonLevelOrderTraversal.Name = "buttonLevelOrderTraversal";
+        buttonLevelOrderTraversal.Size = new Size(179, 23);
+        buttonLevelOrderTraversal.TabIndex = 10;
+        buttonLevelOrderTraversal.Text = "Level Order Traversal";
+        buttonLevelOrderTraversal.UseVisualStyleBackColor = true;
+        buttonLevelOrderTraversal.Click += buttonLevelOrderTraversal_Click;
+        // 
         // buttonTreeInOrderTraversal
         // 
-        buttonTreeInOrderTraversal.Location = new Point(155, 166);
+        buttonTreeInOrderTraversal.Location = new Point(6, 53);
         buttonTreeInOrderTraversal.Name = "buttonTreeInOrderTraversal";
-        buttonTreeInOrderTraversal.Size = new Size(116, 43);
+        buttonTreeInOrderTraversal.Size = new Size(179, 23);
         buttonTreeInOrderTraversal.TabIndex = 9;
         buttonTreeInOrderTraversal.Text = "In Order Traversal Iteratively";
         buttonTreeInOrderTraversal.UseVisualStyleBackColor = true;
         buttonTreeInOrderTraversal.Click += buttonTreeInOrderTraversal_Click;
         // 
-        // label4
+        // button1
         // 
-        label4.AutoSize = true;
-        label4.Location = new Point(36, 148);
-        label4.Name = "label4";
-        label4.Size = new Size(52, 15);
-        label4.TabIndex = 8;
-        label4.Text = "Traversal";
-        label4.TextAlign = ContentAlignment.TopCenter;
+        button1.Location = new Point(6, 24);
+        button1.Name = "button1";
+        button1.Size = new Size(179, 23);
+        button1.TabIndex = 3;
+        button1.Text = "Pre Order Traversal Iteratively";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
         // 
-        // buttonIteratorNext
+        // groupBox3
         // 
-        buttonIteratorNext.Location = new Point(412, 95);
-        buttonIteratorNext.Name = "buttonIteratorNext";
-        buttonIteratorNext.Size = new Size(75, 23);
-        buttonIteratorNext.TabIndex = 7;
-        buttonIteratorNext.Text = "Next";
-        buttonIteratorNext.UseVisualStyleBackColor = true;
-        buttonIteratorNext.Click += buttonIteratorNext_Click;
+        groupBox3.Controls.Add(buttonIteratorTree);
+        groupBox3.Controls.Add(buttonIteratorNext);
+        groupBox3.Location = new Point(285, 110);
+        groupBox3.Name = "groupBox3";
+        groupBox3.Size = new Size(146, 90);
+        groupBox3.TabIndex = 10;
+        groupBox3.TabStop = false;
+        groupBox3.Text = "Iterator";
         // 
         // buttonIteratorTree
         // 
-        buttonIteratorTree.Location = new Point(306, 95);
+        buttonIteratorTree.Location = new Point(6, 24);
         buttonIteratorTree.Name = "buttonIteratorTree";
         buttonIteratorTree.Size = new Size(100, 23);
         buttonIteratorTree.TabIndex = 6;
@@ -404,9 +489,19 @@ partial class Form1
         buttonIteratorTree.UseVisualStyleBackColor = true;
         buttonIteratorTree.Click += buttonIteratorTree_Click;
         // 
+        // buttonIteratorNext
+        // 
+        buttonIteratorNext.Location = new Point(6, 53);
+        buttonIteratorNext.Name = "buttonIteratorNext";
+        buttonIteratorNext.Size = new Size(100, 23);
+        buttonIteratorNext.TabIndex = 7;
+        buttonIteratorNext.Text = "Next";
+        buttonIteratorNext.UseVisualStyleBackColor = true;
+        buttonIteratorNext.Click += buttonIteratorNext_Click;
+        // 
         // textBoxNodeToDelete
         // 
-        textBoxNodeToDelete.Location = new Point(306, 57);
+        textBoxNodeToDelete.Location = new Point(291, 29);
         textBoxNodeToDelete.Name = "textBoxNodeToDelete";
         textBoxNodeToDelete.PlaceholderText = "Node to Delete";
         textBoxNodeToDelete.Size = new Size(100, 23);
@@ -414,23 +509,13 @@ partial class Form1
         // 
         // buttonDeleteNode
         // 
-        buttonDeleteNode.Location = new Point(306, 29);
+        buttonDeleteNode.Location = new Point(397, 28);
         buttonDeleteNode.Name = "buttonDeleteNode";
         buttonDeleteNode.Size = new Size(100, 23);
         buttonDeleteNode.TabIndex = 4;
         buttonDeleteNode.Text = "Delete Node";
         buttonDeleteNode.UseVisualStyleBackColor = true;
         buttonDeleteNode.Click += buttonDeleteNode_Click;
-        // 
-        // button1
-        // 
-        button1.Location = new Point(36, 166);
-        button1.Name = "button1";
-        button1.Size = new Size(113, 43);
-        button1.TabIndex = 3;
-        button1.Text = "Pre Order Traversal Iteratively";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
         // 
         // label3
         // 
@@ -460,21 +545,20 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // buttonNroCombII
+        // groupBox6
         // 
-        buttonNroCombII.Location = new Point(6, 119);
-        buttonNroCombII.Name = "buttonNroCombII";
-        buttonNroCombII.Size = new Size(126, 23);
-        buttonNroCombII.TabIndex = 15;
-        buttonNroCombII.Text = "Nro Combinações II";
-        buttonNroCombII.UseVisualStyleBackColor = true;
-        buttonNroCombII.Click += buttonNroCombII_Click;
+        groupBox6.Location = new Point(451, 192);
+        groupBox6.Name = "groupBox6";
+        groupBox6.Size = new Size(173, 66);
+        groupBox6.TabIndex = 13;
+        groupBox6.TabStop = false;
+        groupBox6.Text = "Right Side View";
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(777, 530);
+        ClientSize = new Size(895, 641);
         Controls.Add(tabControl1);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
@@ -491,6 +575,10 @@ partial class Form1
         tabPage2.ResumeLayout(false);
         Tree.ResumeLayout(false);
         Tree.PerformLayout();
+        groupBox5.ResumeLayout(false);
+        groupBox5.PerformLayout();
+        groupBox4.ResumeLayout(false);
+        groupBox3.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -531,8 +619,15 @@ partial class Form1
     private Button buttonIteratorNext;
     private Button buttonIteratorTree;
     private Button buttonTreeInOrderTraversal;
-    private Label label4;
     private Button buttonNroCombinacoes;
     private TextBox textBoxQtdCombinacoes;
     private Button buttonNroCombII;
+    private GroupBox groupBox3;
+    private GroupBox groupBox5;
+    private Button buttonAllPathSums;
+    private GroupBox groupBox4;
+    private Button buttonLevelOrderTraversal;
+    private TextBox textBoxTargetSum;
+    private Button buttonLevelOrderTraversal2;
+    private GroupBox groupBox6;
 }

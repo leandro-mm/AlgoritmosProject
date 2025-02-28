@@ -26,7 +26,6 @@ namespace AlgoritmosProject.Services.Tree
             return SbSerializacao.ToString();
         }
 
-
         public static MyTreeNode Insert(MyTreeNode root, int val)
         {
             if (root is null)
@@ -164,6 +163,138 @@ namespace AlgoritmosProject.Services.Tree
                 }
                 return preorderList;
             }
+        }
+
+        public static IList<IList<int>> LevelOrderTraversalII(MyTreeNode root)
+        {
+            IList<IList<int>> levelORderTraversal = LevelOrderTraversal(root);
+
+            for (int i = 0; i < levelORderTraversal.Count / 2; i++)
+            {
+                IList<int> temp = levelORderTraversal[i];
+                levelORderTraversal[i] = levelORderTraversal[levelORderTraversal.Count - 1];
+                levelORderTraversal[levelORderTraversal.Count - 1] = temp;
+            }
+
+            return levelORderTraversal;
+
+        }
+        public static IList<IList<int>> LevelOrderTraversal(MyTreeNode root)
+        {
+            List<IList<int>> result = [];
+
+            if(root is null)
+            {
+                return result;
+            }
+
+            Queue<MyTreeNode?> queue = [];
+
+            queue.Enqueue(root);
+
+            queue.Enqueue(null);
+
+            List<int> currentLevel = [];
+
+            while(queue.Count > 0)
+            {
+                MyTreeNode? currentNode = queue.Dequeue();
+
+                if(currentNode is null)
+                {
+                    result.Add(new List<int>(currentLevel));
+
+                    currentLevel.Clear();
+                    
+                    if(queue.Count > 0)
+                    {
+                        queue.Enqueue(null);
+                    }
+                }
+                else
+                {
+                    currentLevel.Add(currentNode.Value);
+
+                    if(currentNode.Left is MyTreeNode)
+                    {
+                        queue.Enqueue(currentNode.Left);
+                    }
+
+                    if (currentNode.Right is MyTreeNode)
+                    {
+                        queue.Enqueue(currentNode.Right);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static IList<IList<int>> AllPathSum(MyTreeNode root, int targetSum)
+        {
+
+            if (root == null)
+            {
+                return [];
+            }
+            else
+            {
+                MyTreeNode currentNode = root;
+
+                Stack<MyTreeNode> nodeStack = [];
+                nodeStack.Push(currentNode);
+
+                Stack<IList<int>> pathStack = [];
+                pathStack.Push(new List<int> { currentNode.Value });
+
+                IList<IList<int>> validPaths = [];
+
+                while (nodeStack.Count > 0)
+                {
+                    MyTreeNode current = nodeStack.Pop();
+
+                    IList<int> currentPath = pathStack.Pop();                    
+
+                    if (current.Left == null && current.Right == null)
+                    {
+                        if (currentPath.Sum() == targetSum)
+                        {
+                            validPaths.Add(currentPath);
+                        }
+                    }
+
+                    if (current.Right != null)
+                    {
+                        IList<int> rightPath = new List<int>(currentPath) { current.Right.Value };
+
+                        nodeStack.Push(current.Right);
+
+                        pathStack.Push(rightPath);
+                    }
+
+                    if (current.Left != null)
+                    {
+                        IList<int> leftPath = new List<int>(currentPath) { current.Left.Value };
+                        
+                        nodeStack.Push(current.Left);
+
+                        pathStack.Push(leftPath);
+                    }
+                }
+                return validPaths;
+            }
+        }
+    
+        public static MyTreeNode ObterTreeLevelOrderTraversal()
+        {
+            MyTreeNode root = new MyTreeNode(3);
+            root.Left = new MyTreeNode(9);
+            root.Left.Right = null;
+            root.Left.Left = null;
+            root.Right = new MyTreeNode(20);
+            root.Right.Left = new MyTreeNode(15);
+            root.Right.Right = new MyTreeNode(7);
+
+            return root;
         }
     }
 

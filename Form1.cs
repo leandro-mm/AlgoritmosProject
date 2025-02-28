@@ -2,6 +2,7 @@ using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Tree;
 using System;
 using System.Runtime.Intrinsics.X86;
+using System.Text;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AlgoritmosProject;
@@ -555,10 +556,138 @@ public partial class Form1 : Form
             string values = "";
             foreach (var item in resultado)
             {
-                values += item.Value.ToString()+",";
+                values += item.Value.ToString() + ",";
             }
 
             textBoxResultado.Text += $"{resultado.Count} combinacoes: {values} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void buttonAllPathSums_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+
+            textBoxResultado.Text += $"Considerando a seguinte Binary Tree: {Environment.NewLine}";
+            textBoxResultado.Text += $"       5 {Environment.NewLine}";
+            textBoxResultado.Text += $"   /      \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"  4                  8 {Environment.NewLine}";
+            textBoxResultado.Text += $"   /  \\           /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"11    null        13   10 {Environment.NewLine} ";
+            textBoxResultado.Text += $"/  \\             /   \\ {Environment.NewLine} ";
+            textBoxResultado.Text += $"7  2             null    {Environment.NewLine} ";
+            textBoxResultado.Text += $"                      /   \\     {Environment.NewLine}";
+            textBoxResultado.Text += $"                      5     1 {Environment.NewLine}{Environment.NewLine}";
+
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode root = new MyTreeNode(5);
+            root.Left = new MyTreeNode(4);
+            root.Left.Right = null;
+            root.Left.Left = new MyTreeNode(11);
+            root.Left.Left.Left = new MyTreeNode(7);
+            root.Left.Left.Right = new MyTreeNode(2);
+            root.Right = new MyTreeNode(8);
+            root.Right.Left = new MyTreeNode(13);
+            root.Right.Right = new MyTreeNode(4);
+            root.Right.Right.Right = new MyTreeNode(1);
+            root.Right.Right.Left = new MyTreeNode(5);
+
+            IList<IList<int>> result = TreeService.AllPathSum(root, int.Parse(textBoxTargetSum.Text));
+
+            if (result.Count > 0)
+            {
+                StringBuilder stringBuilder = new();
+                foreach (var item in result)
+                {
+                    stringBuilder.Append("[");
+                    stringBuilder.Append(string.Join(",", item));
+                    stringBuilder.Append("]");
+                    stringBuilder.Append(", ");
+                }
+
+                textBoxResultado.Text += $"Os seguintes caminhos somam {textBoxTargetSum.Text}: {stringBuilder}{Environment.NewLine}";
+            }
+            else
+            {
+                textBoxResultado.Text += $"Nenhum caminho encontrado para a soma de {textBoxTargetSum.Text}: {Environment.NewLine}";
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonLevelOrderTraversal_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            textBoxResultado.Text += $"Considerando a seguinte Binary Tree: {Environment.NewLine}";
+            textBoxResultado.Text += $"   3 {Environment.NewLine}";
+            textBoxResultado.Text += $" /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"9   20 {Environment.NewLine}";
+            textBoxResultado.Text += $"     /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"    15   7 {Environment.NewLine} {Environment.NewLine}";
+
+            IList<IList<int>> listResult = TreeService.LevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversal());
+
+            StringBuilder stringBuilder = new();
+
+            foreach (var item in listResult)
+            {
+                stringBuilder.Append("[");
+                stringBuilder.Append(string.Join(",", item));
+                stringBuilder.Append("]");
+                stringBuilder.Append(", ");
+            }
+
+            textBoxResultado.Text += $"Level Order Traversal: {stringBuilder}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void buttonLevelOrderTraversal2_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            textBoxResultado.Text += $"Considerando a seguinte Binary Tree: {Environment.NewLine}";
+            textBoxResultado.Text += $"   3 {Environment.NewLine}";
+            textBoxResultado.Text += $" /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"9   20 {Environment.NewLine}";
+            textBoxResultado.Text += $"     /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"    15   7 {Environment.NewLine} {Environment.NewLine}";
+
+            IList<IList<int>> listResult = TreeService.LevelOrderTraversalII(TreeService.ObterTreeLevelOrderTraversal());
+
+            StringBuilder stringBuilder = new();
+
+            foreach (var item in listResult)
+            {
+                stringBuilder.Append("[");
+                stringBuilder.Append(string.Join(",", item));
+                stringBuilder.Append("]");
+                stringBuilder.Append(", ");
+            }
+
+            textBoxResultado.Text += $"Level Order Traversal: {stringBuilder}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
