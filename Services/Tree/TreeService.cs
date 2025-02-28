@@ -464,9 +464,73 @@ namespace AlgoritmosProject.Services.Tree
 
             return root;
         }
+
+        public static int HouseRobeerIII(MyTreeNode root)
+        {
+            if (root is null)
+            {
+                return 0;
+            }
+
+            IList<List<int>> levels = [];
+
+            MyTreeNode node = root;
+
+            Queue<MyTreeNode?> queueNodes = [];
+            queueNodes.Enqueue(node);
+            queueNodes.Enqueue(null);
+
+            List<int> levelValues = [];
+
+            while (queueNodes.Count() > 0)
+            {
+                MyTreeNode? currentNode = queueNodes.Dequeue();
+
+                if (currentNode is null)
+                {
+                    levels.Add(new List<int>(levelValues));
+
+                    levelValues.Clear();
+
+                    if (queueNodes.Count() > 0)
+                    {
+                        queueNodes.Enqueue(null);
+                    }
+                }
+                else
+                {
+                    levelValues.Add(currentNode.Value);
+
+                    if (currentNode.Left is MyTreeNode)
+                    {                        
+                        queueNodes.Enqueue(currentNode.Left);
+                    }
+
+                    if (currentNode.Right is MyTreeNode)
+                    {                        
+                        queueNodes.Enqueue(currentNode.Right);
+                    }
+                }
+
+            }
+
+            return Math.Max(SumLevels(0, levels), SumLevels(1, levels));
+
+        }
+
+        private static int SumLevels(int startIndex, IList<List<int>> levels)
+        {           
+            int sum=0;
+
+            while(startIndex < levels.Count)
+            {
+                sum += levels[startIndex].Sum();
+
+                startIndex += 2;
+            }
+            return sum;
+        }
     }
-
-
 
     public class MyTreeNode
     {

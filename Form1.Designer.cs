@@ -63,6 +63,7 @@ partial class Form1
         textBoxTargetSum = new TextBox();
         buttonAllPathSums = new Button();
         groupBox4 = new GroupBox();
+        buttonLevelOrderZigZag = new Button();
         buttonLevelOrderTraversal2 = new Button();
         buttonLevelOrderTraversal = new Button();
         buttonTreeInOrderTraversal = new Button();
@@ -75,7 +76,8 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        buttonLevelOrderZigZag = new Button();
+        groupBox7 = new GroupBox();
+        buttonRouseHobber = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -86,6 +88,7 @@ partial class Form1
         groupBox5.SuspendLayout();
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
+        groupBox7.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -281,7 +284,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 24);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(851, 278);
+        tabPage1.Size = new Size(851, 314);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Two Pointers";
         tabPage1.UseVisualStyleBackColor = true;
@@ -356,7 +359,7 @@ partial class Form1
         tabPage2.Location = new Point(4, 24);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(851, 278);
+        tabPage2.Size = new Size(851, 314);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "In Place";
         tabPage2.UseVisualStyleBackColor = true;
@@ -373,6 +376,7 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(groupBox7);
         Tree.Controls.Add(groupBox6);
         Tree.Controls.Add(groupBox5);
         Tree.Controls.Add(groupBox4);
@@ -463,6 +467,16 @@ partial class Form1
         groupBox4.TabIndex = 11;
         groupBox4.TabStop = false;
         groupBox4.Text = "Traversal";
+        // 
+        // buttonLevelOrderZigZag
+        // 
+        buttonLevelOrderZigZag.Location = new Point(6, 140);
+        buttonLevelOrderZigZag.Name = "buttonLevelOrderZigZag";
+        buttonLevelOrderZigZag.Size = new Size(179, 23);
+        buttonLevelOrderZigZag.TabIndex = 12;
+        buttonLevelOrderZigZag.Text = "Level Order Zig Zag";
+        buttonLevelOrderZigZag.UseVisualStyleBackColor = true;
+        buttonLevelOrderZigZag.Click += buttonLevelOrderZigZag_Click;
         // 
         // buttonLevelOrderTraversal2
         // 
@@ -581,15 +595,25 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // buttonLevelOrderZigZag
+        // groupBox7
         // 
-        buttonLevelOrderZigZag.Location = new Point(6, 140);
-        buttonLevelOrderZigZag.Name = "buttonLevelOrderZigZag";
-        buttonLevelOrderZigZag.Size = new Size(179, 23);
-        buttonLevelOrderZigZag.TabIndex = 12;
-        buttonLevelOrderZigZag.Text = "Level Order Zig Zag";
-        buttonLevelOrderZigZag.UseVisualStyleBackColor = true;
-        buttonLevelOrderZigZag.Click += buttonLevelOrderZigZag_Click;
+        groupBox7.Controls.Add(buttonRouseHobber);
+        groupBox7.Location = new Point(285, 206);
+        groupBox7.Name = "groupBox7";
+        groupBox7.Size = new Size(146, 81);
+        groupBox7.TabIndex = 14;
+        groupBox7.TabStop = false;
+        groupBox7.Text = "House Robber";
+        // 
+        // buttonRouseHobber
+        // 
+        buttonRouseHobber.Location = new Point(6, 21);
+        buttonRouseHobber.Name = "buttonRouseHobber";
+        buttonRouseHobber.Size = new Size(112, 23);
+        buttonRouseHobber.TabIndex = 0;
+        buttonRouseHobber.Text = "House Robber III";
+        buttonRouseHobber.UseVisualStyleBackColor = true;
+        buttonRouseHobber.Click += buttonRouseHobber_Click;
         // 
         // Form1
         // 
@@ -617,6 +641,7 @@ partial class Form1
         groupBox5.PerformLayout();
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
+        groupBox7.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -671,4 +696,6 @@ partial class Form1
     private Button buttonRightSideView;
     private Button buttonAggregateNumsOnPath;
     private Button buttonLevelOrderZigZag;
+    private GroupBox groupBox7;
+    private Button buttonRouseHobber;
 }

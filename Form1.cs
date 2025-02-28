@@ -801,7 +801,7 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"              55        100 {Environment.NewLine} {Environment.NewLine}";
 
             IList<List<int>> listResult = TreeService.ZigZagLevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversalII());
-            
+
             string resultStreing = PrintListData(listResult);
 
             textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
@@ -812,7 +812,31 @@ public partial class Form1 : Form
         }
     }
 
-   
-    
+    private void buttonRouseHobber_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            textBoxResultado.Text += $"Considerando a seguinte Binary Tree: {Environment.NewLine}";
+            textBoxResultado.Text += $"      3 {Environment.NewLine}";
+            textBoxResultado.Text += $"    /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"   9   20 {Environment.NewLine}";
+            textBoxResultado.Text += $" /  \\     /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"2   5    15   7 {Environment.NewLine} ";
+            textBoxResultado.Text += $"               /      \\ {Environment.NewLine} ";
+            textBoxResultado.Text += $"              55        100 {Environment.NewLine} {Environment.NewLine}";
+
+            int listResult = TreeService.HouseRobeerIII(TreeService.ObterTreeLevelOrderTraversalII());
+
+            textBoxResultado.Text += $"House Robeer III: {listResult}{Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
 }
 
