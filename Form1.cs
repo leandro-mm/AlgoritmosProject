@@ -20,6 +20,30 @@ public partial class Form1 : Form
         GeneralService.SetInputBoxDefaultValues(textBoxInput, "1,2,3,4,5");
     }
 
+    private string PrintListData(IList<List<int>> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
+        {
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+        }
+
+        return stringBuilder.ToString();
+    }
+
+    private string PrintListData(IList<int> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
+        {
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+        }
+
+        return stringBuilder.ToString();
+    }
+
     private void btnFirstDuplicate_Click(object sender, EventArgs e)
     {
         try
@@ -648,17 +672,9 @@ public partial class Form1 : Form
 
             IList<List<int>> listResult = TreeService.LevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversal());
 
-            StringBuilder stringBuilder = new();
+            string resultStreing = PrintListData(listResult);
 
-            foreach (var item in listResult)
-            {
-                stringBuilder.Append("[");
-                stringBuilder.Append(string.Join(",", item));
-                stringBuilder.Append("]");
-                stringBuilder.Append(", ");
-            }
-
-            textBoxResultado.Text += $"Level Order Traversal: {stringBuilder}{Environment.NewLine}";
+            textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
@@ -681,17 +697,9 @@ public partial class Form1 : Form
 
             IList<List<int>> listResult = TreeService.LevelOrderTraversalII(TreeService.ObterTreeLevelOrderTraversal());
 
-            StringBuilder stringBuilder = new();
+            string resultStreing = PrintListData(listResult);
 
-            foreach (var item in listResult)
-            {
-                stringBuilder.Append("[");
-                stringBuilder.Append(string.Join(",", item));
-                stringBuilder.Append("]");
-                stringBuilder.Append(", ");
-            }
-
-            textBoxResultado.Text += $"Level Order Traversal: {stringBuilder}{Environment.NewLine}";
+            textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
@@ -777,30 +785,34 @@ public partial class Form1 : Form
 
     }
 
-    private string PrintListData(IList<List<int>> data)
+    private void buttonLevelOrderZigZag_Click(object sender, EventArgs e)
     {
-        StringBuilder stringBuilder = new();
-
-        foreach (var item in data)
+        try
         {
-            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-        }
+            GeneralService.ClearTexttBox(textBoxResultado);
 
-        return stringBuilder.ToString();
+            textBoxResultado.Text += $"Considerando a seguinte Binary Tree: {Environment.NewLine}";
+            textBoxResultado.Text += $"      3 {Environment.NewLine}";
+            textBoxResultado.Text += $"    /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"   9   20 {Environment.NewLine}";
+            textBoxResultado.Text += $" /  \\     /  \\ {Environment.NewLine}";
+            textBoxResultado.Text += $"2   5    15   7 {Environment.NewLine} ";
+            textBoxResultado.Text += $"               /      \\ {Environment.NewLine} ";
+            textBoxResultado.Text += $"              55        100 {Environment.NewLine} {Environment.NewLine}";
+
+            IList<List<int>> listResult = TreeService.ZigZagLevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversalII());
+            
+            string resultStreing = PrintListData(listResult);
+
+            textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
     }
 
-    private string PrintListData(IList<int> data)
-    {
-        StringBuilder stringBuilder = new();
-
-        foreach (var item in data)
-        {
-            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-        }
-
-        return stringBuilder.ToString();
-    }
-
-
+   
+    
 }
 

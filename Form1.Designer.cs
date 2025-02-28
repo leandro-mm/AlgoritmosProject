@@ -59,6 +59,7 @@ partial class Form1
         groupBox6 = new GroupBox();
         buttonRightSideView = new Button();
         groupBox5 = new GroupBox();
+        buttonAggregateNumsOnPath = new Button();
         textBoxTargetSum = new TextBox();
         buttonAllPathSums = new Button();
         groupBox4 = new GroupBox();
@@ -74,7 +75,7 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        buttonAggregateNumsOnPath = new Button();
+        buttonLevelOrderZigZag = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -118,11 +119,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 390);
+        textBoxResultado.Location = new Point(13, 426);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(855, 239);
+        textBoxResultado.Size = new Size(855, 203);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -267,7 +268,7 @@ partial class Form1
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(859, 306);
+        tabControl1.Size = new Size(859, 342);
         tabControl1.TabIndex = 15;
         // 
         // tabPage1
@@ -383,7 +384,7 @@ partial class Form1
         Tree.Controls.Add(buttonSerializarTree);
         Tree.Location = new Point(4, 24);
         Tree.Name = "Tree";
-        Tree.Size = new Size(851, 278);
+        Tree.Size = new Size(851, 314);
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
@@ -420,6 +421,16 @@ partial class Form1
         groupBox5.TabStop = false;
         groupBox5.Text = "Path Sum";
         // 
+        // buttonAggregateNumsOnPath
+        // 
+        buttonAggregateNumsOnPath.Location = new Point(6, 53);
+        buttonAggregateNumsOnPath.Name = "buttonAggregateNumsOnPath";
+        buttonAggregateNumsOnPath.Size = new Size(153, 23);
+        buttonAggregateNumsOnPath.TabIndex = 2;
+        buttonAggregateNumsOnPath.Text = "Aggregate Nums On Path";
+        buttonAggregateNumsOnPath.UseVisualStyleBackColor = true;
+        buttonAggregateNumsOnPath.Click += buttonAggregateNumsOnPath_Click;
+        // 
         // textBoxTargetSum
         // 
         textBoxTargetSum.Location = new Point(114, 24);
@@ -441,13 +452,14 @@ partial class Form1
         // 
         // groupBox4
         // 
+        groupBox4.Controls.Add(buttonLevelOrderZigZag);
         groupBox4.Controls.Add(buttonLevelOrderTraversal2);
         groupBox4.Controls.Add(buttonLevelOrderTraversal);
         groupBox4.Controls.Add(buttonTreeInOrderTraversal);
         groupBox4.Controls.Add(button1);
         groupBox4.Location = new Point(32, 110);
         groupBox4.Name = "groupBox4";
-        groupBox4.Size = new Size(191, 148);
+        groupBox4.Size = new Size(191, 177);
         groupBox4.TabIndex = 11;
         groupBox4.TabStop = false;
         groupBox4.Text = "Traversal";
@@ -569,15 +581,15 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // buttonAggregateNumsOnPath
+        // buttonLevelOrderZigZag
         // 
-        buttonAggregateNumsOnPath.Location = new Point(6, 53);
-        buttonAggregateNumsOnPath.Name = "buttonAggregateNumsOnPath";
-        buttonAggregateNumsOnPath.Size = new Size(153, 23);
-        buttonAggregateNumsOnPath.TabIndex = 2;
-        buttonAggregateNumsOnPath.Text = "Aggregate Nums On Path";
-        buttonAggregateNumsOnPath.UseVisualStyleBackColor = true;
-        buttonAggregateNumsOnPath.Click += buttonAggregateNumsOnPath_Click;
+        buttonLevelOrderZigZag.Location = new Point(6, 140);
+        buttonLevelOrderZigZag.Name = "buttonLevelOrderZigZag";
+        buttonLevelOrderZigZag.Size = new Size(179, 23);
+        buttonLevelOrderZigZag.TabIndex = 12;
+        buttonLevelOrderZigZag.Text = "Level Order Zig Zag";
+        buttonLevelOrderZigZag.UseVisualStyleBackColor = true;
+        buttonLevelOrderZigZag.Click += buttonLevelOrderZigZag_Click;
         // 
         // Form1
         // 
@@ -658,4 +670,5 @@ partial class Form1
     private GroupBox groupBox6;
     private Button buttonRightSideView;
     private Button buttonAggregateNumsOnPath;
+    private Button buttonLevelOrderZigZag;
 }

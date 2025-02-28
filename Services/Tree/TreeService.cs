@@ -229,6 +229,69 @@ namespace AlgoritmosProject.Services.Tree
             return result;
         }
 
+        public static IList<List<int>> ZigZagLevelOrderTraversal(MyTreeNode root)
+        {
+            IList<List<int>> result = [];
+
+            if (root is null)
+            {
+                return result;
+            }
+
+            Queue<MyTreeNode?> queue = [];
+
+            queue.Enqueue(root);
+
+            queue.Enqueue(null);
+
+            List<int> currentLevel = [];
+
+            int countNullPositions = 0;
+
+            while (queue.Count > 0)
+            {
+                MyTreeNode? currentNode = queue.Dequeue();
+
+                if (currentNode is null)
+                {
+                    countNullPositions++;
+
+                    if(countNullPositions % 2 == 0)
+                    {
+                        for(int i = 0; i< currentLevel.Count/2; i++)
+                        {
+                            int temp = currentLevel[i];
+                            currentLevel[i] = currentLevel[currentLevel.Count-i-1];
+                            currentLevel[currentLevel.Count - i - 1] = temp;
+                        }                        
+                    }
+                    result.Add(new List<int>(currentLevel));
+
+                    currentLevel.Clear();
+
+                    if (queue.Count > 0)
+                    {
+                        queue.Enqueue(null);
+                    }
+                }
+                else
+                {
+                    currentLevel.Add(currentNode.Value);
+
+                    if (currentNode.Left is MyTreeNode)
+                    {
+                        queue.Enqueue(currentNode.Left);
+                    }
+
+                    if (currentNode.Right is MyTreeNode)
+                    {
+                        queue.Enqueue(currentNode.Right);
+                    }
+                }
+            }
+            return result;
+        }
+
         public static IList<IList<int>> AllPathSum(MyTreeNode root, int targetSum)
         {
 
@@ -351,6 +414,31 @@ namespace AlgoritmosProject.Services.Tree
             root.Right = new MyTreeNode(20);
             root.Right.Left = new MyTreeNode(15);
             root.Right.Right = new MyTreeNode(7);
+
+            return root;
+        }
+
+        public static MyTreeNode ObterTreeLevelOrderTraversalII()
+        {
+            MyTreeNode root = new MyTreeNode(3);
+            root.Left = new MyTreeNode(9);
+            root.Left.Left = new MyTreeNode(2);
+            root.Left.Right = new MyTreeNode(5);
+            
+
+            root.Right = new MyTreeNode(20);
+            root.Right.Left = new MyTreeNode(15);
+            root.Right.Left.Left = new MyTreeNode(33);
+            root.Right.Left.Right = new MyTreeNode(99);
+            root.Right.Right = new MyTreeNode(7);
+            root.Right.Right.Left = new MyTreeNode(77);
+            root.Right.Right.Right = new MyTreeNode(107);
+
+            root.Left.Right.Left = new MyTreeNode(55);
+            root.Left.Right.Right = new MyTreeNode(100);
+
+            root.Left.Left.Left = new MyTreeNode(22);
+            root.Left.Left.Right = new MyTreeNode(44);
 
             return root;
         }
