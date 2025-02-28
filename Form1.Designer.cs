@@ -56,6 +56,8 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        groupBox6 = new GroupBox();
+        buttonRightSideView = new Button();
         groupBox5 = new GroupBox();
         textBoxTargetSum = new TextBox();
         buttonAllPathSums = new Button();
@@ -72,13 +74,14 @@ partial class Form1
         label3 = new Label();
         buttonDeserializarTree = new Button();
         buttonSerializarTree = new Button();
-        groupBox6 = new GroupBox();
+        buttonAggregateNumsOnPath = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         groupBox2.SuspendLayout();
         tabPage2.SuspendLayout();
         Tree.SuspendLayout();
+        groupBox6.SuspendLayout();
         groupBox5.SuspendLayout();
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
@@ -385,13 +388,34 @@ partial class Form1
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
         // 
+        // groupBox6
+        // 
+        groupBox6.Controls.Add(buttonRightSideView);
+        groupBox6.Location = new Point(643, 120);
+        groupBox6.Name = "groupBox6";
+        groupBox6.Size = new Size(173, 66);
+        groupBox6.TabIndex = 13;
+        groupBox6.TabStop = false;
+        groupBox6.Text = "Right Side View";
+        // 
+        // buttonRightSideView
+        // 
+        buttonRightSideView.Location = new Point(6, 22);
+        buttonRightSideView.Name = "buttonRightSideView";
+        buttonRightSideView.Size = new Size(102, 23);
+        buttonRightSideView.TabIndex = 0;
+        buttonRightSideView.Text = "Right Side View";
+        buttonRightSideView.UseVisualStyleBackColor = true;
+        buttonRightSideView.Click += buttonRightSideView_Click;
+        // 
         // groupBox5
         // 
+        groupBox5.Controls.Add(buttonAggregateNumsOnPath);
         groupBox5.Controls.Add(textBoxTargetSum);
         groupBox5.Controls.Add(buttonAllPathSums);
         groupBox5.Location = new Point(451, 110);
         groupBox5.Name = "groupBox5";
-        groupBox5.Size = new Size(173, 67);
+        groupBox5.Size = new Size(173, 105);
         groupBox5.TabIndex = 12;
         groupBox5.TabStop = false;
         groupBox5.Text = "Path Sum";
@@ -545,14 +569,15 @@ partial class Form1
         buttonSerializarTree.UseVisualStyleBackColor = true;
         buttonSerializarTree.Click += buttonSerializarTree_Click;
         // 
-        // groupBox6
+        // buttonAggregateNumsOnPath
         // 
-        groupBox6.Location = new Point(451, 192);
-        groupBox6.Name = "groupBox6";
-        groupBox6.Size = new Size(173, 66);
-        groupBox6.TabIndex = 13;
-        groupBox6.TabStop = false;
-        groupBox6.Text = "Right Side View";
+        buttonAggregateNumsOnPath.Location = new Point(6, 53);
+        buttonAggregateNumsOnPath.Name = "buttonAggregateNumsOnPath";
+        buttonAggregateNumsOnPath.Size = new Size(153, 23);
+        buttonAggregateNumsOnPath.TabIndex = 2;
+        buttonAggregateNumsOnPath.Text = "Aggregate Nums On Path";
+        buttonAggregateNumsOnPath.UseVisualStyleBackColor = true;
+        buttonAggregateNumsOnPath.Click += buttonAggregateNumsOnPath_Click;
         // 
         // Form1
         // 
@@ -575,6 +600,7 @@ partial class Form1
         tabPage2.ResumeLayout(false);
         Tree.ResumeLayout(false);
         Tree.PerformLayout();
+        groupBox6.ResumeLayout(false);
         groupBox5.ResumeLayout(false);
         groupBox5.PerformLayout();
         groupBox4.ResumeLayout(false);
@@ -630,4 +656,6 @@ partial class Form1
     private TextBox textBoxTargetSum;
     private Button buttonLevelOrderTraversal2;
     private GroupBox groupBox6;
+    private Button buttonRightSideView;
+    private Button buttonAggregateNumsOnPath;
 }

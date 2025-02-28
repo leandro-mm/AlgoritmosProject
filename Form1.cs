@@ -1,9 +1,13 @@
 using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Tree;
 using System;
+using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
+using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AlgoritmosProject;
 
@@ -642,7 +646,7 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"     /  \\ {Environment.NewLine}";
             textBoxResultado.Text += $"    15   7 {Environment.NewLine} {Environment.NewLine}";
 
-            IList<IList<int>> listResult = TreeService.LevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversal());
+            IList<List<int>> listResult = TreeService.LevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversal());
 
             StringBuilder stringBuilder = new();
 
@@ -675,7 +679,7 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"     /  \\ {Environment.NewLine}";
             textBoxResultado.Text += $"    15   7 {Environment.NewLine} {Environment.NewLine}";
 
-            IList<IList<int>> listResult = TreeService.LevelOrderTraversalII(TreeService.ObterTreeLevelOrderTraversal());
+            IList<List<int>> listResult = TreeService.LevelOrderTraversalII(TreeService.ObterTreeLevelOrderTraversal());
 
             StringBuilder stringBuilder = new();
 
@@ -694,5 +698,109 @@ public partial class Form1 : Form
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
     }
+
+    private void buttonRightSideView_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            MyTreeNode tree = TreeService.ObterTreeLevelRightSideView();
+
+            IList<List<int>> levelORderTraversal = TreeService.LevelOrderTraversal(tree);
+
+            textBoxResultado.Text += $"Level Order Traversal {PrintListData(levelORderTraversal)} {Environment.NewLine}";
+
+            IList<int> rightSideTree = TreeService.FindRighSideViewFromTree(tree);
+
+            textBoxResultado.Text += $"Righ Side View {string.Join(",", rightSideTree)} {Environment.NewLine}";
+
+
+            //--outra tree
+            tree = TreeService.ObterTreeLevelRightSideViewII();
+
+            levelORderTraversal = TreeService.LevelOrderTraversal(tree);
+
+            textBoxResultado.Text += $"Level Order Traversal {PrintListData(levelORderTraversal)} {Environment.NewLine}";
+
+            rightSideTree = TreeService.FindRighSideViewFromTree(tree);
+
+            textBoxResultado.Text += $"Righ Side View {string.Join(",", rightSideTree)} {Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+
+    }
+
+    private void buttonAggregateNumsOnPath_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            IList<int> result = TreeService.AgregateRootToPath(TreeService.InsertFromArray(input));
+
+            string stringResult = PrintListData(result);
+            textBoxResultado.Text += $"Using Input {Environment.NewLine}";
+            textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
+            textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
+
+            textBoxResultado.Text += $"Tree Level Right Side View {Environment.NewLine}";
+            MyTreeNode tree = TreeService.ObterTreeLevelRightSideView();
+
+            result = TreeService.AgregateRootToPath(tree);
+            stringResult = PrintListData(result);
+            textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
+            textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
+
+
+            textBoxResultado.Text += $"Tree Level Right Side View II{Environment.NewLine}";
+            tree = TreeService.ObterTreeLevelRightSideViewII();
+
+            result = TreeService.AgregateRootToPath(tree);
+            stringResult = PrintListData(result);
+            textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
+            textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private string PrintListData(IList<List<int>> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
+        {
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+        }
+
+        return stringBuilder.ToString();
+    }
+
+    private string PrintListData(IList<int> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
+        {
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+        }
+
+        return stringBuilder.ToString();
+    }
+
+
 }
 

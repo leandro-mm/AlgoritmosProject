@@ -165,13 +165,13 @@ namespace AlgoritmosProject.Services.Tree
             }
         }
 
-        public static IList<IList<int>> LevelOrderTraversalII(MyTreeNode root)
+        public static IList<List<int>> LevelOrderTraversalII(MyTreeNode root)
         {
-            IList<IList<int>> levelORderTraversal = LevelOrderTraversal(root);
+            IList<List<int>> levelORderTraversal = LevelOrderTraversal(root);
 
             for (int i = 0; i < levelORderTraversal.Count / 2; i++)
             {
-                IList<int> temp = levelORderTraversal[i];
+                List<int> temp = levelORderTraversal[i];
                 levelORderTraversal[i] = levelORderTraversal[levelORderTraversal.Count - 1];
                 levelORderTraversal[levelORderTraversal.Count - 1] = temp;
             }
@@ -179,9 +179,9 @@ namespace AlgoritmosProject.Services.Tree
             return levelORderTraversal;
 
         }
-        public static IList<IList<int>> LevelOrderTraversal(MyTreeNode root)
+        public static IList<List<int>> LevelOrderTraversal(MyTreeNode root)
         {
-            List<IList<int>> result = [];
+            IList<List<int>> result = [];
 
             if(root is null)
             {
@@ -283,7 +283,65 @@ namespace AlgoritmosProject.Services.Tree
                 return validPaths;
             }
         }
-    
+
+        public static IList<int> FindRighSideViewFromTree(MyTreeNode root)
+        {
+            IList<int> result = [];
+
+            IList<List<int>> levelOrderTree = LevelOrderTraversal(root);
+
+            for (int i = 0; i < levelOrderTree.Count(); i++)
+            {
+                if (levelOrderTree[i].Count() == 2)
+                {
+                    result.Add(levelOrderTree[i][1]);
+                }
+                else
+                {
+                    result.Add(levelOrderTree[i][0]);
+                }
+            }
+
+            return result;
+        }
+
+        public static IList<int> AgregateRootToPath(MyTreeNode root)
+        {
+            IList<int> result = [];
+
+            Stack<MyTreeNode> stackTree = [];
+            stackTree.Push(root);
+
+            Stack<string> stackPathSoFar = [];
+            stackPathSoFar.Push(root.Value.ToString());
+
+            while (stackTree.Count > 0)
+            {
+                MyTreeNode currentNode = stackTree.Pop();
+
+                string currentPath = stackPathSoFar.Pop();
+
+                if (currentNode.Left == null && currentNode.Right == null)
+                {
+                    result.Add(int.Parse(currentPath));
+                }
+
+                if (currentNode.Right != null)
+                {
+                    stackTree.Push(currentNode.Right);
+                    stackPathSoFar.Push(currentPath + currentNode.Right.Value);
+                }
+
+                if (currentNode.Left != null)
+                {
+                    stackTree.Push(currentNode.Left);
+                    stackPathSoFar.Push(currentPath + currentNode.Left.Value);
+                }
+            }
+
+            return result;
+        }
+
         public static MyTreeNode ObterTreeLevelOrderTraversal()
         {
             MyTreeNode root = new MyTreeNode(3);
@@ -293,6 +351,28 @@ namespace AlgoritmosProject.Services.Tree
             root.Right = new MyTreeNode(20);
             root.Right.Left = new MyTreeNode(15);
             root.Right.Right = new MyTreeNode(7);
+
+            return root;
+        }
+
+        public static MyTreeNode ObterTreeLevelRightSideView()
+        {
+            MyTreeNode root = new MyTreeNode(1);
+            root.Left = new MyTreeNode(2);
+            root.Right = new MyTreeNode(3); ;
+            root.Left.Left = new MyTreeNode(4); ;
+            root.Left.Left.Left = new MyTreeNode(5); ;
+
+            return root;
+        }
+
+        public static MyTreeNode ObterTreeLevelRightSideViewII()
+        {
+            MyTreeNode root = new MyTreeNode(1);
+            root.Left = new MyTreeNode(2);
+            root.Right = new MyTreeNode(3); ;
+            root.Left.Right = new MyTreeNode(5); ;
+            root.Right.Right = new MyTreeNode(4); ;
 
             return root;
         }
