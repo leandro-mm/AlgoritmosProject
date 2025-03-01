@@ -614,8 +614,6 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"                      5     1 {Environment.NewLine}{Environment.NewLine}";
 
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
-
             MyTreeNode root = new MyTreeNode(5);
             root.Left = new MyTreeNode(4);
             root.Left.Right = null;
@@ -831,6 +829,135 @@ public partial class Form1 : Form
 
             textBoxResultado.Text += $"House Robeer III: {listResult}{Environment.NewLine}";
 
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonLCA_BST_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode root = TreeService.InsertFromArray(input);
+
+            textBoxResultado.Text += $"Parâmetros: TreeNode A, TreeNode B {Environment.NewLine}";
+            textBoxResultado.Text += $"Fazer In Order do root{Environment.NewLine}";
+            textBoxResultado.Text += $"Fazer Post Order do root{Environment.NewLine}";
+            textBoxResultado.Text += $"Verificar o índice de P e Q na in order list{Environment.NewLine}";
+            textBoxResultado.Text += $"Obter um range de In Order a partir de P a Q, ou Q a P{Environment.NewLine}";
+            textBoxResultado.Text += $"Encontrar o maior índice do range{Environment.NewLine}";
+            textBoxResultado.Text += $"\t utiliza a Post Order List {Environment.NewLine}";
+            textBoxResultado.Text += $"Encontrar o node desse índice na BST{Environment.NewLine}";
+            textBoxResultado.Text += $"{Environment.NewLine}";
+            textBoxResultado.Text += $"Falta Implementar{Environment.NewLine}";
+            textBoxResultado.Text += $"{Environment.NewLine}";
+
+            MyTreeNode? result = TreeService.LCA_BST(root, new MyTreeNode(int.Parse(textBoxLCAnode1.Text)), new MyTreeNode(int.Parse(textBoxLCAnode2.Text)));
+
+            textBoxResultado.Text += $"LCA de {textBoxLCAnode1.Text} e {textBoxLCAnode2.Text} é {result?.Value} {Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonSucessor_InOrder_BST_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
+
+            int index = listResult.IndexOf(int.Parse(textBoxSucessor.Text));
+
+            string result = "";
+
+            if (index >= 0)
+            {
+                if (index + 1 > listResult.Count())
+                {
+                    result = $"error index {index + 1} > total elements {listResult.Count()}";
+                }
+                else
+                {
+                    result = $"{listResult[index + 1]}";
+                }
+            }
+            else
+            {
+                result = $"error index {index} does not exist";
+            }
+
+            textBoxResultado.Text += $"In Order sucessor of {textBoxSucessor.Text} of a BST {string.Join(",", listResult)} is: {result}{Environment.NewLine}";
+
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+
+    }
+
+    private void buttonLCA_BT_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode root = TreeService.GetStandardtBinaryTree();
+
+            MyTreeNode? result = TreeService.LCA_BT(
+                                    root,
+                                    new MyTreeNode(int.Parse(textBoxLCAnode1.Text)),
+                                    new MyTreeNode(int.Parse(textBoxLCAnode2.Text)));
+
+            textBoxResultado.Text += $"LCA de uma BT de {textBoxLCAnode1.Text} e {textBoxLCAnode2.Text}" +
+                $" é {result?.Value} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+
+    }
+
+    private void buttonLongestConsecSeqBT_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+
+            int result = TreeService.LongestConsecutiveSequenceBT(myTreeNode);
+
+            IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
+
+            textBoxResultado.Text += $"Longest Consecutive Sequence BT {string.Join(",", listResult)} is {result} {Environment.NewLine}";
         }
         catch (Exception ex)
         {

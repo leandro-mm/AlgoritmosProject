@@ -142,14 +142,14 @@ namespace AlgoritmosProject.Services.Tree
             else
             {
                 List<int> preorderList = new List<int>();
-                
+
                 Stack<MyTreeNode> stack = new Stack<MyTreeNode>();
-                
+
                 MyTreeNode node = root;
 
                 while (stack.Count != 0 || node is MyTreeNode)
                 {
-                    if(node is MyTreeNode)
+                    if (node is MyTreeNode)
                     {
                         stack.Push(node);
                         node = node.Left;
@@ -183,7 +183,7 @@ namespace AlgoritmosProject.Services.Tree
         {
             IList<List<int>> result = [];
 
-            if(root is null)
+            if (root is null)
             {
                 return result;
             }
@@ -196,17 +196,17 @@ namespace AlgoritmosProject.Services.Tree
 
             List<int> currentLevel = [];
 
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 MyTreeNode? currentNode = queue.Dequeue();
 
-                if(currentNode is null)
+                if (currentNode is null)
                 {
                     result.Add(new List<int>(currentLevel));
 
                     currentLevel.Clear();
-                    
-                    if(queue.Count > 0)
+
+                    if (queue.Count > 0)
                     {
                         queue.Enqueue(null);
                     }
@@ -215,7 +215,7 @@ namespace AlgoritmosProject.Services.Tree
                 {
                     currentLevel.Add(currentNode.Value);
 
-                    if(currentNode.Left is MyTreeNode)
+                    if (currentNode.Left is MyTreeNode)
                     {
                         queue.Enqueue(currentNode.Left);
                     }
@@ -256,14 +256,14 @@ namespace AlgoritmosProject.Services.Tree
                 {
                     countNullPositions++;
 
-                    if(countNullPositions % 2 == 0)
+                    if (countNullPositions % 2 == 0)
                     {
-                        for(int i = 0; i< currentLevel.Count/2; i++)
+                        for (int i = 0; i < currentLevel.Count / 2; i++)
                         {
                             int temp = currentLevel[i];
-                            currentLevel[i] = currentLevel[currentLevel.Count-i-1];
+                            currentLevel[i] = currentLevel[currentLevel.Count - i - 1];
                             currentLevel[currentLevel.Count - i - 1] = temp;
-                        }                        
+                        }
                     }
                     result.Add(new List<int>(currentLevel));
 
@@ -315,7 +315,7 @@ namespace AlgoritmosProject.Services.Tree
                 {
                     MyTreeNode current = nodeStack.Pop();
 
-                    IList<int> currentPath = pathStack.Pop();                    
+                    IList<int> currentPath = pathStack.Pop();
 
                     if (current.Left == null && current.Right == null)
                     {
@@ -337,7 +337,7 @@ namespace AlgoritmosProject.Services.Tree
                     if (current.Left != null)
                     {
                         IList<int> leftPath = new List<int>(currentPath) { current.Left.Value };
-                        
+
                         nodeStack.Push(current.Left);
 
                         pathStack.Push(leftPath);
@@ -424,7 +424,7 @@ namespace AlgoritmosProject.Services.Tree
             root.Left = new MyTreeNode(9);
             root.Left.Left = new MyTreeNode(2);
             root.Left.Right = new MyTreeNode(5);
-            
+
 
             root.Right = new MyTreeNode(20);
             root.Right.Left = new MyTreeNode(15);
@@ -502,12 +502,12 @@ namespace AlgoritmosProject.Services.Tree
                     levelValues.Add(currentNode.Value);
 
                     if (currentNode.Left is MyTreeNode)
-                    {                        
+                    {
                         queueNodes.Enqueue(currentNode.Left);
                     }
 
                     if (currentNode.Right is MyTreeNode)
-                    {                        
+                    {
                         queueNodes.Enqueue(currentNode.Right);
                     }
                 }
@@ -519,16 +519,124 @@ namespace AlgoritmosProject.Services.Tree
         }
 
         private static int SumLevels(int startIndex, IList<List<int>> levels)
-        {           
-            int sum=0;
+        {
+            int sum = 0;
 
-            while(startIndex < levels.Count)
+            while (startIndex < levels.Count)
             {
                 sum += levels[startIndex].Sum();
 
                 startIndex += 2;
             }
             return sum;
+        }
+
+        internal static MyTreeNode? LCA_BST(MyTreeNode root, MyTreeNode node1, MyTreeNode node2)
+        {
+            return null;
+        }
+
+        internal static MyTreeNode? LCA_BT(MyTreeNode root, MyTreeNode node1, MyTreeNode node2)
+        {
+            if (root is null)
+                return null;
+
+            if (root == node1 || root == node2)
+                return root;
+
+            MyTreeNode? left = LCA_BT(root.Left, node1, node2);
+
+            MyTreeNode? right = LCA_BT(root.Right, node1, node2);
+
+            if (left is MyTreeNode && right is MyTreeNode)
+                return root;
+
+            if (left is null)
+                return right;
+            else
+                return left;
+        }
+
+        internal static MyTreeNode GetStandardtBinaryTree()
+        {
+            MyTreeNode root = new MyTreeNode(3);
+            
+            root.Left = new MyTreeNode(5);
+            root.Left.Left = new MyTreeNode(6);
+            root.Left.Right = new MyTreeNode(2);
+            root.Left.Right.Left = new MyTreeNode(7);
+            root.Left.Right.Right = new MyTreeNode(4);
+
+            root.Right = new MyTreeNode(1);
+            root.Right.Left = new MyTreeNode(0);
+            root.Right.Right= new MyTreeNode(8);
+
+            return root;
+        }
+
+        public static int LongestConsecutiveSequenceBT(MyTreeNode root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+                
+
+            if (root.Right == null && root.Left == null)
+            {
+                return 1;
+            }
+                
+
+            else
+            {
+                int maxSize = 1;
+
+                Queue<int> sizeQ = new Queue<int>();
+                sizeQ.Enqueue(1);
+
+                Queue<MyTreeNode> nodeQ = [];
+                nodeQ.Enqueue(root);
+
+                while (nodeQ.Count != 0)
+                {
+                    MyTreeNode currNode = nodeQ.Dequeue();
+
+                    int currSize = sizeQ.Dequeue();
+
+                    if (currNode.Left != null)
+                    {
+                        int leftSize = currSize;
+
+                        if (currNode.Value == currNode.Left.Value - 1)
+                            leftSize += 1;
+                        else
+                            leftSize = 1;
+
+                        maxSize = Math.Max(maxSize, leftSize);
+
+                        nodeQ.Enqueue(currNode.Left);
+
+                        sizeQ.Enqueue(leftSize);
+                    }
+                    if (currNode.Right != null)
+                    {
+                        int rightSize = currSize;
+                        if (currNode.Value == currNode.Right.Value - 1)
+                            rightSize += 1;
+                        else
+                            rightSize = 1;
+
+                        maxSize = Math.Max(maxSize, rightSize);
+
+                        nodeQ.Enqueue(currNode.Right);
+
+                        sizeQ.Enqueue(rightSize);
+                    }
+                }
+
+                return maxSize;
+            }
         }
     }
 

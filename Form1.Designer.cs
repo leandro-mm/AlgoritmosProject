@@ -56,6 +56,25 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        groupBox12 = new GroupBox();
+        buttonLongestConsecSeqBT = new Button();
+        groupBox11 = new GroupBox();
+        buttonSerializarTree = new Button();
+        buttonDeserializarTree = new Button();
+        label3 = new Label();
+        groupBox10 = new GroupBox();
+        textBoxNodeToDelete = new TextBox();
+        buttonDeleteNode = new Button();
+        groupBox9 = new GroupBox();
+        textBoxSucessor = new TextBox();
+        buttonSucessor_InOrder_BST = new Button();
+        groupBox8 = new GroupBox();
+        buttonLCA_BT = new Button();
+        buttonLCA_BST = new Button();
+        textBoxLCAnode2 = new TextBox();
+        textBoxLCAnode1 = new TextBox();
+        groupBox7 = new GroupBox();
+        buttonRouseHobber = new Button();
         groupBox6 = new GroupBox();
         buttonRightSideView = new Button();
         groupBox5 = new GroupBox();
@@ -71,24 +90,22 @@ partial class Form1
         groupBox3 = new GroupBox();
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
-        textBoxNodeToDelete = new TextBox();
-        buttonDeleteNode = new Button();
-        label3 = new Label();
-        buttonDeserializarTree = new Button();
-        buttonSerializarTree = new Button();
-        groupBox7 = new GroupBox();
-        buttonRouseHobber = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         groupBox2.SuspendLayout();
         tabPage2.SuspendLayout();
         Tree.SuspendLayout();
+        groupBox12.SuspendLayout();
+        groupBox11.SuspendLayout();
+        groupBox10.SuspendLayout();
+        groupBox9.SuspendLayout();
+        groupBox8.SuspendLayout();
+        groupBox7.SuspendLayout();
         groupBox6.SuspendLayout();
         groupBox5.SuspendLayout();
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
-        groupBox7.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -122,11 +139,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 426);
+        textBoxResultado.Location = new Point(13, 464);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(855, 203);
+        textBoxResultado.Size = new Size(855, 165);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -271,7 +288,7 @@ partial class Form1
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new Size(859, 342);
+        tabControl1.Size = new Size(859, 380);
         tabControl1.TabIndex = 15;
         // 
         // tabPage1
@@ -284,7 +301,7 @@ partial class Form1
         tabPage1.Location = new Point(4, 24);
         tabPage1.Name = "tabPage1";
         tabPage1.Padding = new Padding(3);
-        tabPage1.Size = new Size(851, 314);
+        tabPage1.Size = new Size(851, 352);
         tabPage1.TabIndex = 0;
         tabPage1.Text = "Two Pointers";
         tabPage1.UseVisualStyleBackColor = true;
@@ -359,7 +376,7 @@ partial class Form1
         tabPage2.Location = new Point(4, 24);
         tabPage2.Name = "tabPage2";
         tabPage2.Padding = new Padding(3);
-        tabPage2.Size = new Size(851, 314);
+        tabPage2.Size = new Size(851, 352);
         tabPage2.TabIndex = 1;
         tabPage2.Text = "In Place";
         tabPage2.UseVisualStyleBackColor = true;
@@ -376,29 +393,216 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(groupBox12);
+        Tree.Controls.Add(groupBox11);
+        Tree.Controls.Add(groupBox10);
+        Tree.Controls.Add(groupBox9);
+        Tree.Controls.Add(groupBox8);
         Tree.Controls.Add(groupBox7);
         Tree.Controls.Add(groupBox6);
         Tree.Controls.Add(groupBox5);
         Tree.Controls.Add(groupBox4);
         Tree.Controls.Add(groupBox3);
-        Tree.Controls.Add(textBoxNodeToDelete);
-        Tree.Controls.Add(buttonDeleteNode);
-        Tree.Controls.Add(label3);
-        Tree.Controls.Add(buttonDeserializarTree);
-        Tree.Controls.Add(buttonSerializarTree);
         Tree.Location = new Point(4, 24);
         Tree.Name = "Tree";
-        Tree.Size = new Size(851, 314);
+        Tree.Size = new Size(851, 352);
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
         // 
+        // groupBox12
+        // 
+        groupBox12.Controls.Add(buttonLongestConsecSeqBT);
+        groupBox12.Location = new Point(260, 267);
+        groupBox12.Name = "groupBox12";
+        groupBox12.Size = new Size(191, 49);
+        groupBox12.TabIndex = 19;
+        groupBox12.TabStop = false;
+        groupBox12.Text = "Sequence";
+        // 
+        // buttonLongestConsecSeqBT
+        // 
+        buttonLongestConsecSeqBT.Location = new Point(6, 19);
+        buttonLongestConsecSeqBT.Name = "buttonLongestConsecSeqBT";
+        buttonLongestConsecSeqBT.Size = new Size(179, 23);
+        buttonLongestConsecSeqBT.TabIndex = 0;
+        buttonLongestConsecSeqBT.Text = "Longest Consecutive BT";
+        buttonLongestConsecSeqBT.UseVisualStyleBackColor = true;
+        buttonLongestConsecSeqBT.Click += buttonLongestConsecSeqBT_Click;
+        // 
+        // groupBox11
+        // 
+        groupBox11.Controls.Add(buttonSerializarTree);
+        groupBox11.Controls.Add(buttonDeserializarTree);
+        groupBox11.Controls.Add(label3);
+        groupBox11.Location = new Point(32, 33);
+        groupBox11.Name = "groupBox11";
+        groupBox11.Size = new Size(200, 100);
+        groupBox11.TabIndex = 18;
+        groupBox11.TabStop = false;
+        groupBox11.Text = "Serialização";
+        // 
+        // buttonSerializarTree
+        // 
+        buttonSerializarTree.Location = new Point(6, 22);
+        buttonSerializarTree.Name = "buttonSerializarTree";
+        buttonSerializarTree.Size = new Size(113, 23);
+        buttonSerializarTree.TabIndex = 0;
+        buttonSerializarTree.Text = "Serializar Tree";
+        buttonSerializarTree.UseVisualStyleBackColor = true;
+        buttonSerializarTree.Click += buttonSerializarTree_Click;
+        // 
+        // buttonDeserializarTree
+        // 
+        buttonDeserializarTree.Location = new Point(6, 51);
+        buttonDeserializarTree.Name = "buttonDeserializarTree";
+        buttonDeserializarTree.Size = new Size(113, 23);
+        buttonDeserializarTree.TabIndex = 1;
+        buttonDeserializarTree.Text = "Deserializar Ttree";
+        buttonDeserializarTree.UseVisualStyleBackColor = true;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(121, 26);
+        label3.Name = "label3";
+        label3.Size = new Size(73, 15);
+        label3.TabIndex = 2;
+        label3.Text = "10,9,13,11,12";
+        // 
+        // groupBox10
+        // 
+        groupBox10.Controls.Add(textBoxNodeToDelete);
+        groupBox10.Controls.Add(buttonDeleteNode);
+        groupBox10.Location = new Point(474, 139);
+        groupBox10.Name = "groupBox10";
+        groupBox10.Size = new Size(146, 107);
+        groupBox10.TabIndex = 17;
+        groupBox10.TabStop = false;
+        groupBox10.Text = "Delete";
+        // 
+        // textBoxNodeToDelete
+        // 
+        textBoxNodeToDelete.Location = new Point(6, 20);
+        textBoxNodeToDelete.Name = "textBoxNodeToDelete";
+        textBoxNodeToDelete.PlaceholderText = "Node to Delete";
+        textBoxNodeToDelete.Size = new Size(113, 23);
+        textBoxNodeToDelete.TabIndex = 5;
+        // 
+        // buttonDeleteNode
+        // 
+        buttonDeleteNode.Location = new Point(6, 47);
+        buttonDeleteNode.Name = "buttonDeleteNode";
+        buttonDeleteNode.Size = new Size(113, 23);
+        buttonDeleteNode.TabIndex = 4;
+        buttonDeleteNode.Text = "Delete Node";
+        buttonDeleteNode.UseVisualStyleBackColor = true;
+        buttonDeleteNode.Click += buttonDeleteNode_Click;
+        // 
+        // groupBox9
+        // 
+        groupBox9.Controls.Add(textBoxSucessor);
+        groupBox9.Controls.Add(buttonSucessor_InOrder_BST);
+        groupBox9.Location = new Point(32, 267);
+        groupBox9.Name = "groupBox9";
+        groupBox9.Size = new Size(200, 49);
+        groupBox9.TabIndex = 16;
+        groupBox9.TabStop = false;
+        groupBox9.Text = "Sucessor";
+        // 
+        // textBoxSucessor
+        // 
+        textBoxSucessor.Location = new Point(121, 20);
+        textBoxSucessor.Name = "textBoxSucessor";
+        textBoxSucessor.PlaceholderText = "Node ";
+        textBoxSucessor.Size = new Size(61, 23);
+        textBoxSucessor.TabIndex = 5;
+        // 
+        // buttonSucessor_InOrder_BST
+        // 
+        buttonSucessor_InOrder_BST.Location = new Point(6, 20);
+        buttonSucessor_InOrder_BST.Name = "buttonSucessor_InOrder_BST";
+        buttonSucessor_InOrder_BST.Size = new Size(112, 23);
+        buttonSucessor_InOrder_BST.TabIndex = 1;
+        buttonSucessor_InOrder_BST.Text = "In Order BST";
+        buttonSucessor_InOrder_BST.UseVisualStyleBackColor = true;
+        buttonSucessor_InOrder_BST.Click += buttonSucessor_InOrder_BST_Click;
+        // 
+        // groupBox8
+        // 
+        groupBox8.Controls.Add(buttonLCA_BT);
+        groupBox8.Controls.Add(buttonLCA_BST);
+        groupBox8.Controls.Add(textBoxLCAnode2);
+        groupBox8.Controls.Add(textBoxLCAnode1);
+        groupBox8.Location = new Point(643, 139);
+        groupBox8.Name = "groupBox8";
+        groupBox8.Size = new Size(173, 107);
+        groupBox8.TabIndex = 15;
+        groupBox8.TabStop = false;
+        groupBox8.Text = "LCA";
+        // 
+        // buttonLCA_BT
+        // 
+        buttonLCA_BT.Location = new Point(6, 74);
+        buttonLCA_BT.Name = "buttonLCA_BT";
+        buttonLCA_BT.Size = new Size(134, 23);
+        buttonLCA_BT.TabIndex = 6;
+        buttonLCA_BT.Text = "LCA BT";
+        buttonLCA_BT.UseVisualStyleBackColor = true;
+        buttonLCA_BT.Click += buttonLCA_BT_Click;
+        // 
+        // buttonLCA_BST
+        // 
+        buttonLCA_BST.Location = new Point(6, 48);
+        buttonLCA_BST.Name = "buttonLCA_BST";
+        buttonLCA_BST.Size = new Size(134, 23);
+        buttonLCA_BST.TabIndex = 0;
+        buttonLCA_BST.Text = "LCA BST";
+        buttonLCA_BST.UseVisualStyleBackColor = true;
+        buttonLCA_BST.Click += buttonLCA_BST_Click;
+        // 
+        // textBoxLCAnode2
+        // 
+        textBoxLCAnode2.Location = new Point(74, 19);
+        textBoxLCAnode2.Name = "textBoxLCAnode2";
+        textBoxLCAnode2.PlaceholderText = "Node 2";
+        textBoxLCAnode2.Size = new Size(66, 23);
+        textBoxLCAnode2.TabIndex = 5;
+        // 
+        // textBoxLCAnode1
+        // 
+        textBoxLCAnode1.Location = new Point(6, 19);
+        textBoxLCAnode1.Name = "textBoxLCAnode1";
+        textBoxLCAnode1.PlaceholderText = "Node 1";
+        textBoxLCAnode1.Size = new Size(62, 23);
+        textBoxLCAnode1.TabIndex = 5;
+        // 
+        // groupBox7
+        // 
+        groupBox7.Controls.Add(buttonRouseHobber);
+        groupBox7.Location = new Point(32, 202);
+        groupBox7.Name = "groupBox7";
+        groupBox7.Size = new Size(200, 59);
+        groupBox7.TabIndex = 14;
+        groupBox7.TabStop = false;
+        groupBox7.Text = "House Robber";
+        // 
+        // buttonRouseHobber
+        // 
+        buttonRouseHobber.Location = new Point(6, 21);
+        buttonRouseHobber.Name = "buttonRouseHobber";
+        buttonRouseHobber.Size = new Size(112, 23);
+        buttonRouseHobber.TabIndex = 0;
+        buttonRouseHobber.Text = "House Robber III";
+        buttonRouseHobber.UseVisualStyleBackColor = true;
+        buttonRouseHobber.Click += buttonRouseHobber_Click;
+        // 
         // groupBox6
         // 
         groupBox6.Controls.Add(buttonRightSideView);
-        groupBox6.Location = new Point(643, 120);
+        groupBox6.Location = new Point(32, 138);
         groupBox6.Name = "groupBox6";
-        groupBox6.Size = new Size(173, 66);
+        groupBox6.Size = new Size(200, 58);
         groupBox6.TabIndex = 13;
         groupBox6.TabStop = false;
         groupBox6.Text = "Right Side View";
@@ -407,7 +611,7 @@ partial class Form1
         // 
         buttonRightSideView.Location = new Point(6, 22);
         buttonRightSideView.Name = "buttonRightSideView";
-        buttonRightSideView.Size = new Size(102, 23);
+        buttonRightSideView.Size = new Size(112, 23);
         buttonRightSideView.TabIndex = 0;
         buttonRightSideView.Text = "Right Side View";
         buttonRightSideView.UseVisualStyleBackColor = true;
@@ -418,9 +622,9 @@ partial class Form1
         groupBox5.Controls.Add(buttonAggregateNumsOnPath);
         groupBox5.Controls.Add(textBoxTargetSum);
         groupBox5.Controls.Add(buttonAllPathSums);
-        groupBox5.Location = new Point(451, 110);
+        groupBox5.Location = new Point(643, 27);
         groupBox5.Name = "groupBox5";
-        groupBox5.Size = new Size(173, 105);
+        groupBox5.Size = new Size(173, 93);
         groupBox5.TabIndex = 12;
         groupBox5.TabStop = false;
         groupBox5.Text = "Path Sum";
@@ -461,9 +665,9 @@ partial class Form1
         groupBox4.Controls.Add(buttonLevelOrderTraversal);
         groupBox4.Controls.Add(buttonTreeInOrderTraversal);
         groupBox4.Controls.Add(button1);
-        groupBox4.Location = new Point(32, 110);
+        groupBox4.Location = new Point(260, 33);
         groupBox4.Name = "groupBox4";
-        groupBox4.Size = new Size(191, 177);
+        groupBox4.Size = new Size(191, 213);
         groupBox4.TabIndex = 11;
         groupBox4.TabStop = false;
         groupBox4.Text = "Traversal";
@@ -522,9 +726,9 @@ partial class Form1
         // 
         groupBox3.Controls.Add(buttonIteratorTree);
         groupBox3.Controls.Add(buttonIteratorNext);
-        groupBox3.Location = new Point(285, 110);
+        groupBox3.Location = new Point(474, 33);
         groupBox3.Name = "groupBox3";
-        groupBox3.Size = new Size(146, 90);
+        groupBox3.Size = new Size(146, 87);
         groupBox3.TabIndex = 10;
         groupBox3.TabStop = false;
         groupBox3.Text = "Iterator";
@@ -549,72 +753,6 @@ partial class Form1
         buttonIteratorNext.UseVisualStyleBackColor = true;
         buttonIteratorNext.Click += buttonIteratorNext_Click;
         // 
-        // textBoxNodeToDelete
-        // 
-        textBoxNodeToDelete.Location = new Point(291, 29);
-        textBoxNodeToDelete.Name = "textBoxNodeToDelete";
-        textBoxNodeToDelete.PlaceholderText = "Node to Delete";
-        textBoxNodeToDelete.Size = new Size(100, 23);
-        textBoxNodeToDelete.TabIndex = 5;
-        // 
-        // buttonDeleteNode
-        // 
-        buttonDeleteNode.Location = new Point(397, 28);
-        buttonDeleteNode.Name = "buttonDeleteNode";
-        buttonDeleteNode.Size = new Size(100, 23);
-        buttonDeleteNode.TabIndex = 4;
-        buttonDeleteNode.Text = "Delete Node";
-        buttonDeleteNode.UseVisualStyleBackColor = true;
-        buttonDeleteNode.Click += buttonDeleteNode_Click;
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(150, 33);
-        label3.Name = "label3";
-        label3.Size = new Size(73, 15);
-        label3.TabIndex = 2;
-        label3.Text = "10,9,13,11,12";
-        // 
-        // buttonDeserializarTree
-        // 
-        buttonDeserializarTree.Location = new Point(32, 56);
-        buttonDeserializarTree.Name = "buttonDeserializarTree";
-        buttonDeserializarTree.Size = new Size(113, 23);
-        buttonDeserializarTree.TabIndex = 1;
-        buttonDeserializarTree.Text = "Deserializar Ttree";
-        buttonDeserializarTree.UseVisualStyleBackColor = true;
-        // 
-        // buttonSerializarTree
-        // 
-        buttonSerializarTree.Location = new Point(32, 27);
-        buttonSerializarTree.Name = "buttonSerializarTree";
-        buttonSerializarTree.Size = new Size(113, 23);
-        buttonSerializarTree.TabIndex = 0;
-        buttonSerializarTree.Text = "Serializar Tree";
-        buttonSerializarTree.UseVisualStyleBackColor = true;
-        buttonSerializarTree.Click += buttonSerializarTree_Click;
-        // 
-        // groupBox7
-        // 
-        groupBox7.Controls.Add(buttonRouseHobber);
-        groupBox7.Location = new Point(285, 206);
-        groupBox7.Name = "groupBox7";
-        groupBox7.Size = new Size(146, 81);
-        groupBox7.TabIndex = 14;
-        groupBox7.TabStop = false;
-        groupBox7.Text = "House Robber";
-        // 
-        // buttonRouseHobber
-        // 
-        buttonRouseHobber.Location = new Point(6, 21);
-        buttonRouseHobber.Name = "buttonRouseHobber";
-        buttonRouseHobber.Size = new Size(112, 23);
-        buttonRouseHobber.TabIndex = 0;
-        buttonRouseHobber.Text = "House Robber III";
-        buttonRouseHobber.UseVisualStyleBackColor = true;
-        buttonRouseHobber.Click += buttonRouseHobber_Click;
-        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -635,13 +773,21 @@ partial class Form1
         groupBox2.PerformLayout();
         tabPage2.ResumeLayout(false);
         Tree.ResumeLayout(false);
-        Tree.PerformLayout();
+        groupBox12.ResumeLayout(false);
+        groupBox11.ResumeLayout(false);
+        groupBox11.PerformLayout();
+        groupBox10.ResumeLayout(false);
+        groupBox10.PerformLayout();
+        groupBox9.ResumeLayout(false);
+        groupBox9.PerformLayout();
+        groupBox8.ResumeLayout(false);
+        groupBox8.PerformLayout();
+        groupBox7.ResumeLayout(false);
         groupBox6.ResumeLayout(false);
         groupBox5.ResumeLayout(false);
         groupBox5.PerformLayout();
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
-        groupBox7.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -698,4 +844,16 @@ partial class Form1
     private Button buttonLevelOrderZigZag;
     private GroupBox groupBox7;
     private Button buttonRouseHobber;
+    private GroupBox groupBox8;
+    private Button buttonSucessor_InOrder_BST;
+    private Button buttonLCA_BST;
+    private TextBox textBoxLCAnode2;
+    private TextBox textBoxLCAnode1;
+    private Button buttonLCA_BT;
+    private GroupBox groupBox9;
+    private GroupBox groupBox10;
+    private GroupBox groupBox11;
+    private TextBox textBoxSucessor;
+    private GroupBox groupBox12;
+    private Button buttonLongestConsecSeqBT;
 }
