@@ -1,4 +1,5 @@
 using AlgoritmosProject.Services;
+using AlgoritmosProject.Services.Graph;
 using AlgoritmosProject.Services.Tree;
 using System;
 using System.Collections.Generic;
@@ -1003,8 +1004,61 @@ public partial class Form1 : Form
             MyTreeNode? upSideDownTree = TreeService.UpSideDownTree(myTreeNode);
 
             textBoxResultado.Text += $"UpSide Down Tree from " +
-                $"{string.Join(",",TreeService.InOrderTraversalIteratively(myTreeNode))} is" +
+                $"{string.Join(",", TreeService.InOrderTraversalIteratively(myTreeNode))} is" +
                 $" {string.Join(",", TreeService.InOrderTraversalIteratively(upSideDownTree))} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonConnectedCompUndirectedGraph_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int numberOfNodes = 5;
+
+            IList<List<int>> edgesList1 = new List<List<int>> 
+                                            { 
+                                                new List<int> { 0, 1 },
+                                                new List<int> { 1, 2 }, 
+                                                new List<int> { 3, 4 } 
+                                            };
+
+            IList<List<int>> edgesList2 = new List<List<int>> 
+                                            { 
+                                                new List<int> { 0, 1 }, 
+                                                new List<int> { 1, 2 }, 
+                                                new List<int> { 2, 3 }, 
+                                                new List<int> { 3, 4 } 
+                                            };
+
+            Solution solutionInstance = new Solution();
+
+            StringBuilder stringBuilder = new();
+            foreach (var item in edgesList1)
+            {
+                stringBuilder.Append($"[{string.Join(",", item)}], ");
+            }
+
+            int result1 = solutionInstance.CountComponents(numberOfNodes, edgesList1);
+
+            textBoxResultado.Text += $"Count Components edgesList1 --> {stringBuilder}: {result1} {Environment.NewLine}";
+
+
+            stringBuilder = new();
+            foreach (var item in edgesList2)
+            {
+                stringBuilder.Append($"[{string.Join(",", item)}], ");
+            }
+
+            int result2 = solutionInstance.CountComponents(numberOfNodes, edgesList2);
+
+            textBoxResultado.Text += $"Count Components edgesList2 --> {stringBuilder}: {result2} {Environment.NewLine}";
         }
         catch (Exception ex)
         {

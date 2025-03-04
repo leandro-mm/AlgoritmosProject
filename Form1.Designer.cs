@@ -56,6 +56,8 @@ partial class Form1
         tabPage2 = new TabPage();
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
+        groupBox13 = new GroupBox();
+        buttonBT_UpSideDown = new Button();
         groupBox12 = new GroupBox();
         buttonValidPreOrderBST = new Button();
         buttonLongestConsecSeqBT = new Button();
@@ -91,14 +93,16 @@ partial class Form1
         groupBox3 = new GroupBox();
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
-        groupBox13 = new GroupBox();
-        buttonBT_UpSideDown = new Button();
+        Graph = new TabPage();
+        groupBox14 = new GroupBox();
+        buttonConnectedCompUndirectedGraph = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
         groupBox2.SuspendLayout();
         tabPage2.SuspendLayout();
         Tree.SuspendLayout();
+        groupBox13.SuspendLayout();
         groupBox12.SuspendLayout();
         groupBox11.SuspendLayout();
         groupBox10.SuspendLayout();
@@ -109,7 +113,8 @@ partial class Form1
         groupBox5.SuspendLayout();
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
-        groupBox13.SuspendLayout();
+        Graph.SuspendLayout();
+        groupBox14.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -289,6 +294,7 @@ partial class Form1
         tabControl1.Controls.Add(tabPage1);
         tabControl1.Controls.Add(tabPage2);
         tabControl1.Controls.Add(Tree);
+        tabControl1.Controls.Add(Graph);
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -414,6 +420,26 @@ partial class Form1
         Tree.TabIndex = 2;
         Tree.Text = "Tree";
         Tree.UseVisualStyleBackColor = true;
+        // 
+        // groupBox13
+        // 
+        groupBox13.Controls.Add(buttonBT_UpSideDown);
+        groupBox13.Location = new Point(457, 267);
+        groupBox13.Name = "groupBox13";
+        groupBox13.Size = new Size(163, 82);
+        groupBox13.TabIndex = 20;
+        groupBox13.TabStop = false;
+        groupBox13.Text = "Up Side Down";
+        // 
+        // buttonBT_UpSideDown
+        // 
+        buttonBT_UpSideDown.Location = new Point(23, 22);
+        buttonBT_UpSideDown.Name = "buttonBT_UpSideDown";
+        buttonBT_UpSideDown.Size = new Size(113, 23);
+        buttonBT_UpSideDown.TabIndex = 0;
+        buttonBT_UpSideDown.Text = "BT Up Side Down";
+        buttonBT_UpSideDown.UseVisualStyleBackColor = true;
+        buttonBT_UpSideDown.Click += buttonBT_UpSideDown_Click;
         // 
         // groupBox12
         // 
@@ -769,25 +795,35 @@ partial class Form1
         buttonIteratorNext.UseVisualStyleBackColor = true;
         buttonIteratorNext.Click += buttonIteratorNext_Click;
         // 
-        // groupBox13
+        // Graph
         // 
-        groupBox13.Controls.Add(buttonBT_UpSideDown);
-        groupBox13.Location = new Point(457, 267);
-        groupBox13.Name = "groupBox13";
-        groupBox13.Size = new Size(163, 82);
-        groupBox13.TabIndex = 20;
-        groupBox13.TabStop = false;
-        groupBox13.Text = "Up Side Down";
+        Graph.Controls.Add(groupBox14);
+        Graph.Location = new Point(4, 24);
+        Graph.Name = "Graph";
+        Graph.Size = new Size(851, 352);
+        Graph.TabIndex = 3;
+        Graph.Text = "Graph";
+        Graph.UseVisualStyleBackColor = true;
         // 
-        // buttonBT_UpSideDown
+        // groupBox14
         // 
-        buttonBT_UpSideDown.Location = new Point(23, 22);
-        buttonBT_UpSideDown.Name = "buttonBT_UpSideDown";
-        buttonBT_UpSideDown.Size = new Size(113, 23);
-        buttonBT_UpSideDown.TabIndex = 0;
-        buttonBT_UpSideDown.Text = "BT Up Side Down";
-        buttonBT_UpSideDown.UseVisualStyleBackColor = true;
-        buttonBT_UpSideDown.Click += buttonBT_UpSideDown_Click;
+        groupBox14.Controls.Add(buttonConnectedCompUndirectedGraph);
+        groupBox14.Location = new Point(12, 19);
+        groupBox14.Name = "groupBox14";
+        groupBox14.Size = new Size(200, 100);
+        groupBox14.TabIndex = 0;
+        groupBox14.TabStop = false;
+        groupBox14.Text = "Connected Components";
+        // 
+        // buttonConnectedCompUndirectedGraph
+        // 
+        buttonConnectedCompUndirectedGraph.Location = new Point(6, 31);
+        buttonConnectedCompUndirectedGraph.Name = "buttonConnectedCompUndirectedGraph";
+        buttonConnectedCompUndirectedGraph.Size = new Size(120, 23);
+        buttonConnectedCompUndirectedGraph.TabIndex = 0;
+        buttonConnectedCompUndirectedGraph.Text = "Undirected Graph";
+        buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
+        buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
         // Form1
         // 
@@ -809,6 +845,7 @@ partial class Form1
         groupBox2.PerformLayout();
         tabPage2.ResumeLayout(false);
         Tree.ResumeLayout(false);
+        groupBox13.ResumeLayout(false);
         groupBox12.ResumeLayout(false);
         groupBox11.ResumeLayout(false);
         groupBox11.PerformLayout();
@@ -824,7 +861,8 @@ partial class Form1
         groupBox5.PerformLayout();
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
-        groupBox13.ResumeLayout(false);
+        Graph.ResumeLayout(false);
+        groupBox14.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -896,4 +934,7 @@ partial class Form1
     private Button buttonValidPreOrderBST;
     private GroupBox groupBox13;
     private Button buttonBT_UpSideDown;
+    private TabPage Graph;
+    private GroupBox groupBox14;
+    private Button buttonConnectedCompUndirectedGraph;
 }
