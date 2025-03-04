@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AlgoritmosProject.Services.Graph
+﻿namespace AlgoritmosProject.Services.Graph
 {
     public class Graph
     {
@@ -30,7 +24,7 @@ namespace AlgoritmosProject.Services.Graph
             return newVertex;
         }
 
-        public Vertex GetVertex(int n)
+        public Vertex? GetVertex(int n)
         {
             if (vertDictionary.ContainsKey(n))
                 return vertDictionary[n];

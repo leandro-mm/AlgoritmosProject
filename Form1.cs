@@ -1022,19 +1022,19 @@ public partial class Form1 : Form
 
             int numberOfNodes = 5;
 
-            IList<List<int>> edgesList1 = new List<List<int>> 
-                                            { 
+            IList<List<int>> edgesList1 = new List<List<int>>
+                                            {
                                                 new List<int> { 0, 1 },
-                                                new List<int> { 1, 2 }, 
-                                                new List<int> { 3, 4 } 
+                                                new List<int> { 1, 2 },
+                                                new List<int> { 3, 4 }
                                             };
 
-            IList<List<int>> edgesList2 = new List<List<int>> 
-                                            { 
-                                                new List<int> { 0, 1 }, 
-                                                new List<int> { 1, 2 }, 
-                                                new List<int> { 2, 3 }, 
-                                                new List<int> { 3, 4 } 
+            IList<List<int>> edgesList2 = new List<List<int>>
+                                            {
+                                                new List<int> { 0, 1 },
+                                                new List<int> { 1, 2 },
+                                                new List<int> { 2, 3 },
+                                                new List<int> { 3, 4 }
                                             };
 
             Solution solutionInstance = new Solution();
@@ -1059,6 +1059,36 @@ public partial class Form1 : Form
             int result2 = solutionInstance.CountComponents(numberOfNodes, edgesList2);
 
             textBoxResultado.Text += $"Count Components edgesList2 --> {stringBuilder}: {result2} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonGraph_adjascList_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            GraphII graphII = new(4);
+            graphII.AddEdge(0,1);
+            graphII.AddEdge(0, 2);
+            graphII.AddEdge(1, 1);
+            graphII.AddEdge(1, 2);
+            graphII.AddEdge(2, 1);
+            graphII.AddEdge(2, 2);
+            graphII.AddEdge(3, 1);
+            graphII.AddEdge(3, 2);
+
+            textBoxResultado.Text += $"Graph Print Adjacent Matrix {Environment.NewLine}";
+            textBoxResultado.Text += $"{graphII.PrintAdjacentMatrix()}{Environment.NewLine}";
+            textBoxResultado.Text += $"Graph BFS 1 {Environment.NewLine}";
+            textBoxResultado.Text += $"{graphII.BFS(2)}{Environment.NewLine}";
+            textBoxResultado.Text += $"Graph DFS 1 {Environment.NewLine}";
+            textBoxResultado.Text += $"{graphII.DFS(1)}{Environment.NewLine}";
         }
         catch (Exception ex)
         {

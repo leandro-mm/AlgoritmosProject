@@ -96,6 +96,7 @@ partial class Form1
         Graph = new TabPage();
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
+        buttonGraph_adjascList = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -807,6 +808,7 @@ partial class Form1
         // 
         // groupBox14
         // 
+        groupBox14.Controls.Add(buttonGraph_adjascList);
         groupBox14.Controls.Add(buttonConnectedCompUndirectedGraph);
         groupBox14.Location = new Point(12, 19);
         groupBox14.Name = "groupBox14";
@@ -824,6 +826,16 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.Text = "Undirected Graph";
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
+        // 
+        // buttonGraph_adjascList
+        // 
+        buttonGraph_adjascList.Location = new Point(6, 60);
+        buttonGraph_adjascList.Name = "buttonGraph_adjascList";
+        buttonGraph_adjascList.Size = new Size(120, 23);
+        buttonGraph_adjascList.TabIndex = 1;
+        buttonGraph_adjascList.Text = "Print Adjascent List";
+        buttonGraph_adjascList.UseVisualStyleBackColor = true;
+        buttonGraph_adjascList.Click += buttonGraph_adjascList_Click;
         // 
         // Form1
         // 
@@ -937,4 +949,5 @@ partial class Form1
     private TabPage Graph;
     private GroupBox groupBox14;
     private Button buttonConnectedCompUndirectedGraph;
+    private Button buttonGraph_adjascList;
 }
