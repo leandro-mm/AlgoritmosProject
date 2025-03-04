@@ -57,6 +57,7 @@ partial class Form1
         buttonBoyerMooring = new Button();
         Tree = new TabPage();
         groupBox12 = new GroupBox();
+        buttonValidPreOrderBST = new Button();
         buttonLongestConsecSeqBT = new Button();
         groupBox11 = new GroupBox();
         buttonSerializarTree = new Button();
@@ -86,10 +87,12 @@ partial class Form1
         buttonLevelOrderTraversal2 = new Button();
         buttonLevelOrderTraversal = new Button();
         buttonTreeInOrderTraversal = new Button();
-        button1 = new Button();
+        buttonTreePreOrder = new Button();
         groupBox3 = new GroupBox();
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
+        groupBox13 = new GroupBox();
+        buttonBT_UpSideDown = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -106,6 +109,7 @@ partial class Form1
         groupBox5.SuspendLayout();
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
+        groupBox13.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -139,11 +143,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 464);
+        textBoxResultado.Location = new Point(13, 480);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(855, 165);
+        textBoxResultado.Size = new Size(855, 219);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -393,6 +397,7 @@ partial class Form1
         // 
         // Tree
         // 
+        Tree.Controls.Add(groupBox13);
         Tree.Controls.Add(groupBox12);
         Tree.Controls.Add(groupBox11);
         Tree.Controls.Add(groupBox10);
@@ -412,13 +417,24 @@ partial class Form1
         // 
         // groupBox12
         // 
+        groupBox12.Controls.Add(buttonValidPreOrderBST);
         groupBox12.Controls.Add(buttonLongestConsecSeqBT);
         groupBox12.Location = new Point(260, 267);
         groupBox12.Name = "groupBox12";
-        groupBox12.Size = new Size(191, 49);
+        groupBox12.Size = new Size(191, 82);
         groupBox12.TabIndex = 19;
         groupBox12.TabStop = false;
         groupBox12.Text = "Sequence";
+        // 
+        // buttonValidPreOrderBST
+        // 
+        buttonValidPreOrderBST.Location = new Point(6, 48);
+        buttonValidPreOrderBST.Name = "buttonValidPreOrderBST";
+        buttonValidPreOrderBST.Size = new Size(179, 23);
+        buttonValidPreOrderBST.TabIndex = 1;
+        buttonValidPreOrderBST.Text = "Valid Preorder Sequence BST";
+        buttonValidPreOrderBST.UseVisualStyleBackColor = true;
+        buttonValidPreOrderBST.Click += buttonValidPreOrderBST_Click;
         // 
         // buttonLongestConsecSeqBT
         // 
@@ -476,7 +492,7 @@ partial class Form1
         groupBox10.Controls.Add(buttonDeleteNode);
         groupBox10.Location = new Point(474, 139);
         groupBox10.Name = "groupBox10";
-        groupBox10.Size = new Size(146, 107);
+        groupBox10.Size = new Size(146, 122);
         groupBox10.TabIndex = 17;
         groupBox10.TabStop = false;
         groupBox10.Text = "Delete";
@@ -505,7 +521,7 @@ partial class Form1
         groupBox9.Controls.Add(buttonSucessor_InOrder_BST);
         groupBox9.Location = new Point(32, 267);
         groupBox9.Name = "groupBox9";
-        groupBox9.Size = new Size(200, 49);
+        groupBox9.Size = new Size(200, 82);
         groupBox9.TabIndex = 16;
         groupBox9.TabStop = false;
         groupBox9.Text = "Sucessor";
@@ -536,7 +552,7 @@ partial class Form1
         groupBox8.Controls.Add(textBoxLCAnode1);
         groupBox8.Location = new Point(643, 139);
         groupBox8.Name = "groupBox8";
-        groupBox8.Size = new Size(173, 107);
+        groupBox8.Size = new Size(173, 122);
         groupBox8.TabIndex = 15;
         groupBox8.TabStop = false;
         groupBox8.Text = "LCA";
@@ -664,10 +680,10 @@ partial class Form1
         groupBox4.Controls.Add(buttonLevelOrderTraversal2);
         groupBox4.Controls.Add(buttonLevelOrderTraversal);
         groupBox4.Controls.Add(buttonTreeInOrderTraversal);
-        groupBox4.Controls.Add(button1);
+        groupBox4.Controls.Add(buttonTreePreOrder);
         groupBox4.Location = new Point(260, 33);
         groupBox4.Name = "groupBox4";
-        groupBox4.Size = new Size(191, 213);
+        groupBox4.Size = new Size(191, 228);
         groupBox4.TabIndex = 11;
         groupBox4.TabStop = false;
         groupBox4.Text = "Traversal";
@@ -712,15 +728,15 @@ partial class Form1
         buttonTreeInOrderTraversal.UseVisualStyleBackColor = true;
         buttonTreeInOrderTraversal.Click += buttonTreeInOrderTraversal_Click;
         // 
-        // button1
+        // buttonTreePreOrder
         // 
-        button1.Location = new Point(6, 24);
-        button1.Name = "button1";
-        button1.Size = new Size(179, 23);
-        button1.TabIndex = 3;
-        button1.Text = "Pre Order Traversal Iteratively";
-        button1.UseVisualStyleBackColor = true;
-        button1.Click += button1_Click;
+        buttonTreePreOrder.Location = new Point(6, 24);
+        buttonTreePreOrder.Name = "buttonTreePreOrder";
+        buttonTreePreOrder.Size = new Size(179, 23);
+        buttonTreePreOrder.TabIndex = 3;
+        buttonTreePreOrder.Text = "Pre Order Traversal Iteratively";
+        buttonTreePreOrder.UseVisualStyleBackColor = true;
+        buttonTreePreOrder.Click += buttonTreePreORderTravelrsal_Click;
         // 
         // groupBox3
         // 
@@ -753,11 +769,31 @@ partial class Form1
         buttonIteratorNext.UseVisualStyleBackColor = true;
         buttonIteratorNext.Click += buttonIteratorNext_Click;
         // 
+        // groupBox13
+        // 
+        groupBox13.Controls.Add(buttonBT_UpSideDown);
+        groupBox13.Location = new Point(457, 267);
+        groupBox13.Name = "groupBox13";
+        groupBox13.Size = new Size(163, 82);
+        groupBox13.TabIndex = 20;
+        groupBox13.TabStop = false;
+        groupBox13.Text = "Up Side Down";
+        // 
+        // buttonBT_UpSideDown
+        // 
+        buttonBT_UpSideDown.Location = new Point(23, 22);
+        buttonBT_UpSideDown.Name = "buttonBT_UpSideDown";
+        buttonBT_UpSideDown.Size = new Size(113, 23);
+        buttonBT_UpSideDown.TabIndex = 0;
+        buttonBT_UpSideDown.Text = "BT Up Side Down";
+        buttonBT_UpSideDown.UseVisualStyleBackColor = true;
+        buttonBT_UpSideDown.Click += buttonBT_UpSideDown_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(895, 641);
+        ClientSize = new Size(895, 711);
         Controls.Add(tabControl1);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
@@ -788,6 +824,7 @@ partial class Form1
         groupBox5.PerformLayout();
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
+        groupBox13.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -822,7 +859,7 @@ partial class Form1
     private Button buttonDeserializarTree;
     private Button buttonSerializarTree;
     private Label label3;
-    private Button button1;
+    private Button buttonTreePreOrder;
     private TextBox textBoxNodeToDelete;
     private Button buttonDeleteNode;
     private Button buttonIteratorNext;
@@ -856,4 +893,7 @@ partial class Form1
     private TextBox textBoxSucessor;
     private GroupBox groupBox12;
     private Button buttonLongestConsecSeqBT;
+    private Button buttonValidPreOrderBST;
+    private GroupBox groupBox13;
+    private Button buttonBT_UpSideDown;
 }

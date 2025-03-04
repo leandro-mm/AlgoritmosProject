@@ -9,7 +9,7 @@ namespace AlgoritmosProject.Services.Tree
     public class TreeService
     {
         public StringBuilder SbSerializacao { get; set; } = new();
-        public string SerializarTree(MyTreeNode root)
+        public string TreePreOrderSerializar(MyTreeNode root)
         {
             if (root is null)
             {
@@ -19,9 +19,9 @@ namespace AlgoritmosProject.Services.Tree
 
             SbSerializacao.Append(root.Value.ToString()).Append(",");
 
-            SerializarTree(root.Left);
+            TreePreOrderSerializar(root.Left);
 
-            SerializarTree(root.Right);
+            TreePreOrderSerializar(root.Right);
 
             return SbSerializacao.ToString();
         }
@@ -46,7 +46,7 @@ namespace AlgoritmosProject.Services.Tree
             return root;
         }
 
-        public static MyTreeNode InsertFromArray(int[] array)
+        public static MyTreeNode BST_FromArray(int[] array)
         {
             MyTreeNode myTreeNode = new(array[0]);
 
@@ -638,6 +638,61 @@ namespace AlgoritmosProject.Services.Tree
                 return maxSize;
             }
         }
+
+        public static bool IsValidPreOrderBST(int[] input)
+        {
+            Stack<int> stack = new Stack<int>();
+
+            int predecessor = int.MinValue;
+
+            foreach (int nodeVal in input)
+            {
+                if (nodeVal < predecessor)
+                {
+                    return false;
+                }
+
+                while (stack.Count != 0 && stack.Peek() < nodeVal)
+                {
+                    predecessor = stack.Pop();
+                }
+
+                stack.Push(nodeVal);
+            }
+            return true;
+        }
+
+        public static MyTreeNode? UpSideDownTree(MyTreeNode root)
+        {
+            if(root is null)
+            {
+                return null;
+            }
+
+            MyTreeNode? rootCopy = root;
+            
+            MyTreeNode? parent = null;
+
+            MyTreeNode? right = null;
+
+            while(rootCopy is MyTreeNode)
+            {
+                MyTreeNode? left = rootCopy.Left;
+
+                rootCopy.Left = parent;
+
+                right = rootCopy.Right ;
+
+                rootCopy.Right = parent;
+
+                parent = rootCopy;
+
+                rootCopy = left;
+            }
+
+            return parent;
+
+        }
     }
 
     public class MyTreeNode
@@ -648,3 +703,5 @@ namespace AlgoritmosProject.Services.Tree
         public MyTreeNode(int x) { Value = x; }
     }
 }
+
+

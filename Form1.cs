@@ -404,9 +404,9 @@ public partial class Form1 : Form
             {
 
 
-                MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+                MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
-                string arvoreSerializada = new TreeService().SerializarTree(myTreeNode);
+                string arvoreSerializada = new TreeService().TreePreOrderSerializar(myTreeNode);
 
                 textBoxResultado.Text += $" TreeService Insert ... {Environment.NewLine}";
 
@@ -426,7 +426,7 @@ public partial class Form1 : Form
         }
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private void buttonTreePreORderTravelrsal_Click(object sender, EventArgs e)
     {
         try
         {
@@ -434,20 +434,23 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
-            var result = TreeService.PreOrderTraversalIteratively(myTreeNode);
+            IList<int> listNodes = TreeService.PreOrderTraversalIteratively(myTreeNode);
 
             textBoxResultado.Text += $"Pre Order Traversal Iteratively {Environment.NewLine}";
-            textBoxResultado.Text += $"Adiciona o root em uma stack {Environment.NewLine}";
-            textBoxResultado.Text += $"faz push na stack e adiciona em uma lista o valor {Environment.NewLine}";
-            textBoxResultado.Text += $"se houver lado direito adiciona{Environment.NewLine}";
-            textBoxResultado.Text += $"se houver lado esquerdo adiciona{Environment.NewLine}";
-            textBoxResultado.Text += $"\t adiciona o lado esquerdo por último para fazer push antes do lado direito (pre order){Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"Utilizar stack {Environment.NewLine}";
+            textBoxResultado.Text += $"push(root){Environment.NewLine}";
+            textBoxResultado.Text += $"pop(root) {Environment.NewLine}";
+            textBoxResultado.Text += $"\t adiciona em uma lista o valor {Environment.NewLine}";
+            textBoxResultado.Text += $"se houver lado direito faz push{Environment.NewLine}";
+            textBoxResultado.Text += $"se houver lado esquerdo faz push{Environment.NewLine}";
+            textBoxResultado.Text += $"\t adiciona o lado esquerdo por último para fazer pop antes do lado direito (pre order){Environment.NewLine}{Environment.NewLine}";
 
-            string treeSerialized = new TreeService().SerializarTree(myTreeNode);
+            string treeSerialized = new TreeService().TreePreOrderSerializar(myTreeNode);
 
-            textBoxResultado.Text += $"{treeSerialized}{Environment.NewLine}";
+            textBoxResultado.Text += $"Tree Pre Order Serializar {treeSerialized}{Environment.NewLine}";
+            textBoxResultado.Text += $"Pre Order Traversal Iteratively {string.Join(",", listNodes)}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
@@ -464,15 +467,15 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
-            string treeSerialized = new TreeService().SerializarTree(myTreeNode);
+            string treeSerialized = new TreeService().TreePreOrderSerializar(myTreeNode);
 
             textBoxResultado.Text += $"Tree Before {treeSerialized} {Environment.NewLine}";
 
             MyTreeNode? treeNodeWithNodeDeleted = TreeService.Delete(myTreeNode, int.Parse(textBoxNodeToDelete.Text));
 
-            treeSerialized = new TreeService().SerializarTree(treeNodeWithNodeDeleted);
+            treeSerialized = new TreeService().TreePreOrderSerializar(treeNodeWithNodeDeleted);
 
             textBoxResultado.Text += $"Tree After {treeSerialized} {Environment.NewLine}";
         }
@@ -491,7 +494,7 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
             bSTIterator = new BSTIterator(myTreeNode);
 
@@ -539,7 +542,7 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
             IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
 
@@ -751,7 +754,7 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            IList<int> result = TreeService.AgregateRootToPath(TreeService.InsertFromArray(input));
+            IList<int> result = TreeService.AgregateRootToPath(TreeService.BST_FromArray(input));
 
             string stringResult = PrintListData(result);
             textBoxResultado.Text += $"Using Input {Environment.NewLine}";
@@ -845,7 +848,7 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode root = TreeService.InsertFromArray(input);
+            MyTreeNode root = TreeService.BST_FromArray(input);
 
             textBoxResultado.Text += $"Parâmetros: TreeNode A, TreeNode B {Environment.NewLine}";
             textBoxResultado.Text += $"Fazer In Order do root{Environment.NewLine}";
@@ -879,7 +882,7 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
             IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
 
@@ -951,13 +954,57 @@ public partial class Form1 : Form
 
             int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
 
-            MyTreeNode myTreeNode = TreeService.InsertFromArray(input);
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
             int result = TreeService.LongestConsecutiveSequenceBT(myTreeNode);
 
             IList<int> listResult = TreeService.InOrderTraversalIteratively(myTreeNode);
 
             textBoxResultado.Text += $"Longest Consecutive Sequence BT {string.Join(",", listResult)} is {result} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonValidPreOrderBST_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            bool validPreOrder = TreeService.IsValidPreOrderBST(input);
+
+            textBoxResultado.Text += $"Is Valid Pre Order BST from Array {string.Join(",", input)}: {validPreOrder} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonBT_UpSideDown_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+
+            //MyTreeNode root = TreeService.GetStandardtBinaryTree();
+
+            MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
+
+            MyTreeNode? upSideDownTree = TreeService.UpSideDownTree(myTreeNode);
+
+            textBoxResultado.Text += $"UpSide Down Tree from " +
+                $"{string.Join(",",TreeService.InOrderTraversalIteratively(myTreeNode))} is" +
+                $" {string.Join(",", TreeService.InOrderTraversalIteratively(upSideDownTree))} {Environment.NewLine}";
         }
         catch (Exception ex)
         {
