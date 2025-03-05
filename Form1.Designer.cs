@@ -95,8 +95,10 @@ partial class Form1
         buttonIteratorNext = new Button();
         Graph = new TabPage();
         groupBox14 = new GroupBox();
-        buttonConnectedCompUndirectedGraph = new Button();
         buttonGraph_adjascList = new Button();
+        buttonConnectedCompUndirectedGraph = new Button();
+        groupBox15 = new GroupBox();
+        buttonCourseSchedule = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -116,6 +118,7 @@ partial class Form1
         groupBox3.SuspendLayout();
         Graph.SuspendLayout();
         groupBox14.SuspendLayout();
+        groupBox15.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -798,6 +801,7 @@ partial class Form1
         // 
         // Graph
         // 
+        Graph.Controls.Add(groupBox15);
         Graph.Controls.Add(groupBox14);
         Graph.Location = new Point(4, 24);
         Graph.Name = "Graph";
@@ -817,6 +821,16 @@ partial class Form1
         groupBox14.TabStop = false;
         groupBox14.Text = "Connected Components";
         // 
+        // buttonGraph_adjascList
+        // 
+        buttonGraph_adjascList.Location = new Point(6, 60);
+        buttonGraph_adjascList.Name = "buttonGraph_adjascList";
+        buttonGraph_adjascList.Size = new Size(120, 23);
+        buttonGraph_adjascList.TabIndex = 1;
+        buttonGraph_adjascList.Text = "Print Adjascent List";
+        buttonGraph_adjascList.UseVisualStyleBackColor = true;
+        buttonGraph_adjascList.Click += buttonGraph_adjascList_Click;
+        // 
         // buttonConnectedCompUndirectedGraph
         // 
         buttonConnectedCompUndirectedGraph.Location = new Point(6, 31);
@@ -827,15 +841,25 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // buttonGraph_adjascList
+        // groupBox15
         // 
-        buttonGraph_adjascList.Location = new Point(6, 60);
-        buttonGraph_adjascList.Name = "buttonGraph_adjascList";
-        buttonGraph_adjascList.Size = new Size(120, 23);
-        buttonGraph_adjascList.TabIndex = 1;
-        buttonGraph_adjascList.Text = "Print Adjascent List";
-        buttonGraph_adjascList.UseVisualStyleBackColor = true;
-        buttonGraph_adjascList.Click += buttonGraph_adjascList_Click;
+        groupBox15.Controls.Add(buttonCourseSchedule);
+        groupBox15.Location = new Point(235, 19);
+        groupBox15.Name = "groupBox15";
+        groupBox15.Size = new Size(200, 100);
+        groupBox15.TabIndex = 1;
+        groupBox15.TabStop = false;
+        groupBox15.Text = "Priority";
+        // 
+        // buttonCourseSchedule
+        // 
+        buttonCourseSchedule.Location = new Point(6, 31);
+        buttonCourseSchedule.Name = "buttonCourseSchedule";
+        buttonCourseSchedule.Size = new Size(114, 23);
+        buttonCourseSchedule.TabIndex = 0;
+        buttonCourseSchedule.Text = "Course Schedule";
+        buttonCourseSchedule.UseVisualStyleBackColor = true;
+        buttonCourseSchedule.Click += buttonCourseSchedule_Click;
         // 
         // Form1
         // 
@@ -875,6 +899,7 @@ partial class Form1
         groupBox3.ResumeLayout(false);
         Graph.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
+        groupBox15.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -950,4 +975,6 @@ partial class Form1
     private GroupBox groupBox14;
     private Button buttonConnectedCompUndirectedGraph;
     private Button buttonGraph_adjascList;
+    private GroupBox groupBox15;
+    private Button buttonCourseSchedule;
 }

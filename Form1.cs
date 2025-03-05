@@ -1,14 +1,8 @@
 using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Graph;
+using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Tree;
-using System;
-using System.Collections.Generic;
-using System.Drawing.Text;
-using System.Runtime.Intrinsics.X86;
 using System.Text;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AlgoritmosProject;
 
@@ -21,6 +15,21 @@ public partial class Form1 : Form
         GeneralService.SetInputBoxDefaultValues(textBoxInput, "1,2,3,4,5");
     }
 
+    private string PrintListData(int[] array)
+    {
+        StringBuilder stringBuilder = new();
+        
+        stringBuilder.Append("[");
+        
+        for (int k = 0; k < array.Length; k++)
+        {
+            stringBuilder.Append($"{array[k].ToString()},");
+        }
+
+        stringBuilder.AppendLine("]");
+
+        return stringBuilder.ToString();
+    }
     private string PrintListData(IList<List<int>> data)
     {
         StringBuilder stringBuilder = new();
@@ -1074,7 +1083,7 @@ public partial class Form1 : Form
             GeneralService.ClearTexttBox(textBoxResultado);
 
             GraphII graphII = new(4);
-            graphII.AddEdge(0,1);
+            graphII.AddEdge(0, 1);
             graphII.AddEdge(0, 2);
             graphII.AddEdge(1, 1);
             graphII.AddEdge(1, 2);
@@ -1089,6 +1098,39 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"{graphII.BFS(2)}{Environment.NewLine}";
             textBoxResultado.Text += $"Graph DFS 1 {Environment.NewLine}";
             textBoxResultado.Text += $"{graphII.DFS(1)}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonCourseSchedule_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            SolutionCourse solutionCourse = new();
+
+            int[][] array = [[1, 0]];
+
+            bool canFinish = solutionCourse.CanFinish(2, array);
+
+            //textBoxResultado.Text += $"Graph Course Schedule  " +
+            //                            $"{Environment.NewLine}" +
+            //                            $"{PrintListData(array[0])} " +                                        
+            //                            $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
+
+            array = [[1, 0], [0, 1]];
+
+            canFinish = solutionCourse.CanFinish(2, array);
+
+            textBoxResultado.Text += $"Graph Course Schedule  " +
+                                        $"{Environment.NewLine}" +
+                                        $"{PrintListData(array[0])},{PrintListData(array[1])} " +
+                                        $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
         }
         catch (Exception ex)
         {
