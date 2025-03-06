@@ -9,7 +9,7 @@
         private VertexCourse? predecessorVertex = null;
         private int visitTime = 0;
         private int finishTime = 0;
-        private string vertexColor = ColorEnum.White;
+        private string vertexColor = Color.WHITE;
 
         public void AddNeighbor(VertexCourse neighbor, int weight = 0)
         {

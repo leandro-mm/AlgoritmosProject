@@ -15,7 +15,7 @@
         {
             foreach (KeyValuePair<int, VertexCourse> vertex in graph.GetVertices())
             {
-                if (vertex.Value.GetColor() == ColorEnum.White)
+                if (vertex.Value.GetColor() == Color.WHITE)
                 {
                     DFSVisit(vertex.Value);
                 }
@@ -24,22 +24,23 @@
 
         private void DFSVisit(VertexCourse node)
         {
-            node.SetColor(ColorEnum.Grey);
+            node.SetColor(Color.GREY);
 
-            foreach (var neighbor in node.GetNeighbors())
+            foreach (VertexCourse neighbor in node.GetNeighbors())
             {
-                if (neighbor.GetColor() == ColorEnum.Grey)
+                if (neighbor.GetColor() == Color.GREY)
                 {
-                    HasCycle = true;
+                    HasCycle = true; break;
                 }
-                if (neighbor.GetColor() == ColorEnum.White)
+                else if (neighbor.GetColor() == Color.WHITE)
                 {
-                    neighbor.SetColor(ColorEnum.Grey);
+                    neighbor.SetColor(Color.GREY);
 
                     DFSVisit(neighbor);
                 }
             }
-            node.SetColor(ColorEnum.Black);
+
+            node.SetColor(Color.BLACK);
         }
     }
 }

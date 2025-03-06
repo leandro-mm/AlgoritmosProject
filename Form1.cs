@@ -1,5 +1,6 @@
 using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Graph;
+using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
 using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Tree;
 using System.Text;
@@ -15,7 +16,7 @@ public partial class Form1 : Form
         GeneralService.SetInputBoxDefaultValues(textBoxInput, "1,2,3,4,5");
     }
 
-  
+
     private void btnFirstDuplicate_Click(object sender, EventArgs e)
     {
         try
@@ -1092,6 +1093,42 @@ public partial class Form1 : Form
 
             textBoxResultado.Text += $"{GeneralService.PrintListData(array[0])},{GeneralService.PrintListData(array[1])} " +
                                         $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonAdjMatrxRepres_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int V = 4; // Number of vertices
+            int[,] mat = new int[V, V]; // Initialize matrix
+
+            // Add edges to the graph            
+            AdjacencyMatrixRepresentationService.AddEdge(mat, 0, 1);
+            AdjacencyMatrixRepresentationService.AddEdge(mat, 0, 2);
+            AdjacencyMatrixRepresentationService.AddEdge(mat, 1, 2);
+            AdjacencyMatrixRepresentationService.AddEdge(mat, 2, 3);
+
+            // Optionally, initialize matrix directly
+            /*
+            int[,] mat = new int[,]
+            {
+                { 0, 1, 0, 0 },
+                { 1, 0, 1, 0 },
+                { 0, 1, 0, 1 },
+                { 0, 0, 1, 0 }
+            };
+            */
+
+            textBoxResultado.Text += $"Adjacency Matrix: {Environment.NewLine}" +
+                $"{AdjacencyMatrixRepresentationService.DisplayMatrix(mat)} {Environment.NewLine}";
         }
         catch (Exception ex)
         {

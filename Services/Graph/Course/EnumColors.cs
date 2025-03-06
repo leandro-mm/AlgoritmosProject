@@ -1,10 +1,10 @@
 ﻿namespace AlgoritmosProject.Services.Graph.Course
 {
-    public static class ColorEnum
+    public static class Color
     {
-        public const string White = "WHITE";
-        public const string Grey = "GREY";
-        public const string Black = "BLACK";
+        public const string WHITE = "WHITE";
+        public const string GREY = "GREY";
+        public const string BLACK = "BLACK";
         
     }
 }

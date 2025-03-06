@@ -94,11 +94,13 @@ partial class Form1
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
         Graph = new TabPage();
+        groupBox15 = new GroupBox();
+        buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonGraph_adjascList = new Button();
         buttonConnectedCompUndirectedGraph = new Button();
-        groupBox15 = new GroupBox();
-        buttonCourseSchedule = new Button();
+        groupBox16 = new GroupBox();
+        buttonAdjMatrxRepres = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -117,8 +119,9 @@ partial class Form1
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
         Graph.SuspendLayout();
-        groupBox14.SuspendLayout();
         groupBox15.SuspendLayout();
+        groupBox14.SuspendLayout();
+        groupBox16.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -801,6 +804,7 @@ partial class Form1
         // 
         // Graph
         // 
+        Graph.Controls.Add(groupBox16);
         Graph.Controls.Add(groupBox15);
         Graph.Controls.Add(groupBox14);
         Graph.Location = new Point(4, 24);
@@ -809,6 +813,26 @@ partial class Form1
         Graph.TabIndex = 3;
         Graph.Text = "Graph";
         Graph.UseVisualStyleBackColor = true;
+        // 
+        // groupBox15
+        // 
+        groupBox15.Controls.Add(buttonCourseSchedule);
+        groupBox15.Location = new Point(235, 19);
+        groupBox15.Name = "groupBox15";
+        groupBox15.Size = new Size(200, 100);
+        groupBox15.TabIndex = 1;
+        groupBox15.TabStop = false;
+        groupBox15.Text = "Priority";
+        // 
+        // buttonCourseSchedule
+        // 
+        buttonCourseSchedule.Location = new Point(6, 31);
+        buttonCourseSchedule.Name = "buttonCourseSchedule";
+        buttonCourseSchedule.Size = new Size(114, 23);
+        buttonCourseSchedule.TabIndex = 0;
+        buttonCourseSchedule.Text = "Course Schedule";
+        buttonCourseSchedule.UseVisualStyleBackColor = true;
+        buttonCourseSchedule.Click += buttonCourseSchedule_Click;
         // 
         // groupBox14
         // 
@@ -841,25 +865,25 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // groupBox15
+        // groupBox16
         // 
-        groupBox15.Controls.Add(buttonCourseSchedule);
-        groupBox15.Location = new Point(235, 19);
-        groupBox15.Name = "groupBox15";
-        groupBox15.Size = new Size(200, 100);
-        groupBox15.TabIndex = 1;
-        groupBox15.TabStop = false;
-        groupBox15.Text = "Priority";
+        groupBox16.Controls.Add(buttonAdjMatrxRepres);
+        groupBox16.Location = new Point(451, 19);
+        groupBox16.Name = "groupBox16";
+        groupBox16.Size = new Size(200, 100);
+        groupBox16.TabIndex = 2;
+        groupBox16.TabStop = false;
+        groupBox16.Text = "Adjacency Matrix Representation";
         // 
-        // buttonCourseSchedule
+        // buttonAdjMatrxRepres
         // 
-        buttonCourseSchedule.Location = new Point(6, 31);
-        buttonCourseSchedule.Name = "buttonCourseSchedule";
-        buttonCourseSchedule.Size = new Size(114, 23);
-        buttonCourseSchedule.TabIndex = 0;
-        buttonCourseSchedule.Text = "Course Schedule";
-        buttonCourseSchedule.UseVisualStyleBackColor = true;
-        buttonCourseSchedule.Click += buttonCourseSchedule_Click;
+        buttonAdjMatrxRepres.Location = new Point(16, 31);
+        buttonAdjMatrxRepres.Name = "buttonAdjMatrxRepres";
+        buttonAdjMatrxRepres.Size = new Size(178, 39);
+        buttonAdjMatrxRepres.TabIndex = 0;
+        buttonAdjMatrxRepres.Text = "Adjacency Matrix Representation";
+        buttonAdjMatrxRepres.UseVisualStyleBackColor = true;
+        buttonAdjMatrxRepres.Click += buttonAdjMatrxRepres_Click;
         // 
         // Form1
         // 
@@ -898,8 +922,9 @@ partial class Form1
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
         Graph.ResumeLayout(false);
-        groupBox14.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
+        groupBox14.ResumeLayout(false);
+        groupBox16.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -977,4 +1002,6 @@ partial class Form1
     private Button buttonGraph_adjascList;
     private GroupBox groupBox15;
     private Button buttonCourseSchedule;
+    private GroupBox groupBox16;
+    private Button buttonAdjMatrxRepres;
 }
