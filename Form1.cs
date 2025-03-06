@@ -1,5 +1,6 @@
 using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Graph;
+using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
 using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Tree;
@@ -1129,6 +1130,34 @@ public partial class Form1 : Form
 
             textBoxResultado.Text += $"Adjacency Matrix: {Environment.NewLine}" +
                 $"{AdjacencyMatrixRepresentationService.DisplayMatrix(mat)} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonAdjListRepres_Click(object sender, EventArgs e)
+    {
+       try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int V = 4;
+
+            List<List<int>> adj = new(V);
+
+            for (int i = 0; i < V; i++)
+                adj.Add([]);
+
+            AdjacencyListRepresentationService.AddEdge(adj, 0, 1);
+            AdjacencyListRepresentationService.AddEdge(adj, 0, 2);
+            AdjacencyListRepresentationService.AddEdge(adj, 1, 2);
+            AdjacencyListRepresentationService.AddEdge(adj, 2, 3);
+
+            textBoxResultado.Text += $"Adjacency List Representation {Environment.NewLine}" +
+                $"{AdjacencyListRepresentationService.DisplayAdjList(adj)}";
         }
         catch (Exception ex)
         {

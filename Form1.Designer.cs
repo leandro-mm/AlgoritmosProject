@@ -94,13 +94,14 @@ partial class Form1
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
         Graph = new TabPage();
+        groupBox16 = new GroupBox();
+        buttonAdjMatrxRepres = new Button();
         groupBox15 = new GroupBox();
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonGraph_adjascList = new Button();
         buttonConnectedCompUndirectedGraph = new Button();
-        groupBox16 = new GroupBox();
-        buttonAdjMatrxRepres = new Button();
+        buttonAdjListRepres = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -119,9 +120,9 @@ partial class Form1
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
         Graph.SuspendLayout();
+        groupBox16.SuspendLayout();
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
-        groupBox16.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -814,6 +815,27 @@ partial class Form1
         Graph.Text = "Graph";
         Graph.UseVisualStyleBackColor = true;
         // 
+        // groupBox16
+        // 
+        groupBox16.Controls.Add(buttonAdjListRepres);
+        groupBox16.Controls.Add(buttonAdjMatrxRepres);
+        groupBox16.Location = new Point(451, 19);
+        groupBox16.Name = "groupBox16";
+        groupBox16.Size = new Size(200, 100);
+        groupBox16.TabIndex = 2;
+        groupBox16.TabStop = false;
+        groupBox16.Text = "Adjacency Representation";
+        // 
+        // buttonAdjMatrxRepres
+        // 
+        buttonAdjMatrxRepres.Location = new Point(16, 31);
+        buttonAdjMatrxRepres.Name = "buttonAdjMatrxRepres";
+        buttonAdjMatrxRepres.Size = new Size(75, 23);
+        buttonAdjMatrxRepres.TabIndex = 0;
+        buttonAdjMatrxRepres.Text = "Matrix";
+        buttonAdjMatrxRepres.UseVisualStyleBackColor = true;
+        buttonAdjMatrxRepres.Click += buttonAdjMatrxRepres_Click;
+        // 
         // groupBox15
         // 
         groupBox15.Controls.Add(buttonCourseSchedule);
@@ -865,25 +887,15 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // groupBox16
+        // buttonAdjListRepres
         // 
-        groupBox16.Controls.Add(buttonAdjMatrxRepres);
-        groupBox16.Location = new Point(451, 19);
-        groupBox16.Name = "groupBox16";
-        groupBox16.Size = new Size(200, 100);
-        groupBox16.TabIndex = 2;
-        groupBox16.TabStop = false;
-        groupBox16.Text = "Adjacency Matrix Representation";
-        // 
-        // buttonAdjMatrxRepres
-        // 
-        buttonAdjMatrxRepres.Location = new Point(16, 31);
-        buttonAdjMatrxRepres.Name = "buttonAdjMatrxRepres";
-        buttonAdjMatrxRepres.Size = new Size(178, 39);
-        buttonAdjMatrxRepres.TabIndex = 0;
-        buttonAdjMatrxRepres.Text = "Adjacency Matrix Representation";
-        buttonAdjMatrxRepres.UseVisualStyleBackColor = true;
-        buttonAdjMatrxRepres.Click += buttonAdjMatrxRepres_Click;
+        buttonAdjListRepres.Location = new Point(16, 60);
+        buttonAdjListRepres.Name = "buttonAdjListRepres";
+        buttonAdjListRepres.Size = new Size(75, 23);
+        buttonAdjListRepres.TabIndex = 1;
+        buttonAdjListRepres.Text = "List";
+        buttonAdjListRepres.UseVisualStyleBackColor = true;
+        buttonAdjListRepres.Click += buttonAdjListRepres_Click;
         // 
         // Form1
         // 
@@ -922,9 +934,9 @@ partial class Form1
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
         Graph.ResumeLayout(false);
+        groupBox16.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
-        groupBox16.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1004,4 +1016,5 @@ partial class Form1
     private Button buttonCourseSchedule;
     private GroupBox groupBox16;
     private Button buttonAdjMatrxRepres;
+    private Button buttonAdjListRepres;
 }
