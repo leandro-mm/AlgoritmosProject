@@ -1,5 +1,6 @@
 ﻿
 using AlgoritmosProject.Services.Tree;
+using System.Text;
 
 namespace AlgoritmosProject.Services
 {
@@ -72,6 +73,45 @@ namespace AlgoritmosProject.Services
             return NumUniqueBST(n, solutions);
         }
 
+
+        public static string PrintListData(int[] array)
+        {
+            StringBuilder stringBuilder = new();
+
+            stringBuilder.Append("[");
+
+            for (int k = 0; k < array.Length; k++)
+            {
+                stringBuilder.Append($"{array[k].ToString()},");
+            }
+
+            stringBuilder.AppendLine("]");
+
+            return stringBuilder.ToString();
+        }
+        public static string PrintListData(IList<List<int>> data)
+        {
+            StringBuilder stringBuilder = new();
+
+            foreach (var item in data)
+            {
+                stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        public static string PrintListData(IList<int> data)
+        {
+            StringBuilder stringBuilder = new();
+
+            foreach (var item in data)
+            {
+                stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+            }
+
+            return stringBuilder.ToString();
+        }
         private static int NumUniqueBST(int n, int[] solutions)
         {
             if (n < 0)
@@ -154,5 +194,7 @@ namespace AlgoritmosProject.Services
             }
             return results;
         }
+    
+        
     }
 }

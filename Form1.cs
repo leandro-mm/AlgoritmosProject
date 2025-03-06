@@ -15,45 +15,7 @@ public partial class Form1 : Form
         GeneralService.SetInputBoxDefaultValues(textBoxInput, "1,2,3,4,5");
     }
 
-    private string PrintListData(int[] array)
-    {
-        StringBuilder stringBuilder = new();
-        
-        stringBuilder.Append("[");
-        
-        for (int k = 0; k < array.Length; k++)
-        {
-            stringBuilder.Append($"{array[k].ToString()},");
-        }
-
-        stringBuilder.AppendLine("]");
-
-        return stringBuilder.ToString();
-    }
-    private string PrintListData(IList<List<int>> data)
-    {
-        StringBuilder stringBuilder = new();
-
-        foreach (var item in data)
-        {
-            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-        }
-
-        return stringBuilder.ToString();
-    }
-
-    private string PrintListData(IList<int> data)
-    {
-        StringBuilder stringBuilder = new();
-
-        foreach (var item in data)
-        {
-            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-        }
-
-        return stringBuilder.ToString();
-    }
-
+  
     private void btnFirstDuplicate_Click(object sender, EventArgs e)
     {
         try
@@ -683,7 +645,7 @@ public partial class Form1 : Form
 
             IList<List<int>> listResult = TreeService.LevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversal());
 
-            string resultStreing = PrintListData(listResult);
+            string resultStreing = GeneralService.PrintListData(listResult);
 
             textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
         }
@@ -708,7 +670,7 @@ public partial class Form1 : Form
 
             IList<List<int>> listResult = TreeService.LevelOrderTraversalII(TreeService.ObterTreeLevelOrderTraversal());
 
-            string resultStreing = PrintListData(listResult);
+            string resultStreing = GeneralService.PrintListData(listResult);
 
             textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
         }
@@ -728,7 +690,7 @@ public partial class Form1 : Form
 
             IList<List<int>> levelORderTraversal = TreeService.LevelOrderTraversal(tree);
 
-            textBoxResultado.Text += $"Level Order Traversal {PrintListData(levelORderTraversal)} {Environment.NewLine}";
+            textBoxResultado.Text += $"Level Order Traversal {GeneralService.PrintListData(levelORderTraversal)} {Environment.NewLine}";
 
             IList<int> rightSideTree = TreeService.FindRighSideViewFromTree(tree);
 
@@ -740,7 +702,7 @@ public partial class Form1 : Form
 
             levelORderTraversal = TreeService.LevelOrderTraversal(tree);
 
-            textBoxResultado.Text += $"Level Order Traversal {PrintListData(levelORderTraversal)} {Environment.NewLine}";
+            textBoxResultado.Text += $"Level Order Traversal {GeneralService.PrintListData(levelORderTraversal)} {Environment.NewLine}";
 
             rightSideTree = TreeService.FindRighSideViewFromTree(tree);
 
@@ -766,7 +728,7 @@ public partial class Form1 : Form
 
             IList<int> result = TreeService.AgregateRootToPath(TreeService.BST_FromArray(input));
 
-            string stringResult = PrintListData(result);
+            string stringResult = GeneralService.PrintListData(result);
             textBoxResultado.Text += $"Using Input {Environment.NewLine}";
             textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
             textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
@@ -775,7 +737,7 @@ public partial class Form1 : Form
             MyTreeNode tree = TreeService.ObterTreeLevelRightSideView();
 
             result = TreeService.AgregateRootToPath(tree);
-            stringResult = PrintListData(result);
+            stringResult = GeneralService.PrintListData(result);
             textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
             textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
 
@@ -784,7 +746,7 @@ public partial class Form1 : Form
             tree = TreeService.ObterTreeLevelRightSideViewII();
 
             result = TreeService.AgregateRootToPath(tree);
-            stringResult = PrintListData(result);
+            stringResult = GeneralService.PrintListData(result);
             textBoxResultado.Text += $"Agregat Root To Path {stringResult}{Environment.NewLine}";
             textBoxResultado.Text += $"Sum Root to Leaves {result.Sum():#,##0}{Environment.NewLine}{Environment.NewLine}";
 
@@ -813,7 +775,7 @@ public partial class Form1 : Form
 
             IList<List<int>> listResult = TreeService.ZigZagLevelOrderTraversal(TreeService.ObterTreeLevelOrderTraversalII());
 
-            string resultStreing = PrintListData(listResult);
+            string resultStreing = GeneralService.PrintListData(listResult);
 
             textBoxResultado.Text += $"Level Order Traversal: {resultStreing}{Environment.NewLine}";
         }
@@ -1118,18 +1080,17 @@ public partial class Form1 : Form
 
             bool canFinish = solutionCourse.CanFinish(2, array);
 
-            //textBoxResultado.Text += $"Graph Course Schedule  " +
-            //                            $"{Environment.NewLine}" +
-            //                            $"{PrintListData(array[0])} " +                                        
-            //                            $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"Graph Course Schedule  {Environment.NewLine}";
+
+            textBoxResultado.Text += $"{Environment.NewLine}" +
+                                        $"{GeneralService.PrintListData(array[0])} " +
+                                        $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
 
             array = [[1, 0], [0, 1]];
 
             canFinish = solutionCourse.CanFinish(2, array);
 
-            textBoxResultado.Text += $"Graph Course Schedule  " +
-                                        $"{Environment.NewLine}" +
-                                        $"{PrintListData(array[0])},{PrintListData(array[1])} " +
+            textBoxResultado.Text += $"{GeneralService.PrintListData(array[0])},{GeneralService.PrintListData(array[1])} " +
                                         $"Can Finish: {canFinish} {Environment.NewLine}{Environment.NewLine}";
         }
         catch (Exception ex)
