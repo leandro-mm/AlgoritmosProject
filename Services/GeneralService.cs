@@ -1,200 +1,198 @@
-﻿
-using AlgoritmosProject.Services.Tree;
+﻿using AlgoritmosProject.Services.Tree;
 using System.Text;
 
-namespace AlgoritmosProject.Services
+namespace AlgoritmosProject.Services;
+
+public static class GeneralService
 {
-    public static class GeneralService
+    public static ListNode? CriarListNodeFromArray(int[] array)
     {
-        public static ListNode? CriarListNodeFromArray(int[] array)
+        if (array.Length == 0)
+            return null;
+
+        ListNode node = new ListNode(array[0]);
+
+        ListNode head = node;
+
+        for (int i = 1; i < array.Length; i++)
         {
-            if (array.Length == 0)
-                return null;
-
-            ListNode node = new ListNode(array[0]);
-
-            ListNode head = node;
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                ListNode newNode = new ListNode(array[i]);
-                node.Next = newNode;
-                node = newNode;
-            }
-
-            return head;
+            ListNode newNode = new ListNode(array[i]);
+            node.Next = newNode;
+            node = newNode;
         }
 
-        public static string ObterValoresListNode(ListNode? head)
+        return head;
+    }
+
+    public static string ObterValoresListNode(ListNode? head)
+    {
+        if (head is null) return string.Empty;
+
+        ListNode node = head;
+        string valoresHead = node.Value.ToString() + ",";
+
+        while (node.Next is not null)
         {
-            if (head is null) return string.Empty;
-
-            ListNode node = head;
-            string valoresHead = node.Value.ToString() + ",";
-
-            while (node.Next is not null)
-            {
-                node = node.Next;
-                valoresHead += node.Value.ToString() + ",";
-            }
-
-            return valoresHead;
+            node = node.Next;
+            valoresHead += node.Value.ToString() + ",";
         }
 
-        public static int[] GetInputFromTextBox(TextBox textBox)
+        return valoresHead;
+    }
+
+    public static int[] GetInputFromTextBox(TextBox textBox)
+    {
+        return textBox.Text.Split(',').Select(s => int.Parse(s)).ToArray();
+    }
+
+    public static void ClearTexttBox(TextBox textBox)
+    {
+        textBox.Text = string.Empty;
+    }
+
+    public static void ReportarExcecao(TextBox textBox, string text)
+    {
+        ClearTexttBox(textBox);
+        textBox.Text = text;
+    }
+    public static void SetInputBoxDefaultValues(TextBox textBox, string text)
+    {
+        ClearTexttBox(textBox);
+        textBox.Text = text;
+    }
+
+    public static int NumTrees(int n)
+    {
+        int[] solutions = new int[n + 1];
+
+        for (int i = 0; i < n + 1; i++)
         {
-            return textBox.Text.Split(',').Select(s => int.Parse(s)).ToArray();
+            solutions[i] = -1;
+        }
+        return NumUniqueBST(n, solutions);
+    }
+
+
+    public static string PrintListData(int[] array)
+    {
+        StringBuilder stringBuilder = new();
+
+        stringBuilder.Append("[");
+
+        for (int k = 0; k < array.Length; k++)
+        {
+            stringBuilder.Append($"{array[k].ToString()},");
         }
 
-        public static void ClearTexttBox(TextBox textBox)
+        stringBuilder.AppendLine("]");
+
+        return stringBuilder.ToString();
+    }
+    public static string PrintListData(IList<List<int>> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
         {
-            textBox.Text = string.Empty;
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
         }
 
-        public static void ReportarExcecao(TextBox textBox, string text)
-        {
-            ClearTexttBox(textBox);
-            textBox.Text = text;
-        }
-        public static void SetInputBoxDefaultValues(TextBox textBox, string text)
-        {
-            ClearTexttBox(textBox);
-            textBox.Text = text;
-        }
+        return stringBuilder.ToString();
+    }
 
-        public static int NumTrees(int n)
-        {
-            int[] solutions = new int[n + 1];
+    public static string PrintListData(IList<int> data)
+    {
+        StringBuilder stringBuilder = new();
 
-            for (int i = 0; i < n + 1; i++)
-            {
-                solutions[i] = -1;
-            }
-            return NumUniqueBST(n, solutions);
+        foreach (var item in data)
+        {
+            stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
         }
 
-
-        public static string PrintListData(int[] array)
+        return stringBuilder.ToString();
+    }
+    private static int NumUniqueBST(int n, int[] solutions)
+    {
+        if (n < 0)
         {
-            StringBuilder stringBuilder = new();
-
-            stringBuilder.Append("[");
-
-            for (int k = 0; k < array.Length; k++)
-            {
-                stringBuilder.Append($"{array[k].ToString()},");
-            }
-
-            stringBuilder.AppendLine("]");
-
-            return stringBuilder.ToString();
-        }
-        public static string PrintListData(IList<List<int>> data)
-        {
-            StringBuilder stringBuilder = new();
-
-            foreach (var item in data)
-            {
-                stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-            }
-
-            return stringBuilder.ToString();
+            return 0;
         }
 
-        public static string PrintListData(IList<int> data)
+        if (n == 0 || n == 1)
         {
-            StringBuilder stringBuilder = new();
-
-            foreach (var item in data)
-            {
-                stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
-            }
-
-            return stringBuilder.ToString();
-        }
-        private static int NumUniqueBST(int n, int[] solutions)
-        {
-            if (n < 0)
-            {
-                return 0;
-            }
-
-            if (n == 0 || n == 1)
-            {
-                return 1;
-            }
-
-            if (solutions[n] != -1)
-            {
-                return solutions[n];
-            }
-
-            int possibilities = 0;
-
-            for (int i = 0; i < n; i++)
-            {
-                if (solutions[i] == -1)
-                {
-                    solutions[i] = NumUniqueBST(i, solutions);
-                }
-
-                if (solutions[n - 1 - i] == -1)
-                {
-                    solutions[n - 1 - i] = NumUniqueBST(n - 1 - i, solutions);
-                }
-                possibilities += solutions[i] * solutions[n - 1 - i];
-            }
-
-            solutions[n] = possibilities;
-
-            return possibilities;
+            return 1;
         }
 
-        public static IList<MyTreeNode> NumUniqueBST2(int n)
+        if (solutions[n] != -1)
         {
-            if (n == 0)
-            {
-                return new List<MyTreeNode>();
-            }
-            else
-            {
-                return TreeConstructor(1, n);
-            }
+            return solutions[n];
         }
 
-        private static IList<MyTreeNode?> TreeConstructor(int start, int end)
+        int possibilities = 0;
+
+        for (int i = 0; i < n; i++)
         {
-            List<MyTreeNode?> results = new();
-
-            if (start > end)
+            if (solutions[i] == -1)
             {
-                results.Add(null);
-
-                return results;
+                solutions[i] = NumUniqueBST(i, solutions);
             }
-            for (int i = start; i <= end; i++)
+
+            if (solutions[n - 1 - i] == -1)
             {
-                var leftTrees = TreeConstructor(start, i - 1);
-
-                var rightTrees = TreeConstructor(i + 1, end);
-
-                foreach (var leftTree in leftTrees)
-                {
-                    foreach (var rightTree in rightTrees)
-                    {
-                        var currNode = new MyTreeNode(i);
-
-                        currNode.Left = leftTree;
-
-                        currNode.Right = rightTree;
-
-                        results.Add(currNode);
-                    }
-                }
+                solutions[n - 1 - i] = NumUniqueBST(n - 1 - i, solutions);
             }
+            possibilities += solutions[i] * solutions[n - 1 - i];
+        }
+
+        solutions[n] = possibilities;
+
+        return possibilities;
+    }
+
+    public static IList<MyTreeNode> NumUniqueBST2(int n)
+    {
+        if (n == 0)
+        {
+            return new List<MyTreeNode>();
+        }
+        else
+        {
+            return TreeConstructor(1, n);
+        }
+    }
+
+    private static IList<MyTreeNode?> TreeConstructor(int start, int end)
+    {
+        List<MyTreeNode?> results = new();
+
+        if (start > end)
+        {
+            results.Add(null);
+
             return results;
         }
-    
-        
+        for (int i = start; i <= end; i++)
+        {
+            var leftTrees = TreeConstructor(start, i - 1);
+
+            var rightTrees = TreeConstructor(i + 1, end);
+
+            foreach (var leftTree in leftTrees)
+            {
+                foreach (var rightTree in rightTrees)
+                {
+                    var currNode = new MyTreeNode(i);
+
+                    currNode.Left = leftTree;
+
+                    currNode.Right = rightTree;
+
+                    results.Add(currNode);
+                }
+            }
+        }
+        return results;
     }
+
+    
 }

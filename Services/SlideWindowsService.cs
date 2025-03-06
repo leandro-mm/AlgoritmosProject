@@ -1,116 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AlgoritmosProject.Services;
 
-namespace AlgoritmosProject.Services
+public static class SlideWindowsService
 {
-    public static class SlideWindowsService
+    public static void Sort3ColorsInPlace(int[] colors)
     {
-        public static void Sort3ColorsInPlace(int[] colors)
+        //--0 red
+        //-- 1 white
+        //-- 2 blue
+
+        int redIndex = 0, whiteIndex = 0;
+        int blueIndex = colors.Length - 1;
+
+        while (whiteIndex <= blueIndex)
         {
-            //--0 red
-            //-- 1 white
-            //-- 2 blue
-
-            int redIndex = 0, whiteIndex = 0;
-            int blueIndex = colors.Length - 1;
-
-            while (whiteIndex <= blueIndex)
+            if (colors[whiteIndex] == 0)
             {
-                if (colors[whiteIndex] == 0)
-                {
-                    Swap(ref colors[redIndex], ref colors[whiteIndex]);
-                    whiteIndex++;
-                    redIndex++;
+                Swap(ref colors[redIndex], ref colors[whiteIndex]);
+                whiteIndex++;
+                redIndex++;
 
-                }
-                else if (colors[whiteIndex] == 1)
-                {
-                    whiteIndex++;
-                }
-                else
-                {
-                    Swap(ref colors[whiteIndex], ref colors[blueIndex]);
-                    blueIndex--;
-                }
-               
             }
-        }
-
-        public static int[] FindLongestSubstringBySum(int[] input, int targetSum)
-        {
-            int left = 0;
-
-            int right = 0;
-
-            int currentSum = 0;
-
-            int[] windowSum = [-1, -1];
-
-            while (right < input.Length)
+            else if (colors[whiteIndex] == 1)
             {
-                currentSum += input[right];
+                whiteIndex++;
+            }
+            else
+            {
+                Swap(ref colors[whiteIndex], ref colors[blueIndex]);
+                blueIndex--;
+            }
+           
+        }
+    }
 
-                if (currentSum == targetSum)
-                {
-                    if (right - left > windowSum[1] - windowSum[0])
-                    {
-                        windowSum = [left, right];
-                    }
-                }
-                else if (currentSum > targetSum)
-                {
-                    while (left < right && currentSum > targetSum)
-                    {
-                        currentSum -= input[left++];
-                    }
-                }
+    public static int[] FindLongestSubstringBySum(int[] input, int targetSum)
+    {
+        int left = 0;
 
-                right++;
+        int right = 0;
+
+        int currentSum = 0;
+
+        int[] windowSum = [-1, -1];
+
+        while (right < input.Length)
+        {
+            currentSum += input[right];
+
+            if (currentSum == targetSum)
+            {
+                if (right - left > windowSum[1] - windowSum[0])
+                {
+                    windowSum = [left, right];
+                }
+            }
+            else if (currentSum > targetSum)
+            {
+                while (left < right && currentSum > targetSum)
+                {
+                    currentSum -= input[left++];
+                }
             }
 
-            return windowSum;
+            right++;
         }
 
-        public static int[] FindSmalestSubstringBySum(int[] input, int targetSum)
+        return windowSum;
+    }
+
+    public static int[] FindSmalestSubstringBySum(int[] input, int targetSum)
+    {
+        int left = 0;
+        int right = 0;
+        int currentSum = 0;
+        int[] windowSum = [-1, -1];
+
+        while (right < input.Length)
         {
-            int left = 0;
-            int right = 0;
-            int currentSum = 0;
-            int[] windowSum = [-1, -1];
+            currentSum += input[right];
 
-            while (right < input.Length)
+            if (currentSum == targetSum)
             {
-                currentSum += input[right];
-
-                if (currentSum == targetSum)
+                if((windowSum[0] + windowSum[1] < 0) || right-left < (windowSum[0] + windowSum[1]))
                 {
-                    if((windowSum[0] + windowSum[1] < 0) || right-left < (windowSum[0] + windowSum[1]))
-                    {
-                        windowSum[0] = left;
-                        windowSum[1] = right;
-                    }
+                    windowSum[0] = left;
+                    windowSum[1] = right;
                 }
-                else if(currentSum > targetSum)
+            }
+            else if(currentSum > targetSum)
+            {
+                while (left < right && currentSum > targetSum)
                 {
-                    while (left < right && currentSum > targetSum)
-                    {
-                        currentSum -= input[left++];
-                    }
+                    currentSum -= input[left++];
                 }
-
-                right++;
             }
 
-            return windowSum;
+            right++;
         }
-        private static void Swap(ref int a, ref int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
-        }
+
+        return windowSum;
+    }
+    private static void Swap(ref int a, ref int b)
+    {
+        int temp = a;
+        a = b;
+        b = temp;
     }
 }

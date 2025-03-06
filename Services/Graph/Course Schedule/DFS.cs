@@ -1,46 +1,45 @@
-﻿namespace AlgoritmosProject.Services.Graph.Course
+﻿namespace AlgoritmosProject.Services.Graph.Course;
+
+public class DFS
 {
-    public class DFS
+    private GraphCourse graph;
+    public bool HasCycle { get; set; }
+
+    public DFS(GraphCourse graph)
     {
-        private GraphCourse graph;
-        public bool HasCycle { get; set; }
+        this.graph = graph;
+        HasCycle = false;
+    }
 
-        public DFS(GraphCourse graph)
+    public void PerformDFS()
+    {
+        foreach (KeyValuePair<int, VertexCourse> vertex in graph.GetVertices())
         {
-            this.graph = graph;
-            HasCycle = false;
-        }
-
-        public void PerformDFS()
-        {
-            foreach (KeyValuePair<int, VertexCourse> vertex in graph.GetVertices())
+            if (vertex.Value.GetColor() == Color.WHITE)
             {
-                if (vertex.Value.GetColor() == Color.WHITE)
-                {
-                    DFSVisit(vertex.Value);
-                }
+                DFSVisit(vertex.Value);
+            }
+        }
+    }
+
+    private void DFSVisit(VertexCourse node)
+    {
+        node.SetColor(Color.GREY);
+
+        foreach (VertexCourse neighbor in node.GetNeighbors())
+        {
+            if (neighbor.GetColor() == Color.GREY)
+            {
+                HasCycle = true; break;
+            }
+            else if (neighbor.GetColor() == Color.WHITE)
+            {
+                neighbor.SetColor(Color.GREY);
+
+                DFSVisit(neighbor);
             }
         }
 
-        private void DFSVisit(VertexCourse node)
-        {
-            node.SetColor(Color.GREY);
-
-            foreach (VertexCourse neighbor in node.GetNeighbors())
-            {
-                if (neighbor.GetColor() == Color.GREY)
-                {
-                    HasCycle = true; break;
-                }
-                else if (neighbor.GetColor() == Color.WHITE)
-                {
-                    neighbor.SetColor(Color.GREY);
-
-                    DFSVisit(neighbor);
-                }
-            }
-
-            node.SetColor(Color.BLACK);
-        }
+        node.SetColor(Color.BLACK);
     }
 }

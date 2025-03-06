@@ -1,52 +1,45 @@
 ﻿using AlgoritmosProject.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace AlgoritmosProject.Services.Tree
+namespace AlgoritmosProject.Services.Tree;
+
+public class BSTIterator : IIterator
 {
-    public class BSTIterator : IIterator
+    private Stack<MyTreeNode> stack;
+
+    public BSTIterator(MyTreeNode node)
     {
-        private Stack<MyTreeNode> stack;
+        stack = new Stack<MyTreeNode>();
 
-        public BSTIterator(MyTreeNode node)
+        MyTreeNode nodeCopy = node;
+        while (nodeCopy != null)
         {
-            stack = new Stack<MyTreeNode>();
+            stack.Push(nodeCopy);
+            nodeCopy = nodeCopy.Left;
+        }
+    }
+    public bool HasNext()
+    {
+        return stack.Count > 0; 
+    }
 
-            MyTreeNode nodeCopy = node;
+    public int Next()
+    {
+        if (HasNext())
+        {
+            MyTreeNode node = stack.Pop();
+
+            MyTreeNode nodeCopy = node.Right;
+
             while (nodeCopy != null)
             {
                 stack.Push(nodeCopy);
                 nodeCopy = nodeCopy.Left;
             }
-        }
-        public bool HasNext()
-        {
-            return stack.Count > 0; 
+
+            return node.Value;
         }
 
-        public int Next()
-        {
-            if (HasNext())
-            {
-                MyTreeNode node = stack.Pop();
-
-                MyTreeNode nodeCopy = node.Right;
-
-                while (nodeCopy != null)
-                {
-                    stack.Push(nodeCopy);
-                    nodeCopy = nodeCopy.Left;
-                }
-
-                return node.Value;
-            }
-
-            return -999;
-           
-        }
+        return -999;
+       
     }
 }

@@ -1,53 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph;
 
-namespace AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph
+public class Solution
 {
-    public class Solution
+    public int CountComponents(int n, IList<List<int>> edges)
     {
-        public int CountComponents(int n, IList<List<int>> edges)
+        if (n == 1 && edges.Count == 0)
+            return 1;
+        else
         {
-            if (n == 1 && edges.Count == 0)
-                return 1;
-            else
+            Graph G = new Graph();
+            foreach (var entry in edges)
+                G.AddEdge(entry[0], entry[1], 1);
+            int count = 0;
+            foreach (var vertex in G)
             {
-                Graph G = new Graph();
-                foreach (var entry in edges)
-                    G.AddEdge(entry[0], entry[1], 1);
-                int count = 0;
-                foreach (var vertex in G)
+                if (vertex.GetColor() == "white")
                 {
-                    if (vertex.GetColor() == "white")
-                    {
-                        count++;
-                        BFS(vertex);
-                    }
+                    count++;
+                    BFS(vertex);
                 }
-                return count;
             }
+            return count;
         }
+    }
 
-        private void BFS(Vertex vertex)
+    private void BFS(Vertex vertex)
+    {
+        vertex.SetColor("gray");
+        Queue<Vertex> q = new Queue<Vertex>();
+        q.Enqueue(vertex);
+        while (q.Count != 0)
         {
-            vertex.SetColor("gray");
-            Queue<Vertex> q = new Queue<Vertex>();
-            q.Enqueue(vertex);
-            while (q.Count != 0)
+            Vertex currNode = q.Dequeue();
+            foreach (var nbr in currNode.GetConnections())
             {
-                Vertex currNode = q.Dequeue();
-                foreach (var nbr in currNode.GetConnections())
+                if (nbr.GetColor() == "white")
                 {
-                    if (nbr.GetColor() == "white")
-                    {
-                        nbr.SetColor("gray");
-                        q.Enqueue(nbr);
-                    }
+                    nbr.SetColor("gray");
+                    q.Enqueue(nbr);
                 }
-                currNode.SetColor("black");
             }
+            currNode.SetColor("black");
         }
     }
 }

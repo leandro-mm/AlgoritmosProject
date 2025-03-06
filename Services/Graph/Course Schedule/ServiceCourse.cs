@@ -1,7 +1,6 @@
-﻿namespace AlgoritmosProject.Services.Graph.Course
-{
-    public class ServiceCourse
-    {
+﻿namespace AlgoritmosProject.Services.Graph.Course;
 
-    }
+public class ServiceCourse
+{
+
 }
