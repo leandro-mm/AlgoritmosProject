@@ -4,6 +4,7 @@ using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
 using AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph;
 using AlgoritmosProject.Services.Graph.Course;
+using AlgoritmosProject.Services.Graph.Valid_Tree;
 using AlgoritmosProject.Services.Tree;
 using System.Text;
 
@@ -1145,7 +1146,7 @@ public partial class Form1 : Form
 
     private void buttonAdjListRepres_Click(object sender, EventArgs e)
     {
-       try
+        try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
@@ -1169,6 +1170,40 @@ public partial class Form1 : Form
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
 
+    }
+
+    private void buttonUndirectGraphIsValidTree_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            ValidTreeService validTreeService = new();
+
+            int n = 5;
+
+            List<List<int>> edges1 = [[0, 1], [0, 2], [0, 3], [1, 4]];
+
+            List<List<int>> edges2 = [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]];
+
+            List<List<int>> edges3 = [[0, 1], [1, 2], [3, 4]];
+
+            bool isValidTree = validTreeService.ValidTree(n, edges1);
+            string param = GeneralService.PrintListData(edges1);
+            textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
+
+            isValidTree = validTreeService.ValidTree(n, edges2);
+            param = GeneralService.PrintListData(edges2);
+            textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
+
+            isValidTree = validTreeService.ValidTree(n, edges3);
+            param = GeneralService.PrintListData(edges3);
+            textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
     }
 }
 

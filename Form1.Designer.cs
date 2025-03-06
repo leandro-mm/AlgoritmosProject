@@ -102,6 +102,8 @@ partial class Form1
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
+        groupBox17 = new GroupBox();
+        buttonUndirectGraphIsValidTree = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -123,6 +125,7 @@ partial class Form1
         groupBox16.SuspendLayout();
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
+        groupBox17.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -805,6 +808,7 @@ partial class Form1
         // 
         // Graph
         // 
+        Graph.Controls.Add(groupBox17);
         Graph.Controls.Add(groupBox16);
         Graph.Controls.Add(groupBox15);
         Graph.Controls.Add(groupBox14);
@@ -897,6 +901,26 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
+        // groupBox17
+        // 
+        groupBox17.Controls.Add(buttonUndirectGraphIsValidTree);
+        groupBox17.Location = new Point(666, 31);
+        groupBox17.Name = "groupBox17";
+        groupBox17.Size = new Size(172, 100);
+        groupBox17.TabIndex = 3;
+        groupBox17.TabStop = false;
+        groupBox17.Text = "Valid Tree";
+        // 
+        // buttonUndirectGraphIsValidTree
+        // 
+        buttonUndirectGraphIsValidTree.Location = new Point(6, 35);
+        buttonUndirectGraphIsValidTree.Name = "buttonUndirectGraphIsValidTree";
+        buttonUndirectGraphIsValidTree.Size = new Size(160, 23);
+        buttonUndirectGraphIsValidTree.TabIndex = 0;
+        buttonUndirectGraphIsValidTree.Text = "Undirect Graph Is Valid Tree";
+        buttonUndirectGraphIsValidTree.UseVisualStyleBackColor = true;
+        buttonUndirectGraphIsValidTree.Click += buttonUndirectGraphIsValidTree_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -937,6 +961,7 @@ partial class Form1
         groupBox16.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
+        groupBox17.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1017,4 +1042,6 @@ partial class Form1
     private GroupBox groupBox16;
     private Button buttonAdjMatrxRepres;
     private Button buttonAdjListRepres;
+    private GroupBox groupBox17;
+    private Button buttonUndirectGraphIsValidTree;
 }
