@@ -2,6 +2,7 @@ using AlgoritmosProject.Services;
 using AlgoritmosProject.Services.Graph;
 using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
+using AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph;
 using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Tree;
 using System.Text;
@@ -1046,22 +1047,25 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            GraphII graphII = new(4);
-            graphII.AddEdge(0, 1);
-            graphII.AddEdge(0, 2);
-            graphII.AddEdge(1, 1);
-            graphII.AddEdge(1, 2);
-            graphII.AddEdge(2, 1);
-            graphII.AddEdge(2, 2);
-            graphII.AddEdge(3, 1);
-            graphII.AddEdge(3, 2);
+            int numOfVertex = 4;
 
-            textBoxResultado.Text += $"Graph Print Adjacent Matrix {Environment.NewLine}";
-            textBoxResultado.Text += $"{graphII.PrintAdjacentMatrix()}{Environment.NewLine}";
-            textBoxResultado.Text += $"Graph BFS 1 {Environment.NewLine}";
-            textBoxResultado.Text += $"{graphII.BFS(2)}{Environment.NewLine}";
-            textBoxResultado.Text += $"Graph DFS 1 {Environment.NewLine}";
-            textBoxResultado.Text += $"{graphII.DFS(1)}{Environment.NewLine}";
+            AdjascentList_BFS_DFS graph = new(numOfVertex);
+            graph.AddEdge(0, 1);
+            graph.AddEdge(0, 2);
+            graph.AddEdge(1, 1);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(2, 1);
+            graph.AddEdge(2, 2);
+            graph.AddEdge(3, 1);
+            graph.AddEdge(3, 2);
+
+            textBoxResultado.Text += $"Adjacent List {Environment.NewLine}";
+            textBoxResultado.Text += $"{graph.PrintAdjacentList()}{Environment.NewLine}";
+            textBoxResultado.Text += $"Os pesos tem de ficar entre 0 e 3 pois  numOfVertex = 4 | graph.AddEdge(0, 1); {Environment.NewLine}";
+            textBoxResultado.Text += $"Graph BFS --> value: 1 {Environment.NewLine}";
+            textBoxResultado.Text += $"{graph.BFS(1)}{Environment.NewLine}";
+            textBoxResultado.Text += $"Graph DFS --> value 1 {Environment.NewLine}";
+            textBoxResultado.Text += $"{graph.DFS(1)}{Environment.NewLine}";
         }
         catch (Exception ex)
         {

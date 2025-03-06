@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoritmosProject.Services.Graph
+namespace AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph
 {
     public class Vertex
     {

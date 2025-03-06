@@ -2,30 +2,32 @@
 
 namespace AlgoritmosProject.Services.Graph
 {
-    public class GraphII
+    public class AdjascentList_BFS_DFS
     {
         private int vertex;
-        private List<int>[] adjacent;
+        private List<int>[] adjacentLIst;
 
-        public GraphII(int value)
+        public AdjascentList_BFS_DFS(int value)
         {
             vertex = value;
-            adjacent = new List<int>[value];
+            adjacentLIst = new List<int>[value];
 
             for (int i = 0; i< value; i++)
             {
-                adjacent[i] = [];
+                adjacentLIst[i] = [];
             }
         }
 
         public void AddEdge(int index, int weight)
         {
-            adjacent[index].Add(weight);
+            adjacentLIst[index].Add(weight);
         }
 
         public string BFS(int start)
         {
             StringBuilder stringBuilder = new();
+            stringBuilder.AppendLine("DFS using a Queue and a bool[] visited control");
+            stringBuilder.AppendLine();
 
             bool[] visited = new bool[vertex];
 
@@ -41,7 +43,7 @@ namespace AlgoritmosProject.Services.Graph
 
                 stringBuilder.AppendLine($"next -> {currNode}");
 
-                foreach (var nbr in adjacent[currNode])
+                foreach (int nbr in adjacentLIst[currNode])
                 {
                     if (!visited[nbr])
                     {
@@ -57,6 +59,8 @@ namespace AlgoritmosProject.Services.Graph
         public string DFS(int start)
         {
             StringBuilder stringBuilder = new();
+            stringBuilder.AppendLine("DFS using a Stack and a bool[] visited control");
+            stringBuilder.AppendLine();
 
             bool[] visited = new bool[vertex];
 
@@ -72,7 +76,7 @@ namespace AlgoritmosProject.Services.Graph
 
                 stringBuilder.AppendLine($"next -> {currNode}");
 
-                foreach (var nbr in adjacent[currNode])
+                foreach (var nbr in adjacentLIst[currNode])
                 {
                     if (!visited[nbr])
                     {
@@ -86,7 +90,7 @@ namespace AlgoritmosProject.Services.Graph
             return stringBuilder.ToString();
         }
 
-        public string PrintAdjacentMatrix()
+        public string PrintAdjacentList()
         {
             StringBuilder stringBuilder = new();
 
@@ -94,7 +98,7 @@ namespace AlgoritmosProject.Services.Graph
             {
                 stringBuilder.Append($"Vertex {i} [");
 
-                foreach (var item in adjacent[i])
+                foreach (var item in adjacentLIst[i])
                 {
                     stringBuilder.Append($"{item},");
                 }

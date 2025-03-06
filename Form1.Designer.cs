@@ -95,13 +95,13 @@ partial class Form1
         buttonIteratorNext = new Button();
         Graph = new TabPage();
         groupBox16 = new GroupBox();
+        buttonGraph_adjascList = new Button();
+        buttonAdjListRepres = new Button();
         buttonAdjMatrxRepres = new Button();
         groupBox15 = new GroupBox();
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
-        buttonGraph_adjascList = new Button();
         buttonConnectedCompUndirectedGraph = new Button();
-        buttonAdjListRepres = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -817,20 +817,41 @@ partial class Form1
         // 
         // groupBox16
         // 
+        groupBox16.Controls.Add(buttonGraph_adjascList);
         groupBox16.Controls.Add(buttonAdjListRepres);
         groupBox16.Controls.Add(buttonAdjMatrxRepres);
         groupBox16.Location = new Point(451, 19);
         groupBox16.Name = "groupBox16";
-        groupBox16.Size = new Size(200, 100);
+        groupBox16.Size = new Size(200, 131);
         groupBox16.TabIndex = 2;
         groupBox16.TabStop = false;
         groupBox16.Text = "Adjacency Representation";
+        // 
+        // buttonGraph_adjascList
+        // 
+        buttonGraph_adjascList.Location = new Point(16, 89);
+        buttonGraph_adjascList.Name = "buttonGraph_adjascList";
+        buttonGraph_adjascList.Size = new Size(103, 23);
+        buttonGraph_adjascList.TabIndex = 1;
+        buttonGraph_adjascList.Text = "List Weight";
+        buttonGraph_adjascList.UseVisualStyleBackColor = true;
+        buttonGraph_adjascList.Click += buttonGraph_adjascList_Click;
+        // 
+        // buttonAdjListRepres
+        // 
+        buttonAdjListRepres.Location = new Point(16, 60);
+        buttonAdjListRepres.Name = "buttonAdjListRepres";
+        buttonAdjListRepres.Size = new Size(103, 23);
+        buttonAdjListRepres.TabIndex = 1;
+        buttonAdjListRepres.Text = "List Undirected";
+        buttonAdjListRepres.UseVisualStyleBackColor = true;
+        buttonAdjListRepres.Click += buttonAdjListRepres_Click;
         // 
         // buttonAdjMatrxRepres
         // 
         buttonAdjMatrxRepres.Location = new Point(16, 31);
         buttonAdjMatrxRepres.Name = "buttonAdjMatrxRepres";
-        buttonAdjMatrxRepres.Size = new Size(75, 23);
+        buttonAdjMatrxRepres.Size = new Size(103, 23);
         buttonAdjMatrxRepres.TabIndex = 0;
         buttonAdjMatrxRepres.Text = "Matrix";
         buttonAdjMatrxRepres.UseVisualStyleBackColor = true;
@@ -841,7 +862,7 @@ partial class Form1
         groupBox15.Controls.Add(buttonCourseSchedule);
         groupBox15.Location = new Point(235, 19);
         groupBox15.Name = "groupBox15";
-        groupBox15.Size = new Size(200, 100);
+        groupBox15.Size = new Size(200, 131);
         groupBox15.TabIndex = 1;
         groupBox15.TabStop = false;
         groupBox15.Text = "Priority";
@@ -858,24 +879,13 @@ partial class Form1
         // 
         // groupBox14
         // 
-        groupBox14.Controls.Add(buttonGraph_adjascList);
         groupBox14.Controls.Add(buttonConnectedCompUndirectedGraph);
         groupBox14.Location = new Point(12, 19);
         groupBox14.Name = "groupBox14";
-        groupBox14.Size = new Size(200, 100);
+        groupBox14.Size = new Size(200, 131);
         groupBox14.TabIndex = 0;
         groupBox14.TabStop = false;
         groupBox14.Text = "Connected Components";
-        // 
-        // buttonGraph_adjascList
-        // 
-        buttonGraph_adjascList.Location = new Point(6, 60);
-        buttonGraph_adjascList.Name = "buttonGraph_adjascList";
-        buttonGraph_adjascList.Size = new Size(120, 23);
-        buttonGraph_adjascList.TabIndex = 1;
-        buttonGraph_adjascList.Text = "Print Adjascent List";
-        buttonGraph_adjascList.UseVisualStyleBackColor = true;
-        buttonGraph_adjascList.Click += buttonGraph_adjascList_Click;
         // 
         // buttonConnectedCompUndirectedGraph
         // 
@@ -886,16 +896,6 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.Text = "Undirected Graph";
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
-        // 
-        // buttonAdjListRepres
-        // 
-        buttonAdjListRepres.Location = new Point(16, 60);
-        buttonAdjListRepres.Name = "buttonAdjListRepres";
-        buttonAdjListRepres.Size = new Size(75, 23);
-        buttonAdjListRepres.TabIndex = 1;
-        buttonAdjListRepres.Text = "List";
-        buttonAdjListRepres.UseVisualStyleBackColor = true;
-        buttonAdjListRepres.Click += buttonAdjListRepres_Click;
         // 
         // Form1
         // 

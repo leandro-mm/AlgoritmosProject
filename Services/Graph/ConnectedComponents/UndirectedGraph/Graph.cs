@@ -1,4 +1,4 @@
-﻿namespace AlgoritmosProject.Services.Graph
+﻿namespace AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph
 {
     public class Graph
     {
