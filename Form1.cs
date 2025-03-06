@@ -1011,9 +1011,10 @@ public partial class Form1 : Form
                                                 new List<int> { 3, 4 }
                                             };
 
-            Solution solutionInstance = new Solution();
+            Solution solutionInstance = new();
 
             StringBuilder stringBuilder = new();
+
             foreach (var item in edgesList1)
             {
                 stringBuilder.Append($"[{string.Join(",", item)}], ");
@@ -1024,15 +1025,15 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"Count Components edgesList1 --> {stringBuilder}: {result1} {Environment.NewLine}";
 
 
-            stringBuilder = new();
-            foreach (var item in edgesList2)
-            {
-                stringBuilder.Append($"[{string.Join(",", item)}], ");
-            }
+            //stringBuilder = new();
+            //foreach (var item in edgesList2)
+            //{
+            //    stringBuilder.Append($"[{string.Join(",", item)}], ");
+            //}
 
-            int result2 = solutionInstance.CountComponents(numberOfNodes, edgesList2);
+            //int result2 = solutionInstance.CountComponents(numberOfNodes, edgesList2);
 
-            textBoxResultado.Text += $"Count Components edgesList2 --> {stringBuilder}: {result2} {Environment.NewLine}";
+            //textBoxResultado.Text += $"Count Components edgesList2 --> {stringBuilder}: {result2} {Environment.NewLine}";
         }
         catch (Exception ex)
         {

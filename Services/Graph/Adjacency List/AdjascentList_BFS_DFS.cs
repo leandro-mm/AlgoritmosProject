@@ -31,7 +31,7 @@ public class AdjascentList_BFS_DFS
 
         bool[] visited = new bool[vertex];
 
-        Queue<int> q = new Queue<int>();
+        Queue<int> q = new();
 
         visited[start] = true;
 
@@ -64,7 +64,7 @@ public class AdjascentList_BFS_DFS
 
         bool[] visited = new bool[vertex];
 
-        Stack<int> s = new Stack<int>();
+        Stack<int> s = new();
 
         visited[start] = true;
 

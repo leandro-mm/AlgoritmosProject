@@ -15,7 +15,7 @@ public class Vertex
         adjacent = new Dictionary<Vertex, int>();
         distance = int.MaxValue;
         visited = false;
-        color = "white";
+        color = Color.WHITE;
         previous = null;
     }
 

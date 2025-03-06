@@ -5,16 +5,23 @@ public class Solution
     public int CountComponents(int n, IList<List<int>> edges)
     {
         if (n == 1 && edges.Count == 0)
+        {
             return 1;
+        }            
         else
         {
-            Graph G = new Graph();
-            foreach (var entry in edges)
-                G.AddEdge(entry[0], entry[1], 1);
-            int count = 0;
-            foreach (var vertex in G)
+            Graph G = new();
+
+            foreach (List<int> entry in edges)
             {
-                if (vertex.GetColor() == "white")
+                G.AddEdge(entry[0], entry[1], 1);
+            }
+                
+            int count = 0;
+
+            foreach (Vertex vertex in G)
+            {
+                if (vertex.GetColor() == Color.WHITE)
                 {
                     count++;
                     BFS(vertex);
@@ -26,21 +33,25 @@ public class Solution
 
     private void BFS(Vertex vertex)
     {
-        vertex.SetColor("gray");
-        Queue<Vertex> q = new Queue<Vertex>();
-        q.Enqueue(vertex);
-        while (q.Count != 0)
+        vertex.SetColor(Color.GREY);
+
+        Queue<Vertex> queue = new();
+
+        queue.Enqueue(vertex);
+
+        while (queue.Count != 0)
         {
-            Vertex currNode = q.Dequeue();
-            foreach (var nbr in currNode.GetConnections())
+            Vertex currNode = queue.Dequeue();
+
+            foreach (Vertex nbr in currNode.GetConnections())
             {
-                if (nbr.GetColor() == "white")
+                if (nbr.GetColor() == Color.WHITE)
                 {
-                    nbr.SetColor("gray");
-                    q.Enqueue(nbr);
+                    nbr.SetColor(Color.GREY);
+                    queue.Enqueue(nbr);
                 }
             }
-            currNode.SetColor("black");
+            currNode.SetColor(Color.BLACK);
         }
     }
 }
