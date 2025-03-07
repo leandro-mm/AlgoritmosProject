@@ -4,9 +4,11 @@ using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
 using AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph;
 using AlgoritmosProject.Services.Graph.Course;
+using AlgoritmosProject.Services.Graph.Order_of_Priority;
 using AlgoritmosProject.Services.Graph.Valid_Tree;
 using AlgoritmosProject.Services.Tree;
 using System.Text;
+using System.Windows.Forms.VisualStyles;
 
 namespace AlgoritmosProject;
 
@@ -996,45 +998,33 @@ public partial class Form1 : Form
             GeneralService.ClearTexttBox(textBoxResultado);
 
             int numberOfNodes = 5;
+            Graph_UnDirectedComponents g = new(numberOfNodes);
 
-            IList<List<int>> edgesList1 = new List<List<int>>
-                                            {
-                                                new List<int> { 0, 1 },
-                                                new List<int> { 1, 2 },
-                                                new List<int> { 3, 4 }
-                                            };
+            IList<List<int>> edgesList =[[0, 1],[1, 2],[3, 4 ]];
 
-            IList<List<int>> edgesList2 = new List<List<int>>
-                                            {
-                                                new List<int> { 0, 1 },
-                                                new List<int> { 1, 2 },
-                                                new List<int> { 2, 3 },
-                                                new List<int> { 3, 4 }
-                                            };
-
-            Solution solutionInstance = new();
-
-            StringBuilder stringBuilder = new();
-
-            foreach (var item in edgesList1)
+            foreach (List<int> item in edgesList)
             {
-                stringBuilder.Append($"[{string.Join(",", item)}], ");
+                g.AddEdge(item[0], item[1]);
             }
 
-            int result1 = solutionInstance.CountComponents(numberOfNodes, edgesList1);
+            string result1 = g.GetConnectedComponents();
 
-            textBoxResultado.Text += $"Count Components edgesList1 --> {stringBuilder}: {result1} {Environment.NewLine}";
+            textBoxResultado.Text += $"Connected Components Undirected Graph {GeneralService.PrintListData(edgesList)} --> {Environment.NewLine} {result1} {Environment.NewLine}";
+
+            edgesList = [[0, 1],[1, 2],[2, 3],[3, 4]];
+            g = new(numberOfNodes);
+
+            foreach (List<int> item in edgesList)
+            {
+                g.AddEdge(item[0], item[1]);
+            }
+
+            result1 = g.GetConnectedComponents();
+
+            textBoxResultado.Text += $"Connected Components Undirected Graph {GeneralService.PrintListData(edgesList)} --> {Environment.NewLine} {result1} {Environment.NewLine}";
 
 
-            //stringBuilder = new();
-            //foreach (var item in edgesList2)
-            //{
-            //    stringBuilder.Append($"[{string.Join(",", item)}], ");
-            //}
 
-            //int result2 = solutionInstance.CountComponents(numberOfNodes, edgesList2);
-
-            //textBoxResultado.Text += $"Count Components edgesList2 --> {stringBuilder}: {result2} {Environment.NewLine}";
         }
         catch (Exception ex)
         {
@@ -1180,7 +1170,7 @@ public partial class Form1 : Form
 
             ValidTreeService validTreeService = new();
 
-            int n = 5;
+            int numCourses = 5;
 
             List<List<int>> edges1 = [[0, 1], [0, 2], [0, 3], [1, 4]];
 
@@ -1188,15 +1178,15 @@ public partial class Form1 : Form
 
             List<List<int>> edges3 = [[0, 1], [1, 2], [3, 4]];
 
-            bool isValidTree = validTreeService.ValidTree(n, edges1);
+            bool isValidTree = validTreeService.ValidTree(numCourses, edges1);
             string param = GeneralService.PrintListData(edges1);
             textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
 
-            isValidTree = validTreeService.ValidTree(n, edges2);
+            isValidTree = validTreeService.ValidTree(numCourses, edges2);
             param = GeneralService.PrintListData(edges2);
             textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
 
-            isValidTree = validTreeService.ValidTree(n, edges3);
+            isValidTree = validTreeService.ValidTree(numCourses, edges3);
             param = GeneralService.PrintListData(edges3);
             textBoxResultado.Text += $"Graph {param} is a valid tree: {isValidTree} {Environment.NewLine}{Environment.NewLine}";
         }
@@ -1204,6 +1194,69 @@ public partial class Form1 : Form
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+    }
+
+    private void buttonOrderOfPriority_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            DirectedGraph G = new();
+
+            int numCourses = 2;
+            int[][] prerequisites = [[1, 0]];
+
+            foreach (int[] entry in prerequisites)
+            {
+                G.AddEdge(entry[1], entry[0], 1);
+            }
+
+            int[] orderOfCourses = G.TopologicalSort();
+            string sArrayPreRequisitos = GeneralService.PrintListData(prerequisites);
+            string sORder = GeneralService.PrintListData(orderOfCourses);
+
+            textBoxResultado.Text += $"The Ordering of Courses {sArrayPreRequisitos} is: {sORder} {Environment.NewLine}";
+
+            //////////////////////////////////////////////
+            ///
+            G = new();
+            numCourses = 4;
+            prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]];
+
+            foreach (int[] entry in prerequisites)
+            {
+                G.AddEdge(entry[1], entry[0], 1);
+            }
+
+            orderOfCourses = G.TopologicalSort();
+            sArrayPreRequisitos = GeneralService.PrintListData(prerequisites);
+            sORder = GeneralService.PrintListData(orderOfCourses);
+
+            textBoxResultado.Text += $"The Ordering of Courses {sArrayPreRequisitos} is: {sORder} {Environment.NewLine}";
+
+            //////////////////////////////////////////////
+            ///
+            G = new();
+            numCourses = 3;
+            prerequisites = [[1,0]];
+
+            foreach (int[] entry in prerequisites)
+            {
+                G.AddEdge(entry[1], entry[0], 1);
+            }
+
+            orderOfCourses = G.TopologicalSort();
+            sArrayPreRequisitos = GeneralService.PrintListData(prerequisites);
+            sORder = GeneralService.PrintListData(orderOfCourses);
+
+            textBoxResultado.Text += $"The Ordering of Courses {sArrayPreRequisitos} is: {sORder} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
     }
 }
 

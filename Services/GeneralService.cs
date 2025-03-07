@@ -72,7 +72,25 @@ public static class GeneralService
         return NumUniqueBST(n, solutions);
     }
 
+    public static string PrintListData(int[][] inputArray)
+    {
+        StringBuilder stringBuilder = new();
 
+        stringBuilder.Append("[");
+        for (int i = 0; i < inputArray.Length; i++) // Loop through rows
+        {
+            stringBuilder.Append("[");
+            for (int j = 0; j < inputArray[i].Length; j++) // Loop through columns
+            {
+                stringBuilder.Append(inputArray[i][j]).Append(',');                
+            }
+            stringBuilder.Append(']'); // Move to the next line after each row
+        }
+
+        stringBuilder.AppendLine("]");
+
+        return stringBuilder.ToString();
+    }
     public static string PrintListData(int[] array)
     {
         StringBuilder stringBuilder = new();

@@ -94,6 +94,8 @@ partial class Form1
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
         Graph = new TabPage();
+        groupBox17 = new GroupBox();
+        buttonUndirectGraphIsValidTree = new Button();
         groupBox16 = new GroupBox();
         buttonGraph_adjascList = new Button();
         buttonAdjListRepres = new Button();
@@ -102,8 +104,7 @@ partial class Form1
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
-        groupBox17 = new GroupBox();
-        buttonUndirectGraphIsValidTree = new Button();
+        buttonOrderOfPriority = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -122,10 +123,10 @@ partial class Form1
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
         Graph.SuspendLayout();
+        groupBox17.SuspendLayout();
         groupBox16.SuspendLayout();
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
-        groupBox17.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -819,6 +820,26 @@ partial class Form1
         Graph.Text = "Graph";
         Graph.UseVisualStyleBackColor = true;
         // 
+        // groupBox17
+        // 
+        groupBox17.Controls.Add(buttonUndirectGraphIsValidTree);
+        groupBox17.Location = new Point(666, 31);
+        groupBox17.Name = "groupBox17";
+        groupBox17.Size = new Size(172, 100);
+        groupBox17.TabIndex = 3;
+        groupBox17.TabStop = false;
+        groupBox17.Text = "Valid Tree";
+        // 
+        // buttonUndirectGraphIsValidTree
+        // 
+        buttonUndirectGraphIsValidTree.Location = new Point(6, 35);
+        buttonUndirectGraphIsValidTree.Name = "buttonUndirectGraphIsValidTree";
+        buttonUndirectGraphIsValidTree.Size = new Size(160, 23);
+        buttonUndirectGraphIsValidTree.TabIndex = 0;
+        buttonUndirectGraphIsValidTree.Text = "Undirect Graph Is Valid Tree";
+        buttonUndirectGraphIsValidTree.UseVisualStyleBackColor = true;
+        buttonUndirectGraphIsValidTree.Click += buttonUndirectGraphIsValidTree_Click;
+        // 
         // groupBox16
         // 
         groupBox16.Controls.Add(buttonGraph_adjascList);
@@ -863,6 +884,7 @@ partial class Form1
         // 
         // groupBox15
         // 
+        groupBox15.Controls.Add(buttonOrderOfPriority);
         groupBox15.Controls.Add(buttonCourseSchedule);
         groupBox15.Location = new Point(235, 19);
         groupBox15.Name = "groupBox15";
@@ -901,25 +923,15 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // groupBox17
+        // buttonOrderOfPriority
         // 
-        groupBox17.Controls.Add(buttonUndirectGraphIsValidTree);
-        groupBox17.Location = new Point(666, 31);
-        groupBox17.Name = "groupBox17";
-        groupBox17.Size = new Size(172, 100);
-        groupBox17.TabIndex = 3;
-        groupBox17.TabStop = false;
-        groupBox17.Text = "Valid Tree";
-        // 
-        // buttonUndirectGraphIsValidTree
-        // 
-        buttonUndirectGraphIsValidTree.Location = new Point(6, 35);
-        buttonUndirectGraphIsValidTree.Name = "buttonUndirectGraphIsValidTree";
-        buttonUndirectGraphIsValidTree.Size = new Size(160, 23);
-        buttonUndirectGraphIsValidTree.TabIndex = 0;
-        buttonUndirectGraphIsValidTree.Text = "Undirect Graph Is Valid Tree";
-        buttonUndirectGraphIsValidTree.UseVisualStyleBackColor = true;
-        buttonUndirectGraphIsValidTree.Click += buttonUndirectGraphIsValidTree_Click;
+        buttonOrderOfPriority.Location = new Point(6, 60);
+        buttonOrderOfPriority.Name = "buttonOrderOfPriority";
+        buttonOrderOfPriority.Size = new Size(114, 23);
+        buttonOrderOfPriority.TabIndex = 1;
+        buttonOrderOfPriority.Text = "Order of Priority";
+        buttonOrderOfPriority.UseVisualStyleBackColor = true;
+        buttonOrderOfPriority.Click += buttonOrderOfPriority_Click;
         // 
         // Form1
         // 
@@ -958,10 +970,10 @@ partial class Form1
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
         Graph.ResumeLayout(false);
+        groupBox17.ResumeLayout(false);
         groupBox16.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
-        groupBox17.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1044,4 +1056,5 @@ partial class Form1
     private Button buttonAdjListRepres;
     private GroupBox groupBox17;
     private Button buttonUndirectGraphIsValidTree;
+    private Button buttonOrderOfPriority;
 }

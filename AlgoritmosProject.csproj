@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <Compile Remove="Services\Graph\ConnectedComponents\UndirectedGraph\Colors.cs" />
+    <Compile Remove="Services\Graph\ConnectedComponents\UndirectedGraph\Solution.cs" />
+    <Compile Remove="Services\Graph\ConnectedComponents\UndirectedGraph\Vertex.cs" />
     <Compile Remove="Services\Graph\Course Schedule\Colors.cs" />
     <Compile Remove="Services\Graph\Course Schedule\ServiceCourse.cs" />
   </ItemGroup>
