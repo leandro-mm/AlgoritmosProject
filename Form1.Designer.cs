@@ -101,10 +101,12 @@ partial class Form1
         buttonAdjListRepres = new Button();
         buttonAdjMatrxRepres = new Button();
         groupBox15 = new GroupBox();
+        buttonOrderOfPriority = new Button();
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
-        buttonOrderOfPriority = new Button();
+        groupBox18 = new GroupBox();
+        buttonNumberOfIslands = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -127,6 +129,7 @@ partial class Form1
         groupBox16.SuspendLayout();
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
+        groupBox18.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -809,6 +812,7 @@ partial class Form1
         // 
         // Graph
         // 
+        Graph.Controls.Add(groupBox18);
         Graph.Controls.Add(groupBox17);
         Graph.Controls.Add(groupBox16);
         Graph.Controls.Add(groupBox15);
@@ -823,7 +827,7 @@ partial class Form1
         // groupBox17
         // 
         groupBox17.Controls.Add(buttonUndirectGraphIsValidTree);
-        groupBox17.Location = new Point(666, 31);
+        groupBox17.Location = new Point(71, 171);
         groupBox17.Name = "groupBox17";
         groupBox17.Size = new Size(172, 100);
         groupBox17.TabIndex = 3;
@@ -845,7 +849,7 @@ partial class Form1
         groupBox16.Controls.Add(buttonGraph_adjascList);
         groupBox16.Controls.Add(buttonAdjListRepres);
         groupBox16.Controls.Add(buttonAdjMatrxRepres);
-        groupBox16.Location = new Point(451, 19);
+        groupBox16.Location = new Point(595, 19);
         groupBox16.Name = "groupBox16";
         groupBox16.Size = new Size(200, 131);
         groupBox16.TabIndex = 2;
@@ -886,16 +890,26 @@ partial class Form1
         // 
         groupBox15.Controls.Add(buttonOrderOfPriority);
         groupBox15.Controls.Add(buttonCourseSchedule);
-        groupBox15.Location = new Point(235, 19);
+        groupBox15.Location = new Point(323, 19);
         groupBox15.Name = "groupBox15";
         groupBox15.Size = new Size(200, 131);
         groupBox15.TabIndex = 1;
         groupBox15.TabStop = false;
         groupBox15.Text = "Priority";
         // 
+        // buttonOrderOfPriority
+        // 
+        buttonOrderOfPriority.Location = new Point(24, 60);
+        buttonOrderOfPriority.Name = "buttonOrderOfPriority";
+        buttonOrderOfPriority.Size = new Size(114, 23);
+        buttonOrderOfPriority.TabIndex = 1;
+        buttonOrderOfPriority.Text = "Order of Priority";
+        buttonOrderOfPriority.UseVisualStyleBackColor = true;
+        buttonOrderOfPriority.Click += buttonOrderOfPriority_Click;
+        // 
         // buttonCourseSchedule
         // 
-        buttonCourseSchedule.Location = new Point(6, 31);
+        buttonCourseSchedule.Location = new Point(24, 31);
         buttonCourseSchedule.Name = "buttonCourseSchedule";
         buttonCourseSchedule.Size = new Size(114, 23);
         buttonCourseSchedule.TabIndex = 0;
@@ -906,9 +920,9 @@ partial class Form1
         // groupBox14
         // 
         groupBox14.Controls.Add(buttonConnectedCompUndirectedGraph);
-        groupBox14.Location = new Point(12, 19);
+        groupBox14.Location = new Point(71, 19);
         groupBox14.Name = "groupBox14";
-        groupBox14.Size = new Size(200, 131);
+        groupBox14.Size = new Size(172, 131);
         groupBox14.TabIndex = 0;
         groupBox14.TabStop = false;
         groupBox14.Text = "Connected Components";
@@ -923,15 +937,25 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // buttonOrderOfPriority
+        // groupBox18
         // 
-        buttonOrderOfPriority.Location = new Point(6, 60);
-        buttonOrderOfPriority.Name = "buttonOrderOfPriority";
-        buttonOrderOfPriority.Size = new Size(114, 23);
-        buttonOrderOfPriority.TabIndex = 1;
-        buttonOrderOfPriority.Text = "Order of Priority";
-        buttonOrderOfPriority.UseVisualStyleBackColor = true;
-        buttonOrderOfPriority.Click += buttonOrderOfPriority_Click;
+        groupBox18.Controls.Add(buttonNumberOfIslands);
+        groupBox18.Location = new Point(323, 171);
+        groupBox18.Name = "groupBox18";
+        groupBox18.Size = new Size(200, 100);
+        groupBox18.TabIndex = 4;
+        groupBox18.TabStop = false;
+        groupBox18.Text = "Number Of Islands";
+        // 
+        // buttonNumberOfIslands
+        // 
+        buttonNumberOfIslands.Location = new Point(24, 42);
+        buttonNumberOfIslands.Name = "buttonNumberOfIslands";
+        buttonNumberOfIslands.Size = new Size(114, 23);
+        buttonNumberOfIslands.TabIndex = 0;
+        buttonNumberOfIslands.Text = "Number of Islands";
+        buttonNumberOfIslands.UseVisualStyleBackColor = true;
+        buttonNumberOfIslands.Click += buttonNumberOfIslands_Click;
         // 
         // Form1
         // 
@@ -974,6 +998,7 @@ partial class Form1
         groupBox16.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
+        groupBox18.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1057,4 +1082,6 @@ partial class Form1
     private GroupBox groupBox17;
     private Button buttonUndirectGraphIsValidTree;
     private Button buttonOrderOfPriority;
+    private GroupBox groupBox18;
+    private Button buttonNumberOfIslands;
 }

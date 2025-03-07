@@ -72,15 +72,43 @@ public static class GeneralService
         return NumUniqueBST(n, solutions);
     }
 
-    public static string PrintListData(int[][] inputArray)
+    
+    public static string PrintListData(char[,] inputArray)
     {
         StringBuilder stringBuilder = new();
 
+        int rows = inputArray.GetLength(0);
+        
+        int columns = inputArray.GetLength(1);
+
+        for (int i = 0; i < rows; i++) 
+        {           
+            for (int j = 0; j < columns; j++) 
+            {
+                stringBuilder.Append(inputArray[i,j]).Append(',');
+            }
+            stringBuilder.AppendLine();
+        }
+
+      
+
+        return stringBuilder.ToString();
+    }
+    public static string PrintListData<T>(T[][] inputArray)
+    {
+        StringBuilder stringBuilder = new();
+
+        int rows = inputArray.Length;
+
+        int columns = inputArray[0].Length ;
+
         stringBuilder.Append("[");
-        for (int i = 0; i < inputArray.Length; i++) // Loop through rows
+
+        for (int i = 0; i < rows; i++) // Loop through rows
         {
             stringBuilder.Append("[");
-            for (int j = 0; j < inputArray[i].Length; j++) // Loop through columns
+
+            for (int j = 0; j < columns; j++) // Loop through columns
             {
                 stringBuilder.Append(inputArray[i][j]).Append(',');                
             }

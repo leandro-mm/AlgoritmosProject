@@ -4,6 +4,7 @@ using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
 using AlgoritmosProject.Services.Graph.ConnectedComponents.UndirectedGraph;
 using AlgoritmosProject.Services.Graph.Course;
+using AlgoritmosProject.Services.Graph.Number_Of_Islands;
 using AlgoritmosProject.Services.Graph.Order_of_Priority;
 using AlgoritmosProject.Services.Graph.Valid_Tree;
 using AlgoritmosProject.Services.Tree;
@@ -1000,7 +1001,7 @@ public partial class Form1 : Form
             int numberOfNodes = 5;
             Graph_UnDirectedComponents g = new(numberOfNodes);
 
-            IList<List<int>> edgesList =[[0, 1],[1, 2],[3, 4 ]];
+            IList<List<int>> edgesList = [[0, 1], [1, 2], [3, 4]];
 
             foreach (List<int> item in edgesList)
             {
@@ -1011,7 +1012,7 @@ public partial class Form1 : Form
 
             textBoxResultado.Text += $"Connected Components Undirected Graph {GeneralService.PrintListData(edgesList)} --> {Environment.NewLine} {result1} {Environment.NewLine}";
 
-            edgesList = [[0, 1],[1, 2],[2, 3],[3, 4]];
+            edgesList = [[0, 1], [1, 2], [2, 3], [3, 4]];
             g = new(numberOfNodes);
 
             foreach (List<int> item in edgesList)
@@ -1239,7 +1240,7 @@ public partial class Form1 : Form
             ///
             G = new();
             numCourses = 3;
-            prerequisites = [[1,0]];
+            prerequisites = [[1, 0]];
 
             foreach (int[] entry in prerequisites)
             {
@@ -1251,6 +1252,72 @@ public partial class Form1 : Form
             sORder = GeneralService.PrintListData(orderOfCourses);
 
             textBoxResultado.Text += $"The Ordering of Courses {sArrayPreRequisitos} is: {sORder} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonNumberOfIslands_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            textBoxResultado.Text += $"Descrição do algoritmo {Environment.NewLine} ";
+            textBoxResultado.Text += $"\t toda vez que ele encontra um '1' incrementa contador{Environment.NewLine} ";
+            textBoxResultado.Text += $"\t marca com '0' a posição acima, lado esquerdo, lado direito, abaixo{Environment.NewLine} ";
+            textBoxResultado.Text += $"\t não interessa a qtd de 1's e sim encontrar o 1º 1marca com '0' a posição acima, lado esquerdo, lado direito, abaixo{Environment.NewLine} ";
+
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            char[,] grid = {
+                 { '1','1','1','1','0'},
+                    { '1','1','0','1','0' },
+                    { '1','1','0','0','0' },
+                    { '0','0','0','0','0' }
+               
+            };
+
+            string sArrayGrid = GeneralService.PrintListData(grid);            
+            int numOfIslands = NumberOfIslandsService.NumIslands(grid);
+            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
+
+            textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
+
+            grid = new char[,]{
+                   { '1', '1', '0', '0', '0' },
+                { '0', '1', '0', '0', '1' },
+                { '1', '0', '0', '1', '1' },
+                { '0', '0', '0', '0', '0' },
+                { '1', '0', '1', '1', '0' }
+                };
+
+
+            sArrayGrid = GeneralService.PrintListData(grid);
+            numOfIslands = NumberOfIslandsService.NumIslands(grid);
+            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
+
+            textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
+
+            grid = new char[,]{
+                  { '1','1','0','0','0'},
+                  {'1','1','0','0','0'},
+                  {'0','0','1','0','0'},
+                  {'0','0','0','1','1' }
+                };
+
+
+            sArrayGrid = GeneralService.PrintListData(grid);
+            numOfIslands = NumberOfIslandsService.NumIslands(grid);
+            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
+
+
+
+
         }
         catch (Exception ex)
         {
