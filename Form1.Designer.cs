@@ -108,8 +108,16 @@ partial class Form1
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
         tabPage3 = new TabPage();
-        buttonRotateImage = new Button();
+        groupBox19 = new GroupBox();
+        buttonSpitalMatrix = new Button();
+        textBoxSpiralMatrixM = new TextBox();
+        buttonSpiralMatrixByNumber = new Button();
+        textBoxMatrixFindNumber = new TextBox();
+        buttonFindNumber = new Button();
+        buttonSetMatrixZeroes = new Button();
         textBoxMAtrixToRotate = new TextBox();
+        buttonRotateImage = new Button();
+        textBoxSpiralMatrixN = new TextBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -134,6 +142,7 @@ partial class Form1
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
         tabPage3.SuspendLayout();
+        groupBox19.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -966,25 +975,87 @@ partial class Form1
         // 
         tabPage3.BackColor = Color.Transparent;
         tabPage3.BorderStyle = BorderStyle.Fixed3D;
+        tabPage3.Controls.Add(groupBox19);
+        tabPage3.Controls.Add(textBoxMatrixFindNumber);
+        tabPage3.Controls.Add(buttonFindNumber);
+        tabPage3.Controls.Add(buttonSetMatrixZeroes);
         tabPage3.Controls.Add(textBoxMAtrixToRotate);
         tabPage3.Controls.Add(buttonRotateImage);
-        tabPage3.ForeColor = Color.FromArgb(255, 255, 128);
+        tabPage3.ForeColor = Color.Black;
         tabPage3.Location = new Point(4, 24);
         tabPage3.Name = "tabPage3";
         tabPage3.Size = new Size(851, 352);
         tabPage3.TabIndex = 4;
         tabPage3.Text = "Matrix";
         // 
-        // buttonRotateImage
+        // groupBox19
         // 
-        buttonRotateImage.ForeColor = Color.Black;
-        buttonRotateImage.Location = new Point(180, 25);
-        buttonRotateImage.Name = "buttonRotateImage";
-        buttonRotateImage.Size = new Size(110, 23);
-        buttonRotateImage.TabIndex = 0;
-        buttonRotateImage.Text = "Rotate Image";
-        buttonRotateImage.UseVisualStyleBackColor = true;
-        buttonRotateImage.Click += buttonRotateImage_Click;
+        groupBox19.Controls.Add(textBoxSpiralMatrixN);
+        groupBox19.Controls.Add(buttonSpitalMatrix);
+        groupBox19.Controls.Add(textBoxSpiralMatrixM);
+        groupBox19.Controls.Add(buttonSpiralMatrixByNumber);
+        groupBox19.Location = new Point(377, 193);
+        groupBox19.Name = "groupBox19";
+        groupBox19.Size = new Size(200, 100);
+        groupBox19.TabIndex = 7;
+        groupBox19.TabStop = false;
+        groupBox19.Text = "Spiral Matrix";
+        // 
+        // buttonSpitalMatrix
+        // 
+        buttonSpitalMatrix.Location = new Point(6, 31);
+        buttonSpitalMatrix.Name = "buttonSpitalMatrix";
+        buttonSpitalMatrix.Size = new Size(169, 23);
+        buttonSpitalMatrix.TabIndex = 5;
+        buttonSpitalMatrix.Text = "Spiral Matrix";
+        buttonSpitalMatrix.UseVisualStyleBackColor = true;
+        buttonSpitalMatrix.Click += buttonSpitalMatrix_Click;
+        // 
+        // textBoxSpiralMatrixM
+        // 
+        textBoxSpiralMatrixM.Location = new Point(6, 60);
+        textBoxSpiralMatrixM.Name = "textBoxSpiralMatrixM";
+        textBoxSpiralMatrixM.PlaceholderText = "M";
+        textBoxSpiralMatrixM.Size = new Size(23, 23);
+        textBoxSpiralMatrixM.TabIndex = 4;
+        // 
+        // buttonSpiralMatrixByNumber
+        // 
+        buttonSpiralMatrixByNumber.Location = new Point(65, 60);
+        buttonSpiralMatrixByNumber.Name = "buttonSpiralMatrixByNumber";
+        buttonSpiralMatrixByNumber.Size = new Size(110, 23);
+        buttonSpiralMatrixByNumber.TabIndex = 6;
+        buttonSpiralMatrixByNumber.Text = "By Number";
+        buttonSpiralMatrixByNumber.UseVisualStyleBackColor = true;
+        buttonSpiralMatrixByNumber.Click += buttonSpiralMatrixByNumber_Click;
+        // 
+        // textBoxMatrixFindNumber
+        // 
+        textBoxMatrixFindNumber.Location = new Point(377, 150);
+        textBoxMatrixFindNumber.Name = "textBoxMatrixFindNumber";
+        textBoxMatrixFindNumber.PlaceholderText = "Number";
+        textBoxMatrixFindNumber.Size = new Size(53, 23);
+        textBoxMatrixFindNumber.TabIndex = 4;
+        // 
+        // buttonFindNumber
+        // 
+        buttonFindNumber.Location = new Point(436, 149);
+        buttonFindNumber.Name = "buttonFindNumber";
+        buttonFindNumber.Size = new Size(110, 23);
+        buttonFindNumber.TabIndex = 3;
+        buttonFindNumber.Text = "Find Number";
+        buttonFindNumber.UseVisualStyleBackColor = true;
+        buttonFindNumber.Click += buttonFindNumber_Click;
+        // 
+        // buttonSetMatrixZeroes
+        // 
+        buttonSetMatrixZeroes.Location = new Point(378, 94);
+        buttonSetMatrixZeroes.Name = "buttonSetMatrixZeroes";
+        buttonSetMatrixZeroes.Size = new Size(168, 23);
+        buttonSetMatrixZeroes.TabIndex = 2;
+        buttonSetMatrixZeroes.Text = "Set Matrix Zeroes";
+        buttonSetMatrixZeroes.UseVisualStyleBackColor = true;
+        buttonSetMatrixZeroes.Click += buttonSetMatrixZeroes_Click;
         // 
         // textBoxMAtrixToRotate
         // 
@@ -993,8 +1064,27 @@ partial class Form1
         textBoxMAtrixToRotate.Multiline = true;
         textBoxMAtrixToRotate.Name = "textBoxMAtrixToRotate";
         textBoxMAtrixToRotate.ScrollBars = ScrollBars.Both;
-        textBoxMAtrixToRotate.Size = new Size(154, 122);
+        textBoxMAtrixToRotate.Size = new Size(316, 202);
         textBoxMAtrixToRotate.TabIndex = 1;
+        // 
+        // buttonRotateImage
+        // 
+        buttonRotateImage.ForeColor = Color.Black;
+        buttonRotateImage.Location = new Point(378, 42);
+        buttonRotateImage.Name = "buttonRotateImage";
+        buttonRotateImage.Size = new Size(168, 23);
+        buttonRotateImage.TabIndex = 0;
+        buttonRotateImage.Text = "Rotate Image";
+        buttonRotateImage.UseVisualStyleBackColor = true;
+        buttonRotateImage.Click += buttonRotateImage_Click;
+        // 
+        // textBoxSpiralMatrixN
+        // 
+        textBoxSpiralMatrixN.Location = new Point(35, 60);
+        textBoxSpiralMatrixN.Name = "textBoxSpiralMatrixN";
+        textBoxSpiralMatrixN.PlaceholderText = "N";
+        textBoxSpiralMatrixN.Size = new Size(23, 23);
+        textBoxSpiralMatrixN.TabIndex = 7;
         // 
         // Form1
         // 
@@ -1040,6 +1130,8 @@ partial class Form1
         groupBox14.ResumeLayout(false);
         tabPage3.ResumeLayout(false);
         tabPage3.PerformLayout();
+        groupBox19.ResumeLayout(false);
+        groupBox19.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1128,4 +1220,12 @@ partial class Form1
     private TabPage tabPage3;
     private Button buttonRotateImage;
     private TextBox textBoxMAtrixToRotate;
+    private Button buttonSetMatrixZeroes;
+    private Button buttonFindNumber;
+    private TextBox textBoxMatrixFindNumber;
+    private Button buttonSpitalMatrix;
+    private Button buttonSpiralMatrixByNumber;
+    private TextBox textBoxSpiralMatrixM;
+    private GroupBox groupBox19;
+    private TextBox textBoxSpiralMatrixN;
 }

@@ -40,7 +40,12 @@ public static class GeneralService
         return valoresHead;
     }
 
-    public static int[] GetInputFromTextBox(TextBox textBox)
+    public static int GetNumberFromTextBox(TextBox textBox)
+    {
+        return int.Parse(textBox.Text);
+    }
+
+    public static int[] GetArrayFromTextBox(TextBox textBox)
     {
         return textBox.Text.Split(',').Select(s => int.Parse(s)).ToArray();
     }
@@ -167,6 +172,18 @@ public static class GeneralService
         foreach (var item in data)
         {
             stringBuilder.Append("[").Append(string.Join(",", item)).Append("],");
+        }
+
+        return stringBuilder.ToString();
+    }
+
+    public static string PrintListDataLikeConcatenetedNodes<T>(IList<T> data)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (var item in data)
+        {
+            stringBuilder.Append(item).Append(" -> ");
         }
 
         return stringBuilder.ToString();

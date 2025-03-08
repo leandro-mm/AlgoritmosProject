@@ -30,7 +30,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int result = InPlaceService.FindFirstDuplicate(input);
 
@@ -56,7 +56,7 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            var input = GeneralService.GetInputFromTextBox(textBoxInput);
+            var input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int[] result = InPlaceService.RemoveDuplicates(input);
 
@@ -84,7 +84,7 @@ public partial class Form1 : Form
 
             int elementoAserRemovido = int.Parse(textBoxNth.Text);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             if (input.Length > 0)
             {
@@ -120,7 +120,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int elementoToFind = int.Parse(textBoxBinarySerach.Text);
 
@@ -169,7 +169,7 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int left = 0, right = input.Length - 1;
 
@@ -202,7 +202,7 @@ public partial class Form1 : Form
         {
             int target = int.Parse(textBoxTwoFourSum.Text);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             Dictionary<int, int> resultado = LeftRightBoundary.TwoSum(input, target);
 
@@ -244,7 +244,7 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             var eresult = LeftRightBoundary.FourSum(input, int.Parse(textBoxTwoFourSum.Text));
 
@@ -264,7 +264,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             textBoxResultado.Text += $"Lista Original {string.Join(",", input)}{Environment.NewLine}{Environment.NewLine}";
 
@@ -289,7 +289,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int targetSum = int.Parse(textBoxTargetSumLongestSubArray.Text);
 
@@ -317,7 +317,7 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int targetSum = int.Parse(textBoxTargetSumLongestSubArray.Text);
 
@@ -349,7 +349,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int majority = InPlaceService.FindMajorityByBoyerMoore(input);
 
@@ -374,7 +374,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             if (input.Length == 0)
             {
@@ -412,7 +412,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -445,7 +445,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -472,7 +472,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -520,7 +520,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -732,7 +732,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             IList<int> result = TreeService.AgregateRootToPath(TreeService.BST_FromArray(input));
 
@@ -826,7 +826,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode root = TreeService.BST_FromArray(input);
 
@@ -860,7 +860,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -905,7 +905,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode root = TreeService.GetStandardtBinaryTree();
 
@@ -932,7 +932,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             MyTreeNode myTreeNode = TreeService.BST_FromArray(input);
 
@@ -955,7 +955,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             bool validPreOrder = TreeService.IsValidPreOrderBST(input);
 
@@ -974,7 +974,7 @@ public partial class Form1 : Form
         {
             GeneralService.ClearTexttBox(textBoxResultado);
 
-            int[] input = GeneralService.GetInputFromTextBox(textBoxInput);
+            int[] input = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             //MyTreeNode root = TreeService.GetStandardtBinaryTree();
 
@@ -1339,11 +1339,10 @@ public partial class Form1 : Form
                     [ 7,8,9 ]
                 ];
 
-            textBoxMAtrixToRotate.Text += $"Matrix To Rotate " +                
+            textBoxMAtrixToRotate.Text += $"Matrix To Rotate " +
                 $"{Environment.NewLine}" +
                 $" {GeneralService.PrintListDataAsGrid(matrix)}";
 
-            textBoxMAtrixToRotate.Enabled = true;
 
             RotateMatrixService.RotateMatrixI(matrix);
 
@@ -1362,12 +1361,12 @@ public partial class Form1 : Form
                     [ 7,8,9 ]
                 ];
 
-            RotateMatrixService.RotateMatrixII(matrix); 
+            RotateMatrixService.RotateMatrixII(matrix);
 
-                textBoxResultado.Text += $"rotated II" +
-                $"{Environment.NewLine}" +
-                $"{GeneralService.PrintListDataAsGrid(matrix)}" +
-                $" {Environment.NewLine}";
+            textBoxResultado.Text += $"rotated II" +
+            $"{Environment.NewLine}" +
+            $"{GeneralService.PrintListDataAsGrid(matrix)}" +
+            $" {Environment.NewLine}";
 
             textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
 
@@ -1378,6 +1377,130 @@ public partial class Form1 : Form
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+
+    }
+
+    private void buttonSetMatrixZeroes_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[][] matrix = [
+                   [ 1,1,1,],
+                    [ 1,0,1 ],
+                    [ 1,1,1 ]
+               ];
+
+            textBoxMAtrixToRotate.Text += $"Set Matrix To Zero" +
+                $"{Environment.NewLine}" +
+                $" {GeneralService.PrintListDataAsGrid(matrix)}";
+
+            SetMatrixToZeroService.SetMatrixToZero(matrix);
+
+            textBoxResultado.Text += $"{GeneralService.PrintListDataAsGrid(matrix)} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonFindNumber_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[][] matrix = [[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50]];
+
+            int numberToFind = GeneralService.GetNumberFromTextBox(textBoxMatrixFindNumber);
+
+            var numberExists = FindNumber.FindNumberInMatrix(matrix, numberToFind);
+
+            textBoxMAtrixToRotate.Text += $"Find {numberToFind} into {Environment.NewLine} {GeneralService.PrintListDataAsGrid(matrix)}";
+
+            textBoxResultado.Text += $"The number {numberToFind} exists? {numberExists}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonSpitalMatrix_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            // int[][] matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+            int[][] matrix = [[1, 2, 3,4], [5, 6,7,8], [9,10,11,12]];
+
+            textBoxMAtrixToRotate.Text += $"Matrix {Environment.NewLine} {GeneralService.PrintListDataAsGrid(matrix)}";
+
+            IList<int> spiralOrder = SpiralMAtrix.SpiralOrder(matrix);
+
+            textBoxResultado.Text += $"Só funciona  3 x 3 ou 3 x 4 {Environment.NewLine}";
+            textBoxResultado.Text += $"Spiral Matrix {GeneralService.PrintListDataLikeConcatenetedNodes(spiralOrder)}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void buttonSpiralMatrixByNumber_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            GeneralService.ClearTexttBox(textBoxMAtrixToRotate);
+
+            int M = GeneralService.GetNumberFromTextBox(textBoxSpiralMatrixM);
+            int N = GeneralService.GetNumberFromTextBox(textBoxSpiralMatrixN);
+
+            int[][] matrix = new int[M][];
+
+            for (int i = 0; i < M; i++)
+            {
+                matrix[i] = new int[N]; // N é o número de colunas
+            }
+
+            int num = 1;
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for (int j = 0; j < matrix[i].Length; j++)
+                {
+                    matrix[i][j] = num++;
+                }
+            }
+
+            if (matrix.Length > 3 || matrix[0].Length > 4)
+            {
+                textBoxResultado.Text += $"Só funciona  3 x 3 ou 3 x 4 {Environment.NewLine}";
+            }
+            else
+            {
+                textBoxMAtrixToRotate.Text += $"Matrix {Environment.NewLine} {GeneralService.PrintListDataAsGrid(matrix)}";
+
+                IList<int> spiralOrder = SpiralMAtrix.SpiralOrder(matrix);
+
+                textBoxResultado.Text += $"Spiral Matrix {GeneralService.PrintListDataLikeConcatenetedNodes(spiralOrder)}";
+            }
+           
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
 
     }
 }
