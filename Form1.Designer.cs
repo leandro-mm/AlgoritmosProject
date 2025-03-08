@@ -94,6 +94,8 @@ partial class Form1
         buttonIteratorTree = new Button();
         buttonIteratorNext = new Button();
         Graph = new TabPage();
+        groupBox18 = new GroupBox();
+        buttonNumberOfIslands = new Button();
         groupBox17 = new GroupBox();
         buttonUndirectGraphIsValidTree = new Button();
         groupBox16 = new GroupBox();
@@ -105,8 +107,9 @@ partial class Form1
         buttonCourseSchedule = new Button();
         groupBox14 = new GroupBox();
         buttonConnectedCompUndirectedGraph = new Button();
-        groupBox18 = new GroupBox();
-        buttonNumberOfIslands = new Button();
+        tabPage3 = new TabPage();
+        buttonRotateImage = new Button();
+        textBoxMAtrixToRotate = new TextBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -125,11 +128,12 @@ partial class Form1
         groupBox4.SuspendLayout();
         groupBox3.SuspendLayout();
         Graph.SuspendLayout();
+        groupBox18.SuspendLayout();
         groupBox17.SuspendLayout();
         groupBox16.SuspendLayout();
         groupBox15.SuspendLayout();
         groupBox14.SuspendLayout();
-        groupBox18.SuspendLayout();
+        tabPage3.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -163,11 +167,11 @@ partial class Form1
         // 
         // textBoxResultado
         // 
-        textBoxResultado.Location = new Point(13, 480);
+        textBoxResultado.Location = new Point(13, 499);
         textBoxResultado.Multiline = true;
         textBoxResultado.Name = "textBoxResultado";
         textBoxResultado.ScrollBars = ScrollBars.Both;
-        textBoxResultado.Size = new Size(855, 219);
+        textBoxResultado.Size = new Size(855, 325);
         textBoxResultado.TabIndex = 1;
         textBoxResultado.WordWrap = false;
         // 
@@ -310,6 +314,7 @@ partial class Form1
         tabControl1.Controls.Add(tabPage2);
         tabControl1.Controls.Add(Tree);
         tabControl1.Controls.Add(Graph);
+        tabControl1.Controls.Add(tabPage3);
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -824,6 +829,26 @@ partial class Form1
         Graph.Text = "Graph";
         Graph.UseVisualStyleBackColor = true;
         // 
+        // groupBox18
+        // 
+        groupBox18.Controls.Add(buttonNumberOfIslands);
+        groupBox18.Location = new Point(323, 171);
+        groupBox18.Name = "groupBox18";
+        groupBox18.Size = new Size(200, 100);
+        groupBox18.TabIndex = 4;
+        groupBox18.TabStop = false;
+        groupBox18.Text = "Number Of Islands";
+        // 
+        // buttonNumberOfIslands
+        // 
+        buttonNumberOfIslands.Location = new Point(24, 42);
+        buttonNumberOfIslands.Name = "buttonNumberOfIslands";
+        buttonNumberOfIslands.Size = new Size(114, 23);
+        buttonNumberOfIslands.TabIndex = 0;
+        buttonNumberOfIslands.Text = "Number of Islands";
+        buttonNumberOfIslands.UseVisualStyleBackColor = true;
+        buttonNumberOfIslands.Click += buttonNumberOfIslands_Click;
+        // 
         // groupBox17
         // 
         groupBox17.Controls.Add(buttonUndirectGraphIsValidTree);
@@ -937,31 +962,45 @@ partial class Form1
         buttonConnectedCompUndirectedGraph.UseVisualStyleBackColor = true;
         buttonConnectedCompUndirectedGraph.Click += buttonConnectedCompUndirectedGraph_Click;
         // 
-        // groupBox18
+        // tabPage3
         // 
-        groupBox18.Controls.Add(buttonNumberOfIslands);
-        groupBox18.Location = new Point(323, 171);
-        groupBox18.Name = "groupBox18";
-        groupBox18.Size = new Size(200, 100);
-        groupBox18.TabIndex = 4;
-        groupBox18.TabStop = false;
-        groupBox18.Text = "Number Of Islands";
+        tabPage3.BackColor = Color.Transparent;
+        tabPage3.BorderStyle = BorderStyle.Fixed3D;
+        tabPage3.Controls.Add(textBoxMAtrixToRotate);
+        tabPage3.Controls.Add(buttonRotateImage);
+        tabPage3.ForeColor = Color.FromArgb(255, 255, 128);
+        tabPage3.Location = new Point(4, 24);
+        tabPage3.Name = "tabPage3";
+        tabPage3.Size = new Size(851, 352);
+        tabPage3.TabIndex = 4;
+        tabPage3.Text = "Matrix";
         // 
-        // buttonNumberOfIslands
+        // buttonRotateImage
         // 
-        buttonNumberOfIslands.Location = new Point(24, 42);
-        buttonNumberOfIslands.Name = "buttonNumberOfIslands";
-        buttonNumberOfIslands.Size = new Size(114, 23);
-        buttonNumberOfIslands.TabIndex = 0;
-        buttonNumberOfIslands.Text = "Number of Islands";
-        buttonNumberOfIslands.UseVisualStyleBackColor = true;
-        buttonNumberOfIslands.Click += buttonNumberOfIslands_Click;
+        buttonRotateImage.ForeColor = Color.Black;
+        buttonRotateImage.Location = new Point(180, 25);
+        buttonRotateImage.Name = "buttonRotateImage";
+        buttonRotateImage.Size = new Size(110, 23);
+        buttonRotateImage.TabIndex = 0;
+        buttonRotateImage.Text = "Rotate Image";
+        buttonRotateImage.UseVisualStyleBackColor = true;
+        buttonRotateImage.Click += buttonRotateImage_Click;
+        // 
+        // textBoxMAtrixToRotate
+        // 
+        textBoxMAtrixToRotate.Enabled = false;
+        textBoxMAtrixToRotate.Location = new Point(20, 25);
+        textBoxMAtrixToRotate.Multiline = true;
+        textBoxMAtrixToRotate.Name = "textBoxMAtrixToRotate";
+        textBoxMAtrixToRotate.ScrollBars = ScrollBars.Both;
+        textBoxMAtrixToRotate.Size = new Size(154, 122);
+        textBoxMAtrixToRotate.TabIndex = 1;
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(895, 711);
+        ClientSize = new Size(895, 852);
         Controls.Add(tabControl1);
         Controls.Add(label1);
         Controls.Add(textBoxResultado);
@@ -994,11 +1033,13 @@ partial class Form1
         groupBox4.ResumeLayout(false);
         groupBox3.ResumeLayout(false);
         Graph.ResumeLayout(false);
+        groupBox18.ResumeLayout(false);
         groupBox17.ResumeLayout(false);
         groupBox16.ResumeLayout(false);
         groupBox15.ResumeLayout(false);
         groupBox14.ResumeLayout(false);
-        groupBox18.ResumeLayout(false);
+        tabPage3.ResumeLayout(false);
+        tabPage3.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1084,4 +1125,7 @@ partial class Form1
     private Button buttonOrderOfPriority;
     private GroupBox groupBox18;
     private Button buttonNumberOfIslands;
+    private TabPage tabPage3;
+    private Button buttonRotateImage;
+    private TextBox textBoxMAtrixToRotate;
 }

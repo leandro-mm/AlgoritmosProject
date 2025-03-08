@@ -73,7 +73,7 @@ public static class GeneralService
     }
 
     
-    public static string PrintListData(char[,] inputArray)
+    public static string PrintListData<T>(T[,] inputArray)
     {
         StringBuilder stringBuilder = new();
 
@@ -91,6 +91,32 @@ public static class GeneralService
         }
 
       
+
+        return stringBuilder.ToString();
+    }
+
+    public static string PrintListDataAsGrid<T>(T[][] inputArray)
+    {
+        StringBuilder stringBuilder = new();
+
+        int rows = inputArray.Length;
+
+        int columns = inputArray[0].Length;
+
+        stringBuilder.AppendLine("[");
+
+        for (int i = 0; i < rows; i++) // Loop through rows
+        {
+            stringBuilder.Append("\t[");
+
+            for (int j = 0; j < columns; j++) // Loop through columns
+            {
+                stringBuilder.Append(inputArray[i][j]).Append(',');
+            }
+            stringBuilder.AppendLine("]"); // Move to the next line after each row
+        }
+
+        stringBuilder.AppendLine("]");
 
         return stringBuilder.ToString();
     }

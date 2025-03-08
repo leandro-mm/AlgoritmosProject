@@ -7,6 +7,7 @@ using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Graph.Number_Of_Islands;
 using AlgoritmosProject.Services.Graph.Order_of_Priority;
 using AlgoritmosProject.Services.Graph.Valid_Tree;
+using AlgoritmosProject.Services.Matrix;
 using AlgoritmosProject.Services.Tree;
 using System.Text;
 using System.Windows.Forms.VisualStyles;
@@ -1276,12 +1277,12 @@ public partial class Form1 : Form
                     { '1','1','0','1','0' },
                     { '1','1','0','0','0' },
                     { '0','0','0','0','0' }
-               
+
             };
 
-            string sArrayGrid = GeneralService.PrintListData(grid);            
+            string sArrayGrid = GeneralService.PrintListData(grid);
             int numOfIslands = NumberOfIslandsService.NumIslands(grid);
-            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"grid {Environment.NewLine}{sArrayGrid} {Environment.NewLine}";
             textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
 
             textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
@@ -1297,7 +1298,7 @@ public partial class Form1 : Form
 
             sArrayGrid = GeneralService.PrintListData(grid);
             numOfIslands = NumberOfIslandsService.NumIslands(grid);
-            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"grid {Environment.NewLine}{sArrayGrid} {Environment.NewLine}";
             textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
 
             textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
@@ -1312,11 +1313,65 @@ public partial class Form1 : Form
 
             sArrayGrid = GeneralService.PrintListData(grid);
             numOfIslands = NumberOfIslandsService.NumIslands(grid);
-            textBoxResultado.Text += $"grid {Environment.NewLine} {sArrayGrid} {Environment.NewLine}";
+            textBoxResultado.Text += $"grid {Environment.NewLine}{sArrayGrid} {Environment.NewLine}";
             textBoxResultado.Text += $"Num Islands {numOfIslands} {Environment.NewLine}";
 
 
 
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    }
+
+    private void buttonRotateImage_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[][] matrix = [
+                    [ 1,2,3],
+                    [ 4,5,6 ],
+                    [ 7,8,9 ]
+                ];
+
+            textBoxMAtrixToRotate.Text += $"Matrix To Rotate " +                
+                $"{Environment.NewLine}" +
+                $" {GeneralService.PrintListDataAsGrid(matrix)}";
+
+            textBoxMAtrixToRotate.Enabled = true;
+
+            RotateMatrixService.RotateMatrixI(matrix);
+
+            textBoxResultado.Text += $"rotated I" +
+                $"{Environment.NewLine}" +
+                $"{GeneralService.PrintListDataAsGrid(matrix)}" +
+                $" {Environment.NewLine}";
+
+            textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
+
+            textBoxResultado.Text += $" {Environment.NewLine}";
+
+            matrix = [
+                    [ 1,2,3],
+                    [ 4,5,6 ],
+                    [ 7,8,9 ]
+                ];
+
+            RotateMatrixService.RotateMatrixII(matrix); 
+
+                textBoxResultado.Text += $"rotated II" +
+                $"{Environment.NewLine}" +
+                $"{GeneralService.PrintListDataAsGrid(matrix)}" +
+                $" {Environment.NewLine}";
+
+            textBoxResultado.Text += $"-------------------------{Environment.NewLine}";
+
+            textBoxResultado.Text += $" {Environment.NewLine}";
 
         }
         catch (Exception ex)
