@@ -7,8 +7,10 @@ using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Graph.Number_Of_Islands;
 using AlgoritmosProject.Services.Graph.Order_of_Priority;
 using AlgoritmosProject.Services.Graph.Valid_Tree;
+using AlgoritmosProject.Services.LRU;
 using AlgoritmosProject.Services.Matrix;
 using AlgoritmosProject.Services.Tree;
+using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms.VisualStyles;
 
@@ -1439,7 +1441,7 @@ public partial class Form1 : Form
             GeneralService.ClearTexttBox(textBoxResultado);
 
             // int[][] matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-            int[][] matrix = [[1, 2, 3,4], [5, 6,7,8], [9,10,11,12]];
+            int[][] matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]];
 
             textBoxMAtrixToRotate.Text += $"Matrix {Environment.NewLine} {GeneralService.PrintListDataAsGrid(matrix)}";
 
@@ -1493,7 +1495,7 @@ public partial class Form1 : Form
 
                 textBoxResultado.Text += $"Spiral Matrix {GeneralService.PrintListDataLikeConcatenetedNodes(spiralOrder)}";
             }
-           
+
         }
         catch (Exception ex)
         {
@@ -1502,6 +1504,58 @@ public partial class Form1 : Form
 
 
 
+    }
+
+
+    LRU_CacheService lru_Cache;
+    private void BtnAddToLRUCache_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (lru_Cache is null)
+            {
+                lru_Cache = new LRU_CacheService(int.Parse(textBoxCapacityLRUCache.Text));
+            }
+
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            lru_Cache.Put(int.Parse(textBoxKeyCacheLRU.Text), int.Parse(textBoxValueCahceLRU.Text));
+
+            StringBuilder stringBuilder = new();
+
+            foreach (KeyValuePair<int, int> item in lru_Cache)
+            {
+                stringBuilder.Append(item.Key).Append(" -> ").AppendLine(item.Value.ToString());
+            }
+          
+            textBoxResultado.Text += $"KeyValuePair {Environment.NewLine} {stringBuilder} {Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void BtnSearchOnLRUCache_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (lru_Cache is null)
+            {
+                lru_Cache = new LRU_CacheService(int.Parse(textBoxCapacityLRUCache.Text));
+            }
+
+            int value = lru_Cache.Get(int.Parse(textBoxSerachCacheLRU.Text));
+
+
+            textBoxResultado.Text += $" {Environment.NewLine} -------------{Environment.NewLine}";
+            textBoxResultado.Text += $"O valor procurado é {value} {Environment.NewLine} -------------{Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
     }
 }
 

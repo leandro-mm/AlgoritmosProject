@@ -100,6 +100,19 @@ public static class GeneralService
         return stringBuilder.ToString();
     }
 
+   
+    public static string PrintData<T>(LinkedList<KeyValuePair<T, T>> input)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (KeyValuePair<T, T> item in input)
+        {
+            stringBuilder.Append(item.Key).Append(" -> ").AppendLine(item.Value.ToString());
+        }
+
+        return stringBuilder.ToString();
+    }
+
     public static string PrintListDataAsGrid<T>(T[][] inputArray)
     {
         StringBuilder stringBuilder = new();

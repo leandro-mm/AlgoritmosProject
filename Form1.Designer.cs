@@ -109,6 +109,7 @@ partial class Form1
         buttonConnectedCompUndirectedGraph = new Button();
         tabPage3 = new TabPage();
         groupBox19 = new GroupBox();
+        textBoxSpiralMatrixN = new TextBox();
         buttonSpitalMatrix = new Button();
         textBoxSpiralMatrixM = new TextBox();
         buttonSpiralMatrixByNumber = new Button();
@@ -117,7 +118,15 @@ partial class Form1
         buttonSetMatrixZeroes = new Button();
         textBoxMAtrixToRotate = new TextBox();
         buttonRotateImage = new Button();
-        textBoxSpiralMatrixN = new TextBox();
+        tabPage4 = new TabPage();
+        textBoxSerachCacheLRU = new TextBox();
+        textBoxCapacityLRUCache = new TextBox();
+        textBoxValueCahceLRU = new TextBox();
+        textBoxKeyCacheLRU = new TextBox();
+        label5 = new Label();
+        buttonSerachOnLRUcache = new Button();
+        label4 = new Label();
+        buttonLRUCache = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -143,6 +152,7 @@ partial class Form1
         groupBox14.SuspendLayout();
         tabPage3.SuspendLayout();
         groupBox19.SuspendLayout();
+        tabPage4.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -324,6 +334,7 @@ partial class Form1
         tabControl1.Controls.Add(Tree);
         tabControl1.Controls.Add(Graph);
         tabControl1.Controls.Add(tabPage3);
+        tabControl1.Controls.Add(tabPage4);
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -1001,6 +1012,14 @@ partial class Form1
         groupBox19.TabStop = false;
         groupBox19.Text = "Spiral Matrix";
         // 
+        // textBoxSpiralMatrixN
+        // 
+        textBoxSpiralMatrixN.Location = new Point(35, 60);
+        textBoxSpiralMatrixN.Name = "textBoxSpiralMatrixN";
+        textBoxSpiralMatrixN.PlaceholderText = "N";
+        textBoxSpiralMatrixN.Size = new Size(23, 23);
+        textBoxSpiralMatrixN.TabIndex = 7;
+        // 
         // buttonSpitalMatrix
         // 
         buttonSpitalMatrix.Location = new Point(6, 31);
@@ -1078,13 +1097,92 @@ partial class Form1
         buttonRotateImage.UseVisualStyleBackColor = true;
         buttonRotateImage.Click += buttonRotateImage_Click;
         // 
-        // textBoxSpiralMatrixN
+        // tabPage4
         // 
-        textBoxSpiralMatrixN.Location = new Point(35, 60);
-        textBoxSpiralMatrixN.Name = "textBoxSpiralMatrixN";
-        textBoxSpiralMatrixN.PlaceholderText = "N";
-        textBoxSpiralMatrixN.Size = new Size(23, 23);
-        textBoxSpiralMatrixN.TabIndex = 7;
+        tabPage4.Controls.Add(textBoxSerachCacheLRU);
+        tabPage4.Controls.Add(textBoxCapacityLRUCache);
+        tabPage4.Controls.Add(textBoxValueCahceLRU);
+        tabPage4.Controls.Add(textBoxKeyCacheLRU);
+        tabPage4.Controls.Add(label5);
+        tabPage4.Controls.Add(buttonSerachOnLRUcache);
+        tabPage4.Controls.Add(label4);
+        tabPage4.Controls.Add(buttonLRUCache);
+        tabPage4.Location = new Point(4, 24);
+        tabPage4.Name = "tabPage4";
+        tabPage4.Size = new Size(851, 352);
+        tabPage4.TabIndex = 5;
+        tabPage4.Text = "Cache";
+        tabPage4.UseVisualStyleBackColor = true;
+        // 
+        // textBoxSerachCacheLRU
+        // 
+        textBoxSerachCacheLRU.Location = new Point(49, 159);
+        textBoxSerachCacheLRU.Name = "textBoxSerachCacheLRU";
+        textBoxSerachCacheLRU.PlaceholderText = "Numb to search";
+        textBoxSerachCacheLRU.Size = new Size(100, 23);
+        textBoxSerachCacheLRU.TabIndex = 2;
+        // 
+        // textBoxCapacityLRUCache
+        // 
+        textBoxCapacityLRUCache.Location = new Point(49, 81);
+        textBoxCapacityLRUCache.Name = "textBoxCapacityLRUCache";
+        textBoxCapacityLRUCache.PlaceholderText = "Capacity";
+        textBoxCapacityLRUCache.Size = new Size(228, 23);
+        textBoxCapacityLRUCache.TabIndex = 2;
+        // 
+        // textBoxValueCahceLRU
+        // 
+        textBoxValueCahceLRU.Location = new Point(101, 120);
+        textBoxValueCahceLRU.Name = "textBoxValueCahceLRU";
+        textBoxValueCahceLRU.PlaceholderText = "Value";
+        textBoxValueCahceLRU.Size = new Size(48, 23);
+        textBoxValueCahceLRU.TabIndex = 2;
+        // 
+        // textBoxKeyCacheLRU
+        // 
+        textBoxKeyCacheLRU.Location = new Point(49, 120);
+        textBoxKeyCacheLRU.Name = "textBoxKeyCacheLRU";
+        textBoxKeyCacheLRU.PlaceholderText = "Key";
+        textBoxKeyCacheLRU.Size = new Size(46, 23);
+        textBoxKeyCacheLRU.TabIndex = 2;
+        // 
+        // label5
+        // 
+        label5.AutoSize = true;
+        label5.Location = new Point(49, 45);
+        label5.Name = "label5";
+        label5.Size = new Size(158, 15);
+        label5.TabIndex = 1;
+        label5.Text = "Menos Usado Recentemente";
+        // 
+        // buttonSerachOnLRUcache
+        // 
+        buttonSerachOnLRUcache.Location = new Point(155, 159);
+        buttonSerachOnLRUcache.Name = "buttonSerachOnLRUcache";
+        buttonSerachOnLRUcache.Size = new Size(122, 23);
+        buttonSerachOnLRUcache.TabIndex = 0;
+        buttonSerachOnLRUcache.Text = "Search on LRU Cache";
+        buttonSerachOnLRUcache.UseVisualStyleBackColor = true;
+        buttonSerachOnLRUcache.Click += BtnSearchOnLRUCache_Click;
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(49, 30);
+        label4.Name = "label4";
+        label4.Size = new Size(111, 15);
+        label4.TabIndex = 1;
+        label4.Text = "Least Recently Used";
+        // 
+        // buttonLRUCache
+        // 
+        buttonLRUCache.Location = new Point(155, 120);
+        buttonLRUCache.Name = "buttonLRUCache";
+        buttonLRUCache.Size = new Size(122, 23);
+        buttonLRUCache.TabIndex = 0;
+        buttonLRUCache.Text = "Add to LRU Cache";
+        buttonLRUCache.UseVisualStyleBackColor = true;
+        buttonLRUCache.Click += BtnAddToLRUCache_Click;
         // 
         // Form1
         // 
@@ -1132,6 +1230,8 @@ partial class Form1
         tabPage3.PerformLayout();
         groupBox19.ResumeLayout(false);
         groupBox19.PerformLayout();
+        tabPage4.ResumeLayout(false);
+        tabPage4.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1228,4 +1328,13 @@ partial class Form1
     private TextBox textBoxSpiralMatrixM;
     private GroupBox groupBox19;
     private TextBox textBoxSpiralMatrixN;
+    private TabPage tabPage4;
+    private Label label5;
+    private Label label4;
+    private Button buttonLRUCache;
+    private TextBox textBoxSerachCacheLRU;
+    private TextBox textBoxKeyCacheLRU;
+    private Button buttonSerachOnLRUcache;
+    private TextBox textBoxCapacityLRUCache;
+    private TextBox textBoxValueCahceLRU;
 }
