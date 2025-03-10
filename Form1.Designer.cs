@@ -127,6 +127,11 @@ partial class Form1
         buttonSerachOnLRUcache = new Button();
         label4 = new Label();
         buttonLRUCache = new Button();
+        tabPage5 = new TabPage();
+        buttonPriorityQueue = new Button();
+        buttonMinHeap = new Button();
+        buttonSortingByHEapfy = new Button();
+        buttonPriorityQueueCPartitiion = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -153,6 +158,7 @@ partial class Form1
         tabPage3.SuspendLayout();
         groupBox19.SuspendLayout();
         tabPage4.SuspendLayout();
+        tabPage5.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -335,6 +341,7 @@ partial class Form1
         tabControl1.Controls.Add(Graph);
         tabControl1.Controls.Add(tabPage3);
         tabControl1.Controls.Add(tabPage4);
+        tabControl1.Controls.Add(tabPage5);
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -1184,6 +1191,59 @@ partial class Form1
         buttonLRUCache.UseVisualStyleBackColor = true;
         buttonLRUCache.Click += BtnAddToLRUCache_Click;
         // 
+        // tabPage5
+        // 
+        tabPage5.Controls.Add(buttonPriorityQueueCPartitiion);
+        tabPage5.Controls.Add(buttonPriorityQueue);
+        tabPage5.Controls.Add(buttonMinHeap);
+        tabPage5.Controls.Add(buttonSortingByHEapfy);
+        tabPage5.Location = new Point(4, 24);
+        tabPage5.Name = "tabPage5";
+        tabPage5.Size = new Size(851, 352);
+        tabPage5.TabIndex = 6;
+        tabPage5.Text = "Heap";
+        tabPage5.UseVisualStyleBackColor = true;
+        // 
+        // buttonPriorityQueue
+        // 
+        buttonPriorityQueue.Location = new Point(32, 119);
+        buttonPriorityQueue.Name = "buttonPriorityQueue";
+        buttonPriorityQueue.Size = new Size(165, 23);
+        buttonPriorityQueue.TabIndex = 2;
+        buttonPriorityQueue.Text = "Priority Queue C#";
+        buttonPriorityQueue.UseVisualStyleBackColor = true;
+        buttonPriorityQueue.Click += buttonPriorityQueue_Click;
+        // 
+        // buttonMinHeap
+        // 
+        buttonMinHeap.Location = new Point(32, 78);
+        buttonMinHeap.Name = "buttonMinHeap";
+        buttonMinHeap.Size = new Size(165, 23);
+        buttonMinHeap.TabIndex = 1;
+        buttonMinHeap.Text = "Min Heap";
+        buttonMinHeap.UseVisualStyleBackColor = true;
+        buttonMinHeap.Click += buttonMinHeap_Click;
+        // 
+        // buttonSortingByHEapfy
+        // 
+        buttonSortingByHEapfy.Location = new Point(32, 38);
+        buttonSortingByHEapfy.Name = "buttonSortingByHEapfy";
+        buttonSortingByHEapfy.Size = new Size(165, 23);
+        buttonSortingByHEapfy.TabIndex = 0;
+        buttonSortingByHEapfy.Text = "Sorting By Heapfy";
+        buttonSortingByHEapfy.UseVisualStyleBackColor = true;
+        buttonSortingByHEapfy.Click += btoSortingByHeapfy_Click;
+        // 
+        // buttonPriorityQueueCPartitiion
+        // 
+        buttonPriorityQueueCPartitiion.Location = new Point(32, 160);
+        buttonPriorityQueueCPartitiion.Name = "buttonPriorityQueueCPartitiion";
+        buttonPriorityQueueCPartitiion.Size = new Size(165, 23);
+        buttonPriorityQueueCPartitiion.TabIndex = 3;
+        buttonPriorityQueueCPartitiion.Text = "Priority Queue C# Partition";
+        buttonPriorityQueueCPartitiion.UseVisualStyleBackColor = true;
+        buttonPriorityQueueCPartitiion.Click += buttonPriorityQueueCPartitiion_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1232,6 +1292,7 @@ partial class Form1
         groupBox19.PerformLayout();
         tabPage4.ResumeLayout(false);
         tabPage4.PerformLayout();
+        tabPage5.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1337,4 +1398,9 @@ partial class Form1
     private Button buttonSerachOnLRUcache;
     private TextBox textBoxCapacityLRUCache;
     private TextBox textBoxValueCahceLRU;
+    private TabPage tabPage5;
+    private Button buttonSortingByHEapfy;
+    private Button buttonMinHeap;
+    private Button buttonPriorityQueue;
+    private Button buttonPriorityQueueCPartitiion;
 }

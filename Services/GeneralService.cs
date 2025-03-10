@@ -1,4 +1,5 @@
 ﻿using AlgoritmosProject.Services.Tree;
+using System;
 using System.Text;
 
 namespace AlgoritmosProject.Services;
@@ -101,6 +102,18 @@ public static class GeneralService
     }
 
    
+    public static string PrintData<T>(PriorityQueue<T, T> pQueue)
+    {
+        StringBuilder stringBuilder = new();
+
+        while (pQueue.Count > 0)
+        {
+            T? t = pQueue.Dequeue();
+            stringBuilder.Append(t).Append(',');
+        }
+
+        return stringBuilder.ToString();
+    }
     public static string PrintData<T>(LinkedList<KeyValuePair<T, T>> input)
     {
         StringBuilder stringBuilder = new();

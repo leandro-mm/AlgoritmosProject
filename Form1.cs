@@ -7,6 +7,7 @@ using AlgoritmosProject.Services.Graph.Course;
 using AlgoritmosProject.Services.Graph.Number_Of_Islands;
 using AlgoritmosProject.Services.Graph.Order_of_Priority;
 using AlgoritmosProject.Services.Graph.Valid_Tree;
+using AlgoritmosProject.Services.Heap;
 using AlgoritmosProject.Services.LRU;
 using AlgoritmosProject.Services.Matrix;
 using AlgoritmosProject.Services.Tree;
@@ -1527,7 +1528,7 @@ public partial class Form1 : Form
             {
                 stringBuilder.Append(item.Key).Append(" -> ").AppendLine(item.Value.ToString());
             }
-          
+
             textBoxResultado.Text += $"KeyValuePair {Environment.NewLine} {stringBuilder} {Environment.NewLine}";
 
         }
@@ -1556,6 +1557,174 @@ public partial class Form1 : Form
         {
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
+    }
+
+    private void btoSortingByHeapfy_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)} {Environment.NewLine}";
+            textBoxResultado.Text += $"array.Length ---> {array.Length} " +
+                                        $" {Environment.NewLine}" +
+                                         $"array.Length/2 --> {array.Length / 2} " +
+                                         $" {Environment.NewLine}" +
+                                         $"(array.Length/2) -1 --> array[{array.Length / 2 - 1}] --> {array[array.Length / 2 - 1]}" +
+                                         $" {Environment.NewLine}{Environment.NewLine}";
+
+            int sizeArray = array.Length;
+
+            for (int i = (sizeArray / 2) - 1; i >= 0; i--)
+            {
+                HeapService.Heapify(array, sizeArray, i);
+            }
+
+            textBoxResultado.Text += $"Heapify P1 {GeneralService.PrintListData(array)} {Environment.NewLine}";
+
+            // Extract elements from heap one by one
+            for (int i = sizeArray - 1; i > 0; i--)
+            {
+                // Swap the root (largest) with the last element
+                (array[0], array[i]) = (array[i], array[0]);
+
+                // Heapify the reduced heap
+                // Heapify(arr, i, 0);
+            }
+
+            textBoxResultado.Text += $"Heapify P2 {GeneralService.PrintListData(array)} {Environment.NewLine}";
+
+
+            array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            for (int i = (sizeArray / 2) - 1; i >= 0; i--)
+            {
+                HeapService.Heapify(array, sizeArray, i);
+            }
+
+            // Extract elements from heap one by one
+            for (int i = sizeArray - 1; i > 0; i--)
+            {
+                // Swap the root (largest) with the last element
+                (array[0], array[i]) = (array[i], array[0]);
+
+                // Heapify the reduced heap
+                HeapService.Heapify(array, i, 0);
+            }
+
+            textBoxResultado.Text += $"Heapify P2 {GeneralService.PrintListData(array)} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void buttonMinHeap_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+            int start1 = 0;
+            int length1 = array.Length / 2;
+            int start2 = array.Length / 2;
+            int length2 = array.Length / 2;
+
+            // Create two separate min-heaps in place
+            HeapService.BuildMinHeap(array, start1, length1);
+            HeapService.BuildMinHeap(array, start2, length2);
+
+            // The root of each heap is at its respective start index
+            int root1 = array[start1];
+            int root2 = array[start2];
+
+            int minRoot = HeapService.GetMinimumFromTwoHeaps(array, start1, length1, start2, length2);
+
+            textBoxResultado.Text += $"Get Minimum From Two Heaps {Environment.NewLine}{Environment.NewLine}";
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)} {Environment.NewLine}";
+            textBoxResultado.Text += $"portion 1 --> {array[0]} a {(array.Length / 2) - 1} {Environment.NewLine}";
+            textBoxResultado.Text += $"portion 2 --> {array[(array.Length / 2) - 1]} a {array.Length / 2} {Environment.NewLine}";
+            textBoxResultado.Text += $"Min Root --> {minRoot} {Environment.NewLine}";
+            textBoxResultado.Text += $"\t root1 --> {root1} {Environment.NewLine}";
+            textBoxResultado.Text += $"\t root2 --> {root2} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void buttonPriorityQueue_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            PriorityQueue<int, int> pQueue = HeapService.GetPriorityMinQueueFromArray(array);
+
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)} {Environment.NewLine}";
+            textBoxResultado.Text += $"Priority Min Queue {GeneralService.PrintData(pQueue)} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void buttonPriorityQueueCPartitiion_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+
+            textBoxResultado.Text += $"TRansformar um array em Priority Queue e depois a priority queue em array pra calcular min e max? {Environment.NewLine}";
+
+
+            GeneralService.ClearTexttBox(textBoxResultado);            
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            PriorityQueue<int, int> pQueue = HeapService.GetPriorityMinQueueFromArray(array);
+
+
+
+            int start1 = 0;
+            int length1 = array.Length / 2;
+            int start2 = array.Length / 2;
+            int length2 = array.Length / 2;
+
+            // Create two separate min-heaps in place
+            HeapService.BuildMinHeap(array, start1, length1);
+            HeapService.BuildMinHeap(array, start2, length2);
+
+            // The root of each heap is at its respective start index
+            int root1 = array[start1];
+            int root2 = array[start2];
+
+            textBoxResultado.Text += $" {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
     }
 }
 
