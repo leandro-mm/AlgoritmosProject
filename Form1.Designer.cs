@@ -128,10 +128,11 @@ partial class Form1
         label4 = new Label();
         buttonLRUCache = new Button();
         tabPage5 = new TabPage();
+        buttonPriorityQueueCPartitiion = new Button();
         buttonPriorityQueue = new Button();
         buttonMinHeap = new Button();
         buttonSortingByHEapfy = new Button();
-        buttonPriorityQueueCPartitiion = new Button();
+        buttonMergeKLists = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -1193,6 +1194,7 @@ partial class Form1
         // 
         // tabPage5
         // 
+        tabPage5.Controls.Add(buttonMergeKLists);
         tabPage5.Controls.Add(buttonPriorityQueueCPartitiion);
         tabPage5.Controls.Add(buttonPriorityQueue);
         tabPage5.Controls.Add(buttonMinHeap);
@@ -1204,9 +1206,19 @@ partial class Form1
         tabPage5.Text = "Heap";
         tabPage5.UseVisualStyleBackColor = true;
         // 
+        // buttonPriorityQueueCPartitiion
+        // 
+        buttonPriorityQueueCPartitiion.Location = new Point(232, 78);
+        buttonPriorityQueueCPartitiion.Name = "buttonPriorityQueueCPartitiion";
+        buttonPriorityQueueCPartitiion.Size = new Size(165, 23);
+        buttonPriorityQueueCPartitiion.TabIndex = 3;
+        buttonPriorityQueueCPartitiion.Text = "Priority Queue C# Partition";
+        buttonPriorityQueueCPartitiion.UseVisualStyleBackColor = true;
+        buttonPriorityQueueCPartitiion.Click += buttonPriorityQueueCPartitiion_Click;
+        // 
         // buttonPriorityQueue
         // 
-        buttonPriorityQueue.Location = new Point(32, 119);
+        buttonPriorityQueue.Location = new Point(232, 38);
         buttonPriorityQueue.Name = "buttonPriorityQueue";
         buttonPriorityQueue.Size = new Size(165, 23);
         buttonPriorityQueue.TabIndex = 2;
@@ -1234,15 +1246,15 @@ partial class Form1
         buttonSortingByHEapfy.UseVisualStyleBackColor = true;
         buttonSortingByHEapfy.Click += btoSortingByHeapfy_Click;
         // 
-        // buttonPriorityQueueCPartitiion
+        // buttonMergeKLists
         // 
-        buttonPriorityQueueCPartitiion.Location = new Point(32, 160);
-        buttonPriorityQueueCPartitiion.Name = "buttonPriorityQueueCPartitiion";
-        buttonPriorityQueueCPartitiion.Size = new Size(165, 23);
-        buttonPriorityQueueCPartitiion.TabIndex = 3;
-        buttonPriorityQueueCPartitiion.Text = "Priority Queue C# Partition";
-        buttonPriorityQueueCPartitiion.UseVisualStyleBackColor = true;
-        buttonPriorityQueueCPartitiion.Click += buttonPriorityQueueCPartitiion_Click;
+        buttonMergeKLists.Location = new Point(430, 38);
+        buttonMergeKLists.Name = "buttonMergeKLists";
+        buttonMergeKLists.Size = new Size(165, 23);
+        buttonMergeKLists.TabIndex = 4;
+        buttonMergeKLists.Text = "Merge K Lists";
+        buttonMergeKLists.UseVisualStyleBackColor = true;
+        buttonMergeKLists.Click += buttonMergeKLists_Click;
         // 
         // Form1
         // 
@@ -1403,4 +1415,5 @@ partial class Form1
     private Button buttonMinHeap;
     private Button buttonPriorityQueue;
     private Button buttonPriorityQueueCPartitiion;
+    private Button buttonMergeKLists;
 }

@@ -78,7 +78,44 @@ public static class GeneralService
         return NumUniqueBST(n, solutions);
     }
 
-    
+    public static string PrintListData(ListNode? listNode)
+    {
+        StringBuilder stringBuilder = new();
+
+        ListNode? current = listNode;
+
+        while (current is ListNode)
+        {
+            stringBuilder.Append(current.Value).Append("->");
+
+            current = current.Next;
+        }
+
+        stringBuilder.AppendLine();
+
+        return stringBuilder.ToString();
+    }
+
+    public static string PrintListData(ListNode[] listNode)
+    {
+        StringBuilder stringBuilder = new();
+
+        foreach (ListNode item in listNode)
+        {
+            ListNode? current = item;
+
+            while (current is ListNode)
+            {
+                stringBuilder.Append(current.Value).Append("->");
+
+                current = current.Next;
+            }
+
+            stringBuilder.AppendLine();
+        }
+        return stringBuilder.ToString();
+    }
+
     public static string PrintListData<T>(T[,] inputArray)
     {
         StringBuilder stringBuilder = new();
@@ -95,8 +132,6 @@ public static class GeneralService
             }
             stringBuilder.AppendLine();
         }
-
-      
 
         return stringBuilder.ToString();
     }

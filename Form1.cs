@@ -11,6 +11,7 @@ using AlgoritmosProject.Services.Heap;
 using AlgoritmosProject.Services.LRU;
 using AlgoritmosProject.Services.Matrix;
 using AlgoritmosProject.Services.Tree;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms.VisualStyles;
@@ -1696,13 +1697,11 @@ public partial class Form1 : Form
             textBoxResultado.Text += $"TRansformar um array em Priority Queue e depois a priority queue em array pra calcular min e max? {Environment.NewLine}";
 
 
-            GeneralService.ClearTexttBox(textBoxResultado);            
+            GeneralService.ClearTexttBox(textBoxResultado);
 
             int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             PriorityQueue<int, int> pQueue = HeapService.GetPriorityMinQueueFromArray(array);
-
-
 
             int start1 = 0;
             int length1 = array.Length / 2;
@@ -1725,6 +1724,62 @@ public partial class Form1 : Form
         }
 
 
+    }
+
+    private void buttonMergeKLists_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+            ListNode n1 = new(1)
+            {
+                Next = new(4)
+                {
+                    Next = new(5)
+                }
+            };
+
+            ListNode n2 = new(1)
+            {
+                Next = new(3)
+                {
+                    Next = new(4)
+                }
+            };
+
+            ListNode n3 = new(2)
+            {
+                Next = new(6)
+            };
+
+            ListNode[] arrayNode = [n1, n2, n3];
+
+            string nodeString = GeneralService.PrintListData(arrayNode);
+
+            textBoxResultado.Text += $" Array Node {Environment.NewLine}" +
+                                    $"{GeneralService.PrintListData(arrayNode)} " +
+                                        $"{Environment.NewLine}";
+
+
+            ListNode? mergedKLists = MergeKsortedLists.MergeKLists(arrayNode);
+            
+            textBoxResultado.Text += $" MergeK Lists I  {GeneralService.PrintListData(mergedKLists)} {Environment.NewLine}";
+
+            arrayNode = [n1, n2, n3];
+            mergedKLists = MergeKsortedLists.MergeKListsII(arrayNode);
+            textBoxResultado.Text += $" MergeK Lists II  {GeneralService.PrintListData(mergedKLists)} {Environment.NewLine}";
+
+
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+    
     }
 }
 
