@@ -1764,7 +1764,7 @@ public partial class Form1 : Form
 
 
             ListNode? mergedKLists = MergeKsortedLists.MergeKLists(arrayNode);
-            
+
             textBoxResultado.Text += $" MergeK Lists I  {GeneralService.PrintListData(mergedKLists)} {Environment.NewLine}";
 
             arrayNode = [n1, n2, n3];
@@ -1779,7 +1779,34 @@ public partial class Form1 : Form
             GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
         }
 
-    
+
+    }
+
+    private void buttonFindKthLargest_Click(object sender, EventArgs e)
+    {
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+            int Kth = GeneralService.GetNumberFromTextBox(textBoxHeapKth);
+
+            int intKthLargestElement = FindKthLargest.FindKthLargestElement(array, Kth);
+
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)}   " +
+                                        $"{Environment.NewLine} " +
+                                        $"Kth {Kth}  {Environment.NewLine}" +
+                                        $"Largest Element {intKthLargestElement}" +
+                                        $" {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
     }
 }
 

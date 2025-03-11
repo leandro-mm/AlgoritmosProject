@@ -29,15 +29,15 @@ public static class MergeKsortedLists
 
         while (priorityQueue.Count > 0)
         {
-            (int value, int index, ListNode node) heapItem = priorityQueue.Dequeue();
+            (_, int index, ListNode node) = priorityQueue.Dequeue();
 
-            currentNode.Next = heapItem.node;
+            currentNode.Next = node;
 
             currentNode = currentNode.Next;
 
-            if (heapItem.node.Next is ListNode)
+            if (node.Next is not null)
             {
-                var nextItem = (heapItem.node.Next.Value, heapItem.index, heapItem.node.Next);
+                (int Value, int index, ListNode Next) nextItem = (node.Next.Value, index, node.Next);
                 priorityQueue.Enqueue(nextItem, nextItem.Value);
             }
         }
