@@ -128,13 +128,15 @@ partial class Form1
         label4 = new Label();
         buttonLRUCache = new Button();
         tabPage5 = new TabPage();
+        textBoxHeapKth = new TextBox();
         buttonFindKthLargest = new Button();
         buttonMergeKLists = new Button();
         buttonPriorityQueueCPartitiion = new Button();
         buttonPriorityQueue = new Button();
         buttonMinHeap = new Button();
         buttonSortingByHEapfy = new Button();
-        textBoxHeapKth = new TextBox();
+        tabPage6 = new TabPage();
+        buttonMaxSubArray = new Button();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -162,6 +164,7 @@ partial class Form1
         groupBox19.SuspendLayout();
         tabPage4.SuspendLayout();
         tabPage5.SuspendLayout();
+        tabPage6.SuspendLayout();
         SuspendLayout();
         // 
         // btnFirstDuplicate
@@ -345,6 +348,7 @@ partial class Form1
         tabControl1.Controls.Add(tabPage3);
         tabControl1.Controls.Add(tabPage4);
         tabControl1.Controls.Add(tabPage5);
+        tabControl1.Controls.Add(tabPage6);
         tabControl1.Location = new Point(13, 78);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
@@ -1210,6 +1214,14 @@ partial class Form1
         tabPage5.Text = "Heap";
         tabPage5.UseVisualStyleBackColor = true;
         // 
+        // textBoxHeapKth
+        // 
+        textBoxHeapKth.Location = new Point(430, 79);
+        textBoxHeapKth.Name = "textBoxHeapKth";
+        textBoxHeapKth.PlaceholderText = "Kth";
+        textBoxHeapKth.Size = new Size(30, 23);
+        textBoxHeapKth.TabIndex = 6;
+        // 
         // buttonFindKthLargest
         // 
         buttonFindKthLargest.Location = new Point(466, 78);
@@ -1270,13 +1282,25 @@ partial class Form1
         buttonSortingByHEapfy.UseVisualStyleBackColor = true;
         buttonSortingByHEapfy.Click += btoSortingByHeapfy_Click;
         // 
-        // textBoxHeapKth
+        // tabPage6
         // 
-        textBoxHeapKth.Location = new Point(430, 79);
-        textBoxHeapKth.Name = "textBoxHeapKth";
-        textBoxHeapKth.PlaceholderText = "Kth";
-        textBoxHeapKth.Size = new Size(30, 23);
-        textBoxHeapKth.TabIndex = 6;
+        tabPage6.Controls.Add(buttonMaxSubArray);
+        tabPage6.Location = new Point(4, 24);
+        tabPage6.Name = "tabPage6";
+        tabPage6.Size = new Size(851, 352);
+        tabPage6.TabIndex = 7;
+        tabPage6.Text = "Arrays";
+        tabPage6.UseVisualStyleBackColor = true;
+        // 
+        // buttonMaxSubArray
+        // 
+        buttonMaxSubArray.Location = new Point(22, 27);
+        buttonMaxSubArray.Name = "buttonMaxSubArray";
+        buttonMaxSubArray.Size = new Size(111, 23);
+        buttonMaxSubArray.TabIndex = 0;
+        buttonMaxSubArray.Text = "Max Sub Array";
+        buttonMaxSubArray.UseVisualStyleBackColor = true;
+        buttonMaxSubArray.Click += buttonMaxSubArray_Click;
         // 
         // Form1
         // 
@@ -1328,6 +1352,7 @@ partial class Form1
         tabPage4.PerformLayout();
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
+        tabPage6.ResumeLayout(false);
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1441,4 +1466,6 @@ partial class Form1
     private Button buttonMergeKLists;
     private Button buttonFindKthLargest;
     private TextBox textBoxHeapKth;
+    private TabPage tabPage6;
+    private Button buttonMaxSubArray;
 }

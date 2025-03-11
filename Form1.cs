@@ -1,4 +1,5 @@
 using AlgoritmosProject.Services;
+using AlgoritmosProject.Services.Array;
 using AlgoritmosProject.Services.Graph;
 using AlgoritmosProject.Services.Graph.Adjacency_List;
 using AlgoritmosProject.Services.Graph.Adjacency_Matrix;
@@ -1788,7 +1789,7 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            
+
 
             int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
             int Kth = GeneralService.GetNumberFromTextBox(textBoxHeapKth);
@@ -1800,6 +1801,29 @@ public partial class Form1 : Form
                                         $"Kth {Kth}  {Environment.NewLine}" +
                                         $"Largest Element {intKthLargestElement}" +
                                         $" {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void buttonMaxSubArray_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            int maxSumOfArray = ArrayService.MaxSumOfArray(array);
+
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)}   " +
+                                       $"{Environment.NewLine} " +
+                                       $"mmax Sum Of Array {maxSumOfArray}  {Environment.NewLine}" +                                       
+                                       $" {Environment.NewLine}";
         }
         catch (Exception ex)
         {
