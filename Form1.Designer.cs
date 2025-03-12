@@ -62,9 +62,9 @@ partial class Form1
         buttonValidPreOrderBST = new Button();
         buttonLongestConsecSeqBT = new Button();
         groupBox11 = new GroupBox();
+        textBox3 = new TextBox();
         buttonSerializarTree = new Button();
         buttonDeserializarTree = new Button();
-        label3 = new Label();
         groupBox10 = new GroupBox();
         textBoxNodeToDelete = new TextBox();
         buttonDeleteNode = new Button();
@@ -136,7 +136,16 @@ partial class Form1
         buttonMinHeap = new Button();
         buttonSortingByHEapfy = new Button();
         tabPage6 = new TabPage();
+        btnContainerWithMostWater = new Button();
+        textBox5 = new TextBox();
+        textBox2 = new TextBox();
+        textBox1 = new TextBox();
+        btnTrappingRainWater = new Button();
         buttonMaxSubArray = new Button();
+        btnMinimumRotatedSortedArray = new Button();
+        textBox4 = new TextBox();
+        textBox6 = new TextBox();
+        textBox7 = new TextBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -528,15 +537,23 @@ partial class Form1
         // 
         // groupBox11
         // 
+        groupBox11.Controls.Add(textBox3);
         groupBox11.Controls.Add(buttonSerializarTree);
         groupBox11.Controls.Add(buttonDeserializarTree);
-        groupBox11.Controls.Add(label3);
         groupBox11.Location = new Point(32, 33);
         groupBox11.Name = "groupBox11";
         groupBox11.Size = new Size(200, 100);
         groupBox11.TabIndex = 18;
         groupBox11.TabStop = false;
         groupBox11.Text = "Serialização";
+        // 
+        // textBox3
+        // 
+        textBox3.Location = new Point(121, 25);
+        textBox3.Name = "textBox3";
+        textBox3.Size = new Size(79, 23);
+        textBox3.TabIndex = 5;
+        textBox3.Text = "10,9,13,11,12";
         // 
         // buttonSerializarTree
         // 
@@ -556,15 +573,6 @@ partial class Form1
         buttonDeserializarTree.TabIndex = 1;
         buttonDeserializarTree.Text = "Deserializar Ttree";
         buttonDeserializarTree.UseVisualStyleBackColor = true;
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(121, 26);
-        label3.Name = "label3";
-        label3.Size = new Size(73, 15);
-        label3.TabIndex = 2;
-        label3.Text = "10,9,13,11,12";
         // 
         // groupBox10
         // 
@@ -1284,6 +1292,15 @@ partial class Form1
         // 
         // tabPage6
         // 
+        tabPage6.Controls.Add(btnMinimumRotatedSortedArray);
+        tabPage6.Controls.Add(btnContainerWithMostWater);
+        tabPage6.Controls.Add(textBox7);
+        tabPage6.Controls.Add(textBox5);
+        tabPage6.Controls.Add(textBox6);
+        tabPage6.Controls.Add(textBox4);
+        tabPage6.Controls.Add(textBox2);
+        tabPage6.Controls.Add(textBox1);
+        tabPage6.Controls.Add(btnTrappingRainWater);
         tabPage6.Controls.Add(buttonMaxSubArray);
         tabPage6.Location = new Point(4, 24);
         tabPage6.Name = "tabPage6";
@@ -1291,6 +1308,50 @@ partial class Form1
         tabPage6.TabIndex = 7;
         tabPage6.Text = "Arrays";
         tabPage6.UseVisualStyleBackColor = true;
+        // 
+        // btnContainerWithMostWater
+        // 
+        btnContainerWithMostWater.Location = new Point(22, 172);
+        btnContainerWithMostWater.Name = "btnContainerWithMostWater";
+        btnContainerWithMostWater.Size = new Size(132, 39);
+        btnContainerWithMostWater.TabIndex = 5;
+        btnContainerWithMostWater.Text = "Container With Most Water";
+        btnContainerWithMostWater.UseVisualStyleBackColor = true;
+        btnContainerWithMostWater.Click += btnContainerWithMostWater_Click;
+        // 
+        // textBox5
+        // 
+        textBox5.Location = new Point(160, 172);
+        textBox5.Name = "textBox5";
+        textBox5.Size = new Size(178, 23);
+        textBox5.TabIndex = 4;
+        textBox5.Text = "1,8,6,2,5,4,8,3,7";
+        // 
+        // textBox2
+        // 
+        textBox2.Location = new Point(160, 87);
+        textBox2.Name = "textBox2";
+        textBox2.Size = new Size(178, 23);
+        textBox2.TabIndex = 4;
+        textBox2.Text = "4,2,0,3,2,5";
+        // 
+        // textBox1
+        // 
+        textBox1.Location = new Point(160, 116);
+        textBox1.Name = "textBox1";
+        textBox1.Size = new Size(178, 23);
+        textBox1.TabIndex = 4;
+        textBox1.Text = "0,1,0,2,1,0,1,3,2,1,2,1";
+        // 
+        // btnTrappingRainWater
+        // 
+        btnTrappingRainWater.Location = new Point(22, 86);
+        btnTrappingRainWater.Name = "btnTrappingRainWater";
+        btnTrappingRainWater.Size = new Size(132, 53);
+        btnTrappingRainWater.TabIndex = 1;
+        btnTrappingRainWater.Text = "Trapping Rain Water";
+        btnTrappingRainWater.UseVisualStyleBackColor = true;
+        btnTrappingRainWater.Click += btnTrappingRainWater_Click;
         // 
         // buttonMaxSubArray
         // 
@@ -1301,6 +1362,40 @@ partial class Form1
         buttonMaxSubArray.Text = "Max Sub Array";
         buttonMaxSubArray.UseVisualStyleBackColor = true;
         buttonMaxSubArray.Click += buttonMaxSubArray_Click;
+        // 
+        // btnMinimumRotatedSortedArray
+        // 
+        btnMinimumRotatedSortedArray.Location = new Point(22, 229);
+        btnMinimumRotatedSortedArray.Name = "btnMinimumRotatedSortedArray";
+        btnMinimumRotatedSortedArray.Size = new Size(132, 82);
+        btnMinimumRotatedSortedArray.TabIndex = 6;
+        btnMinimumRotatedSortedArray.Text = "Minimum in Rotated Sorted Array";
+        btnMinimumRotatedSortedArray.UseVisualStyleBackColor = true;
+        btnMinimumRotatedSortedArray.Click += btnMinimumRotatedSortedArray_Click;
+        // 
+        // textBox4
+        // 
+        textBox4.Location = new Point(160, 259);
+        textBox4.Name = "textBox4";
+        textBox4.Size = new Size(178, 23);
+        textBox4.TabIndex = 4;
+        textBox4.Text = "4,5,6,7,0,1,2";
+        // 
+        // textBox6
+        // 
+        textBox6.Location = new Point(160, 230);
+        textBox6.Name = "textBox6";
+        textBox6.Size = new Size(178, 23);
+        textBox6.TabIndex = 4;
+        textBox6.Text = "3,4,5,1,2";
+        // 
+        // textBox7
+        // 
+        textBox7.Location = new Point(160, 288);
+        textBox7.Name = "textBox7";
+        textBox7.Size = new Size(178, 23);
+        textBox7.TabIndex = 4;
+        textBox7.Text = "11,13,15,17";
         // 
         // Form1
         // 
@@ -1353,6 +1448,7 @@ partial class Form1
         tabPage5.ResumeLayout(false);
         tabPage5.PerformLayout();
         tabPage6.ResumeLayout(false);
+        tabPage6.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1386,7 +1482,6 @@ partial class Form1
     private TabPage Tree;
     private Button buttonDeserializarTree;
     private Button buttonSerializarTree;
-    private Label label3;
     private Button buttonTreePreOrder;
     private TextBox textBoxNodeToDelete;
     private Button buttonDeleteNode;
@@ -1468,4 +1563,14 @@ partial class Form1
     private TextBox textBoxHeapKth;
     private TabPage tabPage6;
     private Button buttonMaxSubArray;
+    private Button btnTrappingRainWater;
+    private TextBox textBox2;
+    private TextBox textBox1;
+    private TextBox textBox3;
+    private Button btnContainerWithMostWater;
+    private TextBox textBox5;
+    private Button btnMinimumRotatedSortedArray;
+    private TextBox textBox7;
+    private TextBox textBox6;
+    private TextBox textBox4;
 }

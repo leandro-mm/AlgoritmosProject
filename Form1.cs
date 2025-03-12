@@ -1815,14 +1815,14 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            
+
             int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int maxSumOfArray = ArrayService.MaxSumOfArray(array);
 
             textBoxResultado.Text += $"array {GeneralService.PrintListData(array)}   " +
                                        $"{Environment.NewLine} " +
-                                       $"mmax Sum Of Array {maxSumOfArray}  {Environment.NewLine}" +                                       
+                                       $"mmax Sum Of Array {maxSumOfArray}  {Environment.NewLine}" +
                                        $" {Environment.NewLine}";
         }
         catch (Exception ex)
@@ -1831,6 +1831,68 @@ public partial class Form1 : Form
         }
 
 
+    }
+
+    private void btnTrappingRainWater_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            int result = TrappingRainWaterService.Trap(array);
+
+            textBoxResultado.Text += $"Trapping Rain Water{GeneralService.PrintListData(array)} --> {result} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void btnContainerWithMostWater_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            int result = ContainerWithMostWaterService.ContainerWithMostWater(array);
+
+            textBoxResultado.Text += $"Container With Most Water{GeneralService.PrintListData(array)} --> {result} {Environment.NewLine}";
+
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+
+
+    }
+
+    private void btnMinimumRotatedSortedArray_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            
+
+            int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
+
+            int result = FindMinimumRotatedSortedArrayService.FindMinimumInRotatedSortedArray(array);
+
+            textBoxResultado.Text += $"array {GeneralService.PrintListData(array)} --> Minimum Value {result} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
     }
 }
 
