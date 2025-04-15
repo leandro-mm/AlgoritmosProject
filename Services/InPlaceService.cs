@@ -1,4 +1,6 @@
-﻿namespace AlgoritmosProject.Services;
+﻿using System.Text;
+
+namespace AlgoritmosProject.Services;
 
 public static class InPlaceService
 {
@@ -63,7 +65,7 @@ public static class InPlaceService
                 count = 1;
             }
 
-            count += candidate == num ? 1:-1;
+            count += candidate == num ? 1 : -1;
         }
 
         count = 0;
@@ -72,6 +74,28 @@ public static class InPlaceService
             if (candidate == num) count++;
         }
 
-        return count > (nums.Length/ 2) ? candidate : -1;
+        return count > (nums.Length / 2) ? candidate : -1;
+    }
+
+    public static string FizzBuzz(int n)
+    {
+        StringBuilder stringBuilder = new(); ;
+
+        for (int i = 1; i <= n; i++)
+        {
+            bool fizz = i % 3 == 0;
+            bool buzz = i % 5 == 0;
+
+            if (fizz && buzz)
+                stringBuilder.AppendLine("FizzBuzz");
+            else if (fizz)
+                stringBuilder.AppendLine("Fizz");
+            else if (buzz)
+                stringBuilder.AppendLine("Buzz");
+            else
+                stringBuilder.AppendLine(i.ToString());
+        }
+
+        return stringBuilder.ToString();
     }
 }

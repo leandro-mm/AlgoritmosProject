@@ -136,16 +136,18 @@ partial class Form1
         buttonMinHeap = new Button();
         buttonSortingByHEapfy = new Button();
         tabPage6 = new TabPage();
+        btnMinimumRotatedSortedArray = new Button();
         btnContainerWithMostWater = new Button();
+        textBox7 = new TextBox();
         textBox5 = new TextBox();
+        textBox6 = new TextBox();
+        textBox4 = new TextBox();
         textBox2 = new TextBox();
         textBox1 = new TextBox();
         btnTrappingRainWater = new Button();
         buttonMaxSubArray = new Button();
-        btnMinimumRotatedSortedArray = new Button();
-        textBox4 = new TextBox();
-        textBox6 = new TextBox();
-        textBox7 = new TextBox();
+        buttonFizzBuzz = new Button();
+        textBoxFizzBuzz = new TextBox();
         groupBox1.SuspendLayout();
         tabControl1.SuspendLayout();
         tabPage1.SuspendLayout();
@@ -443,6 +445,8 @@ partial class Form1
         // 
         // tabPage2
         // 
+        tabPage2.Controls.Add(textBoxFizzBuzz);
+        tabPage2.Controls.Add(buttonFizzBuzz);
         tabPage2.Controls.Add(buttonBoyerMooring);
         tabPage2.Controls.Add(btnFirstDuplicate);
         tabPage2.Controls.Add(btnRemoveDuplicatesInPlace);
@@ -1309,6 +1313,16 @@ partial class Form1
         tabPage6.Text = "Arrays";
         tabPage6.UseVisualStyleBackColor = true;
         // 
+        // btnMinimumRotatedSortedArray
+        // 
+        btnMinimumRotatedSortedArray.Location = new Point(22, 229);
+        btnMinimumRotatedSortedArray.Name = "btnMinimumRotatedSortedArray";
+        btnMinimumRotatedSortedArray.Size = new Size(132, 82);
+        btnMinimumRotatedSortedArray.TabIndex = 6;
+        btnMinimumRotatedSortedArray.Text = "Minimum in Rotated Sorted Array";
+        btnMinimumRotatedSortedArray.UseVisualStyleBackColor = true;
+        btnMinimumRotatedSortedArray.Click += btnMinimumRotatedSortedArray_Click;
+        // 
         // btnContainerWithMostWater
         // 
         btnContainerWithMostWater.Location = new Point(22, 172);
@@ -1319,6 +1333,14 @@ partial class Form1
         btnContainerWithMostWater.UseVisualStyleBackColor = true;
         btnContainerWithMostWater.Click += btnContainerWithMostWater_Click;
         // 
+        // textBox7
+        // 
+        textBox7.Location = new Point(160, 288);
+        textBox7.Name = "textBox7";
+        textBox7.Size = new Size(178, 23);
+        textBox7.TabIndex = 4;
+        textBox7.Text = "11,13,15,17";
+        // 
         // textBox5
         // 
         textBox5.Location = new Point(160, 172);
@@ -1326,6 +1348,22 @@ partial class Form1
         textBox5.Size = new Size(178, 23);
         textBox5.TabIndex = 4;
         textBox5.Text = "1,8,6,2,5,4,8,3,7";
+        // 
+        // textBox6
+        // 
+        textBox6.Location = new Point(160, 230);
+        textBox6.Name = "textBox6";
+        textBox6.Size = new Size(178, 23);
+        textBox6.TabIndex = 4;
+        textBox6.Text = "3,4,5,1,2";
+        // 
+        // textBox4
+        // 
+        textBox4.Location = new Point(160, 259);
+        textBox4.Name = "textBox4";
+        textBox4.Size = new Size(178, 23);
+        textBox4.TabIndex = 4;
+        textBox4.Text = "4,5,6,7,0,1,2";
         // 
         // textBox2
         // 
@@ -1363,39 +1401,23 @@ partial class Form1
         buttonMaxSubArray.UseVisualStyleBackColor = true;
         buttonMaxSubArray.Click += buttonMaxSubArray_Click;
         // 
-        // btnMinimumRotatedSortedArray
+        // buttonFizzBuzz
         // 
-        btnMinimumRotatedSortedArray.Location = new Point(22, 229);
-        btnMinimumRotatedSortedArray.Name = "btnMinimumRotatedSortedArray";
-        btnMinimumRotatedSortedArray.Size = new Size(132, 82);
-        btnMinimumRotatedSortedArray.TabIndex = 6;
-        btnMinimumRotatedSortedArray.Text = "Minimum in Rotated Sorted Array";
-        btnMinimumRotatedSortedArray.UseVisualStyleBackColor = true;
-        btnMinimumRotatedSortedArray.Click += btnMinimumRotatedSortedArray_Click;
+        buttonFizzBuzz.Location = new Point(20, 115);
+        buttonFizzBuzz.Name = "buttonFizzBuzz";
+        buttonFizzBuzz.Size = new Size(100, 23);
+        buttonFizzBuzz.TabIndex = 5;
+        buttonFizzBuzz.Text = "Fizz Buzz";
+        buttonFizzBuzz.UseVisualStyleBackColor = true;
+        buttonFizzBuzz.Click += buttonFizzBuzz_Click;
         // 
-        // textBox4
+        // textBoxFizzBuzz
         // 
-        textBox4.Location = new Point(160, 259);
-        textBox4.Name = "textBox4";
-        textBox4.Size = new Size(178, 23);
-        textBox4.TabIndex = 4;
-        textBox4.Text = "4,5,6,7,0,1,2";
-        // 
-        // textBox6
-        // 
-        textBox6.Location = new Point(160, 230);
-        textBox6.Name = "textBox6";
-        textBox6.Size = new Size(178, 23);
-        textBox6.TabIndex = 4;
-        textBox6.Text = "3,4,5,1,2";
-        // 
-        // textBox7
-        // 
-        textBox7.Location = new Point(160, 288);
-        textBox7.Name = "textBox7";
-        textBox7.Size = new Size(178, 23);
-        textBox7.TabIndex = 4;
-        textBox7.Text = "11,13,15,17";
+        textBoxFizzBuzz.Location = new Point(20, 90);
+        textBoxFizzBuzz.Name = "textBoxFizzBuzz";
+        textBoxFizzBuzz.PlaceholderText = "Fiz Buzz Number";
+        textBoxFizzBuzz.Size = new Size(100, 23);
+        textBoxFizzBuzz.TabIndex = 6;
         // 
         // Form1
         // 
@@ -1416,6 +1438,7 @@ partial class Form1
         groupBox2.ResumeLayout(false);
         groupBox2.PerformLayout();
         tabPage2.ResumeLayout(false);
+        tabPage2.PerformLayout();
         Tree.ResumeLayout(false);
         groupBox13.ResumeLayout(false);
         groupBox12.ResumeLayout(false);
@@ -1573,4 +1596,6 @@ partial class Form1
     private TextBox textBox7;
     private TextBox textBox6;
     private TextBox textBox4;
+    private TextBox textBoxFizzBuzz;
+    private Button buttonFizzBuzz;
 }

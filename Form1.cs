@@ -1881,13 +1881,35 @@ public partial class Form1 : Form
         try
         {
             GeneralService.ClearTexttBox(textBoxResultado);
-            
+
 
             int[] array = GeneralService.GetArrayFromTextBox(textBoxInput);
 
             int result = FindMinimumRotatedSortedArrayService.FindMinimumInRotatedSortedArray(array);
 
             textBoxResultado.Text += $"array {GeneralService.PrintListData(array)} --> Minimum Value {result} {Environment.NewLine}";
+        }
+        catch (Exception ex)
+        {
+            GeneralService.ReportarExcecao(textBoxResultado, ex.Message);
+        }
+    }
+
+    private void buttonFizzBuzz_Click(object sender, EventArgs e)
+    {
+        
+
+        try
+        {
+            GeneralService.ClearTexttBox(textBoxResultado);
+            
+            GeneralService.ClearTexttBox(textBoxMAtrixToRotate);
+
+            int number = GeneralService.GetNumberFromTextBox(textBoxFizzBuzz);
+
+            string fizzBuzz = InPlaceService.FizzBuzz(number);
+
+            textBoxResultado.Text += $" {fizzBuzz}";
         }
         catch (Exception ex)
         {
